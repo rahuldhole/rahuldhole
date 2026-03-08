@@ -6,8 +6,15 @@ export default defineNuxtConfig({
     '@nuxt/ui',
     '@nuxt/content',
     '@vueuse/nuxt',
-    'nuxt-og-image'
+    'nuxt-og-image',
+    '@nuxtjs/sitemap',
+    '@nuxtjs/robots'
   ],
+
+  site: {
+    url: 'https://rahuldhole.com',
+    name: 'Rahul Dhole'
+  },
 
   devtools: {
     enabled: true

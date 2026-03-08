@@ -60,6 +60,18 @@
             to: 'https://quizya.pages.dev/',
             target: '_blank'
           }]
+        }, {
+          label: 'Legal',
+          children: [{
+            label: 'Privacy Policy',
+            to: '/privacy'
+          }, {
+            label: 'Terms of Service',
+            to: '/terms'
+          }, {
+            label: 'Contact',
+            to: '/contact'
+          }]
         }]" />
       </UContainer>
     </template>
