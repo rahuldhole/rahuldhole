@@ -82,7 +82,8 @@ export const collections = {
         })
       ),
       date: z.date(),
-      badge: z.object({ label: z.string().nonempty() })
+      badge: z.object({ label: z.string().nonempty() }),
+      pinned: z.boolean().optional()
     })
   }),
 

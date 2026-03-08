@@ -2,9 +2,13 @@
 title: "Docker Devtools Stage | Powerlevel, OhMyZSH, tmux, fuzzy finder, autocomplete etc"
 description: "Docker Devtools Stage | Powerlevel, OhMyZSH, tmux, fuzzy finder, autocomplete etc - Dive into the details of docker devtools stage | powerlevel, ohmyzsh, tmux, fuzzy finder, autocomplete etc with this quick guide."
 image: { src: "https://placehold.co/800x400/0f172a/3b82f6?text=Docker+Devtools+Stage+|+Powerlevel,+OhMyZSH,+tmux,+fuzzy+finder,+autocomplete+etc" }
-authors: [{'name': 'Rahul Dhole', 'to': '/', 'avatar': {'src': '/profile.jpeg'}}]
+authors:
+  - name: "Rahul Dhole"
+    to: "/"
+    avatar: { src: "/profile.jpeg" }
 date: 2024-04-25
 badge: { label: "DX" }
+pinned: true
 ---
 
 ## Introduction
