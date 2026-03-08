@@ -1,4 +1,11 @@
-# Proxmox DNS Management
+---
+title: "Proxmox DNS Management"
+description: "Proxmox DNS Management - Dive into the details of proxmox dns management with this quick guide."
+image: { src: "https://placehold.co/800x400/0f172a/3b82f6?text=Proxmox+DNS+Management" }
+authors: [{'name': 'Rahul Dhole', 'to': '/', 'avatar': {'src': '/profile.jpeg'}}]
+date: 2024-04-25
+badge: { label: "Proxmox" }
+---
 
 Sometimes you can `dig` but can't `ping` it, flush the cache, and the check gateway. 
 
@@ -31,4 +38,3 @@ And then keep LXC DNS empty as the above host DNS will be applied automatically,
   2. In urgency If you can't change the order then just turn the last network in LXC off->on.
 
 - Proxmox's DNS resets after every reboot so does the LXC's. This is not bad it is expected behavior, don't need to force fixed DNS rather update every time we reboot or set the routing table in LXCs.
- 

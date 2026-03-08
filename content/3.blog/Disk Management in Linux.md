@@ -1,5 +1,11 @@
-# Disk Management in Linux
-
+---
+title: "Disk Management in Linux"
+description: "Disk Management in Linux - Dive into the details of disk management in linux with this quick guide."
+image: { src: "https://placehold.co/800x400/0f172a/3b82f6?text=Disk+Management+in+Linux" }
+authors: [{'name': 'Rahul Dhole', 'to': '/', 'avatar': {'src': '/profile.jpeg'}}]
+date: 2024-04-25
+badge: { label: "Linux" }
+---
 
 `lsusb` check attached USBs
 `lsblk` check attached storage blocks

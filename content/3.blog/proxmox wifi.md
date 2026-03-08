@@ -1,4 +1,11 @@
-# Proxmox WiFi Connection Story
+---
+title: "Proxmox WiFi Connection Story"
+description: "Proxmox WiFi Connection Story - Dive into the details of proxmox wifi connection story with this quick guide."
+image: { src: "https://placehold.co/800x400/0f172a/3b82f6?text=Proxmox+WiFi+Connection+Story" }
+authors: [{'name': 'Rahul Dhole', 'to': '/', 'avatar': {'src': '/profile.jpeg'}}]
+date: 2024-04-23
+badge: { label: "Proxmox" }
+---
 
 I bought usb wifi adapter Realtek Semiconductor Corp. USB3.0 802.11ac 1200M Adapter, to connect with my Dell PowerEdge R630
 But I didn't know how to connect it to Proxmox.

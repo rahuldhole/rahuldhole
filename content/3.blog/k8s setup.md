@@ -1,4 +1,11 @@
-# Kubernetes Cluster Setup Guide
+---
+title: "Kubernetes Cluster Setup Guide"
+description: "Kubernetes Cluster Setup Guide - Dive into the details of kubernetes cluster setup guide with this quick guide."
+image: { src: "https://placehold.co/800x400/0f172a/3b82f6?text=Kubernetes+Cluster+Setup+Guide" }
+authors: [{'name': 'Rahul Dhole', 'to': '/', 'avatar': {'src': '/profile.jpeg'}}]
+date: 2024-04-22
+badge: { label: "DevOps" }
+---
 
 ## Common Installation on both worker and control plane nodes
 

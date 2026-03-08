@@ -1,4 +1,11 @@
-# pfSense Quickstart
+---
+title: "pfSense Quickstart"
+description: "pfSense Quickstart - Dive into the details of pfsense quickstart with this quick guide."
+image: { src: "https://placehold.co/800x400/0f172a/3b82f6?text=pfSense+Quickstart" }
+authors: [{'name': 'Rahul Dhole', 'to': '/', 'avatar': {'src': '/profile.jpeg'}}]
+date: 2024-04-25
+badge: { label: "Networking" }
+---
 
 #### Prerequisite:
 1. Create vmbrX/VLAN/etc virtual bridge in Proxmox > Network

@@ -1,4 +1,11 @@
-# How to Increase Free Tier Memory on AWS EC2
+---
+title: "How to Increase Free Tier Memory on AWS EC2"
+description: "How to Increase Free Tier Memory on AWS EC2 - Dive into the details of how to increase free tier memory on aws ec2 with this quick guide."
+image: { src: "https://placehold.co/800x400/0f172a/3b82f6?text=How+to+Increase+Free+Tier+Memory+on+AWS+EC2" }
+authors: [{'name': 'Rahul Dhole', 'to': '/', 'avatar': {'src': '/profile.jpeg'}}]
+date: 2024-04-25
+badge: { label: "Cloud" }
+---
 
 AWS offers a free tier for EC2 instances that gives you 750 hours of computing time per month, typically with **t2.micro** or **t3.micro** instances. These instances come with 1 GiB of RAM, which can feel limited when running multiple services or applications. Fortunately, you can maximize memory usage through **swap space**, which utilizes disk space (such as SSD storage) as virtual memory.
 

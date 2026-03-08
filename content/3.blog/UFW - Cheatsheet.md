@@ -1,4 +1,11 @@
-# UFW - Cheatsheet
+---
+title: "UFW - Cheatsheet"
+description: "UFW - Cheatsheet - Dive into the details of ufw - cheatsheet with this quick guide."
+image: { src: "https://placehold.co/800x400/0f172a/3b82f6?text=UFW+-+Cheatsheet" }
+authors: [{'name': 'Rahul Dhole', 'to': '/', 'avatar': {'src': '/profile.jpeg'}}]
+date: 2024-04-25
+badge: { label: "Security" }
+---
 
 ## Most common commands
 `sudo ufw enable`

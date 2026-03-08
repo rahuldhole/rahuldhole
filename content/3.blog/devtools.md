@@ -1,4 +1,12 @@
-# Docker Devtools Stage | Powerlevel, OhMyZSH, tmux, fuzzy finder, autocomplete etc
+---
+title: "Docker Devtools Stage | Powerlevel, OhMyZSH, tmux, fuzzy finder, autocomplete etc"
+description: "Docker Devtools Stage | Powerlevel, OhMyZSH, tmux, fuzzy finder, autocomplete etc - Dive into the details of docker devtools stage | powerlevel, ohmyzsh, tmux, fuzzy finder, autocomplete etc with this quick guide."
+image: { src: "https://placehold.co/800x400/0f172a/3b82f6?text=Docker+Devtools+Stage+|+Powerlevel,+OhMyZSH,+tmux,+fuzzy+finder,+autocomplete+etc" }
+authors: [{'name': 'Rahul Dhole', 'to': '/', 'avatar': {'src': '/profile.jpeg'}}]
+date: 2024-04-25
+badge: { label: "DX" }
+---
+
 ## Introduction
 
 Developers rely on a plethora of tools and configurations to streamline their workflow, but setting up these essentials consistently across different Docker images can be a daunting task. From fuzzy finders to terminal themes, ensuring a seamless and productive environment often involves repetitive manual configurations. In this post, we'll explore a solution that revolutionizes this process and have your favorite developer setup always ready merge in with any docker container.
