@@ -15,8 +15,12 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
-  routeRules: {
-    '/docs': { redirect: '/docs/getting-started', prerender: false }
+  app: {
+    head: {
+      script: [
+        { src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-placeholder', async: true, crossorigin: 'anonymous' }
+      ]
+    }
   },
 
   compatibilityDate: '2024-07-11',

@@ -2,28 +2,31 @@
 const route = useRoute()
 
 const items = computed(() => [{
-  label: 'Docs',
-  to: '/docs',
-  active: route.path.startsWith('/docs')
+  label: 'Home',
+  icon: 'i-lucide-home',
+  to: '/'
 }, {
-  label: 'Pricing',
-  to: '/pricing'
+  label: 'Projects',
+  icon: 'i-lucide-folder',
+  to: '/projects'
 }, {
   label: 'Blog',
+  icon: 'i-lucide-pencil',
   to: '/blog'
 }, {
-  label: 'Changelog',
-  to: '/changelog'
+  label: 'About',
+  icon: 'i-lucide-user',
+  to: '/about'
 }])
 </script>
 
 <template>
   <UHeader>
     <template #left>
-      <NuxtLink to="/">
-        <AppLogo class="w-auto h-6 shrink-0" />
+      <NuxtLink to="/" class="flex items-center gap-2">
+        <img src="/profile.jpeg" class="w-8 h-8 rounded-full object-cover" alt="Rahul Dhole">
+        <span class="font-semibold text-sm hidden sm:inline">Rahul Dhole</span>
       </NuxtLink>
-      <TemplateMenu />
     </template>
 
     <UNavigationMenu
@@ -49,14 +52,6 @@ const items = computed(() => [{
         to="/login"
         class="hidden lg:inline-flex"
       />
-
-      <UButton
-        label="Sign up"
-        color="neutral"
-        trailing-icon="i-lucide-arrow-right"
-        class="hidden lg:inline-flex"
-        to="/signup"
-      />
     </template>
 
     <template #body>
@@ -75,12 +70,6 @@ const items = computed(() => [{
         to="/login"
         block
         class="mb-3"
-      />
-      <UButton
-        label="Sign up"
-        color="neutral"
-        to="/signup"
-        block
       />
     </template>
   </UHeader>

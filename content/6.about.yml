@@ -1,0 +1,27 @@
+title: About Me
+description: Full-Stack Engineer based in Paris, France — passionate about developer experience, scalable architecture, and building tools that make a difference.
+content: |
+  Hi, I'm **Rahul Dhole**, a Full-Stack Engineer based in Paris, France. With an M.Sc. in Computer Science from Paul Sabatier University, I've spent years building full-stack web applications and developer tools that prioritize clean architecture, developer experience, and scalability.
+
+  My journey started in India as a PHP developer and has since taken me through telecom security engineering, healthcare tech, and open-source tooling. I thrive at the intersection of backend reliability and frontend polish.
+
+  ### My Engineering Philosophy
+
+  I believe in **API-first, modular design** and **ownership-driven engineering**. I focus on improving developer experience (DX), building reliable systems at scale, and delivering end-to-end with Agile discipline.
+
+  My toolkit centers around **Ruby on Rails**, **Vue.js / Nuxt**, **TypeScript**, and **PostgreSQL**, backed by DevOps practices with Docker, Kubernetes, and cloud infrastructure (AWS, GCP).
+
+  ### What Drives Me
+
+  The thrill of turning complex requirements into elegant, maintainable solutions. Whether it's automating SDK generation to cut sync time by 80%, designing self-hosted infrastructure to slash cloud costs by 90%, or building cross-platform apps from a single monorepo — I love tackling challenges that have real impact.
+
+  ### Beyond Code
+
+  When I'm not engineering, you'll find me exploring Paris, contributing to open-source projects, or experimenting with new tools and frameworks. I also enjoy sharing knowledge through blog posts on [Dev.to](https://dev.to/rahuldhole).
+
+  Feel free to check out my [projects](/projects), read my [blog](/blog), or [get in touch](mailto:iamrahuldhole@gmail.com)!
+images:
+  - src: https://placehold.co/600x400/1e293b/white?text=Life
+    alt: life
+  - src: https://placehold.co/600x400/1e293b/white?text=Coding+Setup
+    alt: My coding setup

@@ -1,0 +1,6 @@
+title: HTTP File Server
+description: Cross-platform app built with Tauri and VueJS. A Rust utility to host files locally and share them instantly over IP.
+image: https://placehold.co/800x400/0f172a/06b6d4?text=HTTP+File+Server
+url: "https://github.com/rahuldhole/hfs"
+tags: ["Tauri", "Rust", "VueJS"]
+date: "2022"

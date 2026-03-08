@@ -18,35 +18,31 @@ useHead({
 })
 
 useSeoMeta({
-  titleTemplate: '%s - Nuxt SaaS template',
-  ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/saas-light.png',
-  twitterImage: 'https://ui.nuxt.com/assets/templates/nuxt/saas-light.png',
+  titleTemplate: '%s - Rahul Dhole',
+  ogImage: '/profile.jpeg',
+  twitterImage: '/profile.jpeg',
   twitterCard: 'summary_large_image'
 })
 
-const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs'), {
-  transform: data => data.find(item => item.path === '/docs')?.children || []
+const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('blog'), {
+  transform: data => data.find(item => item.path === '/blog')?.children || []
 })
-const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections('docs'), {
+const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections('blog'), {
   server: false
 })
 
 const links = [{
-  label: 'Docs',
-  icon: 'i-lucide-book',
-  to: '/docs/getting-started'
-}, {
-  label: 'Pricing',
-  icon: 'i-lucide-credit-card',
-  to: '/pricing'
+  label: 'Projects',
+  icon: 'i-lucide-folder',
+  to: '/projects'
 }, {
   label: 'Blog',
   icon: 'i-lucide-pencil',
   to: '/blog'
 }, {
-  label: 'Changelog',
-  icon: 'i-lucide-history',
-  to: '/changelog'
+  label: 'About',
+  icon: 'i-lucide-user',
+  to: '/about'
 }]
 
 provide('navigation', navigation)

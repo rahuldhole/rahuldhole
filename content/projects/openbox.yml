@@ -1,0 +1,6 @@
+title: openbox/xrdp
+description: Built an RDP plugin enabling secure remote desktop access for cloud-based dev environments. Improved remote developer onboarding and workflow stability.
+image: https://placehold.co/800x400/0f172a/3b82f6?text=OpenBox+RDP
+url: "https://github.com/rahuldhole/openbox"
+tags: ["DevOps", "RDP", "Cloud"]
+date: "2024"

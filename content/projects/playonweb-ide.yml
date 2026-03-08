@@ -1,0 +1,6 @@
+title: PlayOnWeb IDE
+description: Developed a browser-based HTML IDE enabling instant code execution without local setup. Implemented live preview and fast in-browser rendering for improved learning experience.
+image: https://placehold.co/800x400/0f172a/22c55e?text=PlayOnWeb+IDE
+url: "https://ide.playonweb.org/editor/"
+tags: ["IDE", "Web", "Education"]
+date: "2023"

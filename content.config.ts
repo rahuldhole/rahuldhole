@@ -37,77 +37,34 @@ export const collections = {
     source: '0.index.yml',
     type: 'page',
     schema: z.object({
-      hero: z.object(({
-        links: z.array(createLinkSchema())
-      })),
-      sections: z.array(
-        createBaseSchema().extend({
-          id: z.string().nonempty(),
-          orientation: orientationEnum.optional(),
-          reverse: z.boolean().optional(),
-          features: z.array(createFeatureItemSchema())
-        })
-      ),
-      features: createBaseSchema().extend({
-        items: z.array(createFeatureItemSchema())
+      hero: z.object({
+        links: z.array(createLinkSchema()),
+        images: z.array(createImageSchema()).optional()
       }),
-      testimonials: createBaseSchema().extend({
-        headline: z.string().optional(),
-        items: z.array(
-          z.object({
-            quote: z.string().nonempty(),
-            user: z.object({
-              name: z.string().nonempty(),
-              description: z.string().nonempty(),
-              to: z.string().nonempty(),
-              target: z.string().nonempty(),
-              avatar: createImageSchema()
-            })
+      about: createBaseSchema().optional(),
+      experience: createBaseSchema().extend({
+        items: z.array(z.object({
+          date: z.string(),
+          position: z.string(),
+          company: z.object({
+            name: z.string(),
+            url: z.string(),
+            logo: z.string().editor({ input: 'icon' }),
+            color: z.string().optional()
           })
-        )
-      }),
-      cta: createBaseSchema().extend({
-        links: z.array(createLinkSchema())
-      })
+        }))
+      }).optional(),
+      projects: createBaseSchema().extend({
+        items: z.array(z.object({
+          title: z.string(),
+          description: z.string(),
+          url: z.string()
+        }))
+      }).optional(),
+      blog: createBaseSchema().optional()
     })
   }),
-  docs: defineCollection({
-    source: '1.docs/**/*',
-    type: 'page'
-  }),
-  pricing: defineCollection({
-    source: '2.pricing.yml',
-    type: 'page',
-    schema: z.object({
-      plans: z.array(
-        z.object({
-          title: z.string().nonempty(),
-          description: z.string().nonempty(),
-          price: z.object({
-            month: z.string().nonempty(),
-            year: z.string().nonempty()
-          }),
-          billing_period: z.string().nonempty(),
-          billing_cycle: z.string().nonempty(),
-          button: createLinkSchema(),
-          features: z.array(z.string().nonempty()),
-          highlight: z.boolean().optional()
-        })
-      ),
-      logos: z.object({
-        title: z.string().nonempty(),
-        icons: z.array(z.string())
-      }),
-      faq: createBaseSchema().extend({
-        items: z.array(
-          z.object({
-            label: z.string().nonempty(),
-            content: z.string().nonempty()
-          })
-        )
-      })
-    })
-  }),
+
   blog: defineCollection({
     source: '3.blog.yml',
     type: 'page'
@@ -128,18 +85,32 @@ export const collections = {
       badge: z.object({ label: z.string().nonempty() })
     })
   }),
-  changelog: defineCollection({
-    source: '4.changelog.yml',
-    type: 'page'
-  }),
-  versions: defineCollection({
-    source: '4.changelog/**/*',
-    type: 'page',
+
+  projects: defineCollection({
+    source: 'projects/*.yml',
+    type: 'data',
     schema: z.object({
       title: z.string().nonempty(),
-      description: z.string(),
-      date: z.date(),
-      image: z.string()
+      description: z.string().nonempty(),
+      image: z.string().nonempty().editor({ input: 'media' }),
+      url: z.string().nonempty(),
+      tags: z.array(z.string()),
+      date: z.string()
+    })
+  }),
+  projectsPage: defineCollection({
+    source: '5.projects.yml',
+    type: 'page',
+    schema: z.object({
+      links: z.array(createLinkSchema())
+    })
+  }),
+  about: defineCollection({
+    source: '6.about.yml',
+    type: 'page',
+    schema: z.object({
+      content: z.string(),
+      images: z.array(createImageSchema())
     })
   })
 }

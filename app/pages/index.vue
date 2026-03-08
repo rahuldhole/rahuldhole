@@ -18,80 +18,27 @@ useSeoMeta({
     <UPageHero
       :title="page.title"
       :description="page.description"
-      :links="page.hero.links"
+      :links="page.hero?.links"
     >
       <template #top>
         <HeroBackground />
       </template>
 
       <template #title>
-        <MDC
-          :value="page.title"
-          unwrap="p"
-        />
+        <span class="text-primary">{{ page.title.split(' - ')[0] }}</span><br>
+        <span class="text-3xl text-muted font-light">{{ page.title.split(' - ')[1] }}</span>
       </template>
 
-      <PromotionalVideo />
+      <img src="/profile.jpeg" class="w-48 h-48 rounded-full mx-auto my-8 object-cover shadow-2xl border-4 border-[var(--ui-border)] ring-4 ring-primary/20 transition-transform duration-500 hover:scale-105" alt="Rahul Dhole" />
     </UPageHero>
 
     <UPageSection
-      v-for="(section, index) in page.sections"
-      :key="index"
-      :title="section.title"
-      :description="section.description"
-      :orientation="section.orientation"
-      :reverse="section.reverse"
-      :features="section.features"
+      :ui="{ container: '!pt-0 lg:grid lg:grid-cols-2 lg:gap-8 max-w-[800px] mx-auto' }"
     >
-      <ImagePlaceholder />
+      <LandingAbout :page="page" />
+      <LandingWorkExperience :page="page" />
     </UPageSection>
 
-    <UPageSection
-      :title="page.features.title"
-      :description="page.features.description"
-    >
-      <UPageGrid>
-        <UPageCard
-          v-for="(item, index) in page.features.items"
-          :key="index"
-          v-bind="item"
-          spotlight
-        />
-      </UPageGrid>
-    </UPageSection>
-
-    <UPageSection
-      id="testimonials"
-      :headline="page.testimonials.headline"
-      :title="page.testimonials.title"
-      :description="page.testimonials.description"
-    >
-      <UPageColumns class="xl:columns-4">
-        <UPageCard
-          v-for="(testimonial, index) in page.testimonials.items"
-          :key="index"
-          variant="subtle"
-          :description="testimonial.quote"
-          :ui="{ description: 'before:content-[open-quote] after:content-[close-quote]' }"
-        >
-          <template #footer>
-            <UUser
-              v-bind="testimonial.user"
-              size="lg"
-            />
-          </template>
-        </UPageCard>
-      </UPageColumns>
-    </UPageSection>
-
-    <USeparator />
-
-    <UPageCTA
-      v-bind="page.cta"
-      variant="naked"
-      class="overflow-hidden"
-    >
-      <LazyStarsBg />
-    </UPageCTA>
+    <LandingProjects :page="page" class="max-w-[800px] mx-auto mb-24" />
   </div>
 </template>
