@@ -17,7 +17,7 @@ The goal for `rahuldhole.com` is to serve as the main portfolio and blog hub. Fu
 
 This Nuxt Content site operates using local markdown and YAML files.
 
-- **Blog Posts**: Place new blog posts in `content/3.blog`. Ensure they follow the Frontmatter schema defined in `content.config.ts`.
+- **Blog Posts**: Place new blog posts in `content/blog`. Ensure they follow the Frontmatter schema defined in `content.config.ts`.
 - **Landing Page Data**: Edit `content/0.index.yml` to change your "About", "Work Experience", and "Projects" sections without needing to write Vue code.
 
 ## Monetization (Google Adsense)

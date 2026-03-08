@@ -70,7 +70,7 @@ export const collections = {
     type: 'page'
   }),
   posts: defineCollection({
-    source: '3.blog/**/*',
+    source: 'blog/**/*',
     type: 'page',
     schema: z.object({
       image: z.object({ src: z.string().nonempty().editor({ input: 'media' }) }),
