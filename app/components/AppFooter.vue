@@ -45,11 +45,11 @@
           label: 'Projects',
           children: [{
             label: 'PrepaJS',
-            to: 'https://prepajs.pages.dev/',
+            to: 'https://prepajs.rahuldhole.com/',
             target: '_blank'
           }, {
             label: 'PlayOnWeb IDE',
-            to: 'https://ide.playonweb.org/editor/',
+            to: 'html-playground.rahuldhole.com',
             target: '_blank'
           }, {
             label: 'Untangled HTML',
@@ -57,7 +57,7 @@
             target: '_blank'
           }, {
             label: 'Quizya',
-            to: 'https://quizya.pages.dev/',
+            to: 'https://quizya.rahuldhole.com/',
             target: '_blank'
           }]
         }, {
@@ -83,30 +83,12 @@
     </template>
 
     <template #right>
-      <UButton
-        to="https://github.com/rahuldhole"
-        target="_blank"
-        icon="i-simple-icons-github"
-        aria-label="Rahul on GitHub"
-        color="neutral"
-        variant="ghost"
-      />
-      <UButton
-        to="https://linkedin.com/in/dholerahul"
-        target="_blank"
-        icon="i-simple-icons-linkedin"
-        aria-label="Rahul on LinkedIn"
-        color="neutral"
-        variant="ghost"
-      />
-      <UButton
-        to="https://dev.to/rahuldhole"
-        target="_blank"
-        icon="i-simple-icons-devdotto"
-        aria-label="Rahul on Dev.to"
-        color="neutral"
-        variant="ghost"
-      />
+      <UButton to="https://github.com/rahuldhole" target="_blank" icon="i-simple-icons-github"
+        aria-label="Rahul on GitHub" color="neutral" variant="ghost" />
+      <UButton to="https://linkedin.com/in/dholerahul" target="_blank" icon="i-simple-icons-linkedin"
+        aria-label="Rahul on LinkedIn" color="neutral" variant="ghost" />
+      <UButton to="https://dev.to/rahuldhole" target="_blank" icon="i-simple-icons-devdotto"
+        aria-label="Rahul on Dev.to" color="neutral" variant="ghost" />
     </template>
   </UFooter>
 </template>
