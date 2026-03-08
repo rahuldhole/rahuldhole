@@ -1,25 +1,37 @@
-# 💫 About Me:
-I am a Fullstack Engineer.
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=220&section=header&text=Rahul%20Dhole&fontSize=60&fontColor=FFFFFF&fontAlignY=35&desc=Full-Stack%20Engineer&descSize=18&descColor=8b949e&descAlignY=55&animation=fadeIn" />
 
+<p align="center">
+  <a href="https://rahuldhole.com"><img src="https://img.shields.io/badge/🌐_Portfolio-rahuldhole.com-58a6ff?style=for-the-badge&labelColor=0d1117" alt="Portfolio" /></a>
+  <a href="mailto:mail@rahuldhole.com"><img src="https://img.shields.io/badge/📧_Email-mail@rahuldhole.com-58a6ff?style=for-the-badge&labelColor=0d1117" alt="Email" /></a>
+  <a href="https://linkedin.com/in/dholerahul"><img src="https://img.shields.io/badge/LinkedIn-dholerahul-0A66C2?style=for-the-badge&logo=linkedin&labelColor=0d1117" alt="LinkedIn" /></a>
+  <a href="https://dev.to/rahuldhole"><img src="https://img.shields.io/badge/Blog-dev.to-0A0A0A?style=for-the-badge&logo=devdotto&labelColor=0d1117&logoColor=white" alt="Blog" /></a>
+</p>
 
-## 🌐 Socials:
-[![LinkedIn Badge](https://img.shields.io/badge/LinkedIn-0A66C2?logo=linkedin&logoColor=fff&style=for-the-badge)](https://linkedin.com/in/dholerahul) 
-[![dev.to Badge](https://img.shields.io/badge/dev.to-0A0A0A?logo=devdotto&logoColor=fff&style=for-the-badge)](https://dev.to/rahuldhole)
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=58A6FF&center=true&vCenter=true&multiline=true&repeat=false&width=600&height=100&lines=Building+scalable+systems+that+matter.;API-first+%E2%80%A2+Cloud-native+%E2%80%A2+DX+obsessed." alt="Typing SVG" />
+</p>
 
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=ruby,rails,vue,nuxt,ts,js,tailwind,html,css&theme=dark" alt="Languages & Frameworks" />
+</p>
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=postgres,redis,docker,kubernetes,aws,gcp,nginx,git,github,linux&theme=dark" alt="Tools & Infrastructure" />
+</p>
 
-# 💻 Tech Stack:
-https://raw.githack.com/rahuldhole/rahuldhole/refs/heads/main/skills.html
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=rahuldhole&theme=dark" alt="Streak" />
+</p>
 
-![Rails](https://img.shields.io/badge/rails-%23CC0000.svg?style=for-the-badge&logo=ruby-on-rails&logoColor=white) ![Ruby](https://img.shields.io/badge/ruby-%23CC342D.svg?style=for-the-badge&logo=ruby&logoColor=white) ![Vue.js](https://img.shields.io/badge/vue.js-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![Redis](https://img.shields.io/badge/redis-%23DD0031.svg?style=for-the-badge&logo=redis&logoColor=white) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![GitLab CI](https://img.shields.io/badge/gitlab%20CI-%23181717.svg?style=for-the-badge&logo=gitlab&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) ![MariaDB](https://img.shields.io/badge/MariaDB-003545?style=for-the-badge&logo=mariadb&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
-# 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=rahuldhole&theme=vue&hide_border=false&include_all_commits=false&count_private=false)<br/>
-![](https://github-readme-streak-stats.herokuapp.com/?user=rahuldhole&theme=vue&hide_border=false)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=rahuldhole&theme=vue&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=rahuldhole&theme=github-compact&hide_border=true&area=true" alt="Activity Graph" />
+</p>
 
-### ✍️ Random Dev Quote
-![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical)
+<p align="center">
+  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight" alt="Quote" />
+</p>
 
----
-[![](https://visitcount.itsvg.in/api?id=rahuldhole&icon=5&color=8)](https://visitcount.itsvg.in)
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=rahuldhole&color=58a6ff&style=flat-square&label=PROFILE+VIEWS" alt="Profile Views" />
+</p>
 
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+<img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=120&section=footer" />
