@@ -2,8 +2,9 @@ backend:
   name: github
   repo: rahuldhole/rahuldhole
   branch: main
+  site_domain: https://rahuldhole.com
+  base_url: https://rahuldhole.com
   auth_endpoint: /api/auth
-
 media_folder: public/img
 public_folder: /img
 
