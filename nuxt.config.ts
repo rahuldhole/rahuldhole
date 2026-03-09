@@ -48,6 +48,7 @@ export default defineNuxtConfig({
       routes: [
         '/'
       ],
+      autoSubfolderIndex: false,
       ignore: ['/api/**'],
       crawlLinks: true
     }
