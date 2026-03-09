@@ -11,6 +11,12 @@ export default defineNuxtConfig({
     '@nuxtjs/robots'
   ],
 
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => tag === 'giscus-widget'
+    }
+  },
+
   site: {
     url: 'https://rahuldhole.com',
     name: 'Rahul Dhole'
