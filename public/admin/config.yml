@@ -1,0 +1,84 @@
+backend:
+  name: github
+  repo: rahuldhole/rahuldhole
+  branch: main
+  auth_endpoint: /api/auth
+
+media_folder: public/img
+public_folder: /img
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "index"
+        label: "Home Page"
+        file: "content/0.index.yml"
+        fields:
+          - { label: "Hero Title", name: "hero", widget: "object", fields: [
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Description", name: "description", widget: "text" }
+            ] }
+          - { label: "About", name: "about", widget: "object", fields: [
+              { label: "Title", name: "title", widget: "string" },
+              { label: "Description", name: "description", widget: "text" }
+            ] }
+      - name: "blog_page"
+        label: "Blog Page"
+        file: "content/3.blog.yml"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+      - name: "projects_page"
+        label: "Projects Page"
+        file: "content/5.projects.yml"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+      - name: "about_page"
+        label: "About Page"
+        file: "content/6.about.yml"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Content", name: "content", widget: "markdown" }
+
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Pinned", name: "pinned", widget: "boolean", required: false }
+      - { label: "Image", name: "image", widget: "object", fields: [
+          { label: "Source", name: "src", widget: "image" }
+        ] }
+      - { label: "Authors", name: "authors", widget: "list", fields: [
+          { label: "Name", name: "name", widget: "string" },
+          { label: "Profile Link", name: "to", widget: "string" },
+          { label: "Avatar", name: "avatar", widget: "object", fields: [
+            { label: "Source", name: "src", widget: "image" }
+          ] }
+        ] }
+      - { label: "Badge", name: "badge", widget: "object", fields: [
+          { label: "Label", name: "label", widget: "string" }
+        ] }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    extension: "yml"
+    format: "yaml"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description", name: "description", widget: "string" }
+      - { label: "URL", name: "url", widget: "string" }
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Date", name: "date", widget: "string" }
+      - { label: "Tags", name: "tags", widget: "list" }
