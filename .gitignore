@@ -5,6 +5,7 @@
 .nitro
 .cache
 dist
+.wrangler
 
 # Node dependencies
 node_modules
@@ -25,6 +26,3 @@ logs
 
 # VSC
 .history
-
-cv2.yaml
-use-this-profile-image.jpeg
