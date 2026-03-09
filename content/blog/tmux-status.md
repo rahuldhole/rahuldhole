@@ -3,7 +3,7 @@ title: "tmux status bar toggle"
 description: "tmux status bar toggle - Dive into the details of tmux status bar toggle with this quick guide."
 image: { src: "https://placehold.co/800x400/0f172a/3b82f6?text=tmux+status+bar+toggle" }
 authors: [{'name': 'Rahul Dhole', 'to': '/', 'avatar': {'src': '/profile.jpeg'}}]
-date: 2024-04-25
+date: 2024-04-24
 badge: { label: "DX" }
 ---
 

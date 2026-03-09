@@ -3,7 +3,7 @@ title: "How to Increase Free Tier Memory on AWS EC2"
 description: "How to Increase Free Tier Memory on AWS EC2 - Dive into the details of how to increase free tier memory on aws ec2 with this quick guide."
 image: { src: "https://placehold.co/800x400/0f172a/3b82f6?text=How+to+Increase+Free+Tier+Memory+on+AWS+EC2" }
 authors: [{'name': 'Rahul Dhole', 'to': '/', 'avatar': {'src': '/profile.jpeg'}}]
-date: 2024-04-25
+date: 2024-09-11
 badge: { label: "Cloud" }
 ---
 

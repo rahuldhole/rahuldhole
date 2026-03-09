@@ -3,7 +3,7 @@ title: "Git commands | underrated"
 description: "Git commands | underrated - Dive into the details of git commands | underrated with this quick guide."
 image: { src: "https://placehold.co/800x400/0f172a/3b82f6?text=Git+commands+|+underrated" }
 authors: [{'name': 'Rahul Dhole', 'to': '/', 'avatar': {'src': '/profile.jpeg'}}]
-date: 2024-04-25
+date: 2024-04-24
 badge: { label: "Git" }
 ---
 

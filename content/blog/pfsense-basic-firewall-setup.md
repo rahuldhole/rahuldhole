@@ -3,7 +3,7 @@ title: "pfSense basic firewall setup"
 description: "pfSense basic firewall setup - Dive into the details of pfsense basic firewall setup with this quick guide."
 image: { src: "https://placehold.co/800x400/0f172a/3b82f6?text=pfSense+basic+firewall+setup" }
 authors: [{'name': 'Rahul Dhole', 'to': '/', 'avatar': {'src': '/profile.jpeg'}}]
-date: 2024-04-25
+date: 2024-04-24
 badge: { label: "Networking" }
 ---
 

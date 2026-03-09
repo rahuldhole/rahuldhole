@@ -3,7 +3,7 @@ title: "Docker container | Resolving Permission Denied Woes: A Decade-Long Strug
 description: "Docker container | Resolving Permission Denied Woes: A Decade-Long Struggle Unraveled - Dive into the details of docker container | resolving permission denied woes: a decade-long struggle unraveled with this quick guide."
 image: { src: "https://placehold.co/800x400/0f172a/3b82f6?text=Docker+container+|+Resolving+Permission+Denied+Woes:+A+Decade-Long+Struggle+Unraveled" }
 authors: [{'name': 'Rahul Dhole', 'to': '/', 'avatar': {'src': '/profile.jpeg'}}]
-date: 2024-04-26
+date: 2024-04-24
 badge: { label: "DevOps" }
 ---
 
