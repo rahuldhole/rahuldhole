@@ -42,5 +42,5 @@ Authentication will not work in local development because it requires a secure r
 ## Notes for Development
 
 *   The Decap CMS configuration is located in `public/admin/config.yml`.
-*   The OAuth flow is handled by Cloudflare Functions in `functions/api/auth.js` and `functions/api/callback.js`.
+*   The OAuth flow is handled by Nuxt server routes in `server/api/auth.js` and `server/api/callback.js`.
 *   Content collections are mirrored from `content.config.ts`. If you add new collections or fields to `content.config.ts`, you should also update `public/admin/config.yml`.
