@@ -1,15 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: [
-    '@nuxt/eslint',
-    '@nuxt/image',
-    '@nuxt/ui',
-    '@nuxt/content',
-    '@vueuse/nuxt',
-    'nuxt-og-image',
-    '@nuxtjs/sitemap',
-    '@nuxtjs/robots'
-  ],
+  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxt/ui', '@nuxt/content', '@vueuse/nuxt', 'nuxt-og-image', '@nuxtjs/sitemap', '@nuxtjs/robots', 'nuxt-studio'],
 
   vue: {
     compilerOptions: {
@@ -60,6 +51,21 @@ export default defineNuxtConfig({
         commaDangle: 'never',
         braceStyle: '1tbs'
       }
+    }
+  },
+
+  studio: {
+    // Studio admin login route
+    route: '/_studio', // default
+
+    // Git repository configuration
+    repository: {
+      provider: 'github', // 'github' or 'gitlab' (default: 'github')
+      owner: 'rahuldhole', // your GitHub/GitLab owner (required)
+      repo: 'rahuldhole', // your repository name (required)
+      branch: 'main', // branch to commit to (default: 'main')
+      rootDir: '', // subdirectory for monorepos (default: '')
+      // private: true, // request access to private repos (default: true)
     }
   }
 })

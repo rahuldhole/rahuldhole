@@ -1,6 +1,6 @@
 export default defineEventHandler(async (event) => {
     const config = useRuntimeConfig(event)
-    const client_id = config.githubClientId || process.env.GITHUB_CLIENT_ID
+    const client_id = config.githubClientId || process.env.STUDIO_GITHUB_CLIENT_ID
 
     try {
         const query = getQuery(event)
