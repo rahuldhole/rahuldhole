@@ -1,5 +1,7 @@
 # Decap CMS Setup Instructions
 
+Nuxt Studio does the job but it's a SaaS product and to maintain a strategic autonomy let's keep Decap CMS as a fallback. 
+
 These instructions will guide you through setting up Decap CMS for this repository, including the required GitHub OAuth Application and Cloudflare Pages environment variables.
 
 ## 1. Create a GitHub OAuth Application
@@ -21,8 +23,8 @@ You need to add the GitHub Client ID and Client Secret to your Cloudflare Pages 
 1.  Go to your Cloudflare dashboard and select your **Pages** project.
 2.  Go to **Settings > Environment variables**.
 3.  Add the following variables for **Production**:
-    *   `STUDIO_GITHUB_CLIENT_ID`: (Your GitHub Client ID)
-    *   `STUDIO_GITHUB_CLIENT_SECRET`: (Your GitHub Client Secret)
+    *   `DECAP_GITHUB_CLIENT_ID`: (Your GitHub Client ID)
+    *   `DECAP_GITHUB_CLIENT_SECRET`: (Your GitHub Client Secret)
 4.  Save the variables.
 5.  **Note**: These must be set for the "Production" environment. If you want to use them in "Preview" environments, ensure you use the correct callback URL in the GitHub OAuth App or create a separate OAuth app for previews.
 
