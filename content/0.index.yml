@@ -1,20 +1,8 @@
 title: Rahul Dhole - Full-Stack Engineer
-description: Portfolio of Rahul Dhole, showcasing modern web applications and tools.
-hero:
-  links:
-    - label: LinkedIn
-      to: https://linkedin.com/in/dholerahul
-      icon: i-simple-icons-linkedin
-      target: _blank
-    - label: GitHub
-      to: https://github.com/rahuldhole
-      icon: i-simple-icons-github
-      target: _blank
-      color: neutral
-      variant: outline
 about:
   title: Hi, I'm Rahul.
   description: I am a Full-Stack Engineer based in Paris, France. With an M.Sc in Computer Science from Paul Sabatier University, I specialize in Ruby on Rails, Vue JS, and Cloud DevOps. I focus on improving developer experience (DX), building API-first architectures, and delivering end-to-end highly scalable systems.
+description: Portfolio of Rahul Dhole, showcasing modern web applications and tools.
 experience:
   title: Work Experience
   items:
@@ -39,28 +27,44 @@ experience:
         url: "#"
         logo: i-lucide-code
         color: "#3b82f6"
+  description: ""
+hero:
+  links:
+    - label: LinkedIn
+      to: https://linkedin.com/in/dholerahul
+      icon: i-simple-icons-linkedin
+      target: _blank
+    - label: GitHub
+      to: https://github.com/rahuldhole
+      icon: i-simple-icons-github
+      target: _blank
+      color: neutral
+      variant: outline
+  images: []
 projects:
   title: Featured Projects
   description: A selection of tools and applications I've built to solve various problems.
   items:
-    - title: "openbox/xrdp"
-      description: "RDP Plugin for DEVaaS, improving remote developer onboarding and workflow stability."
-      url: "https://github.com/rahuldhole/openbox"
-    - title: "PrepaJS"
-      description: "Interactive platform for learning JavaScript fundamentals through hands-on exercises."
-      url: "https://prepajs.rahuldhole.com/"
-    - title: "PlayOnWeb IDE"
-      description: "Browser-based HTML IDE enabling instant code execution without local setup."
-      url: "https://html-playground.rahuldhole.com/"
-    - title: "Untangled HTML"
-      description: "VS Code extension to improve HTML readability by visually hiding angle brackets."
-      url: "https://marketplace.visualstudio.com/items?itemName=RahulDhole.untangled-html"
-    - title: "Quizya"
-      description: "Memory-Focused Learning PWA App optimized for fast usage and distraction-free learning."
-      url: "https://quizya.rahuldhole.com/"
-    - title: "Karya Sutra"
-      description: "Emotion-Based Productivity Manager prioritizing work based on emotional state and urgency."
-      url: "https://karyasutra.rahuldhole.com/"
-    - title: "Docker DevTools Stage"
-      description: "Docker-based tooling to automate local and staging environment workflows."
-      url: "/blog/docker-devtools"
+    - title: openbox/xrdp
+      description: RDP Plugin for DEVaaS, improving remote developer onboarding and workflow stability.
+      url: https://github.com/rahuldhole/openbox
+    - title: PrepaJS
+      description: Interactive platform for learning JavaScript fundamentals through hands-on exercises.
+      url: https://prepajs.rahuldhole.com/
+    - title: PlayOnWeb IDE
+      description: Browser-based HTML IDE enabling instant code execution without local setup.
+      url: https://html-playground.rahuldhole.com/
+    - title: Untangled HTML
+      description: VS Code extension to improve HTML readability by visually hiding angle brackets.
+      url: https://marketplace.visualstudio.com/items?itemName=RahulDhole.untangled-html
+    - title: Quizya
+      description: Memory-Focused Learning PWA App optimized for fast usage and distraction-free learning.
+      url: https://quizya.rahuldhole.com/
+    - title: Karya Sutra
+      description: Emotion-Based Productivity Manager prioritizing work based on emotional state and urgency.
+      url: https://karyasutra.rahuldhole.com/
+    - title: Docker DevTools Stage
+      description: Docker-based tooling to automate local and staging environment workflows.
+      url: /blog/docker-devtools
+navigation:
+  icon: ""

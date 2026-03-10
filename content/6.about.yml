@@ -1,5 +1,4 @@
 title: About Me
-description: Full-Stack Engineer based in Paris, France — passionate about developer experience, scalable architecture, and building tools that make a difference.
 content: |
   Hi, I'm **Rahul Dhole**, a Full-Stack Engineer based in Paris, France. With an M.Sc. in Computer Science from Paul Sabatier University, I've spent years building full-stack web applications and developer tools that prioritize clean architecture, developer experience, and scalability.
 
@@ -20,6 +19,7 @@ content: |
   When I'm not engineering, you'll find me exploring Paris, contributing to open-source projects, or experimenting with new tools and frameworks. I also enjoy sharing knowledge through blog posts on [Dev.to](https://dev.to/rahuldhole).
 
   Feel free to check out my [projects](/projects), read my [blog](/blog), or [get in touch](mailto:iamrahuldhole@gmail.com)!
+description: Full-Stack Engineer based in Paris, France — passionate about developer experience, scalable architecture, and building tools that make a difference.
 images:
   - src: https://placehold.co/600x400/1e293b/white?text=Life
     alt: life

@@ -1,10 +1,17 @@
 ---
-title: "tmux status bar toggle"
-description: "tmux status bar toggle - Dive into the details of tmux status bar toggle with this quick guide."
-image: { src: "https://placehold.co/800x400/0f172a/3b82f6?text=tmux+status+bar+toggle" }
-authors: [{'name': 'Rahul Dhole', 'to': '/', 'avatar': {'src': '/profile.jpeg'}}]
+title: tmux status bar toggle
+authors:
+  - name: Rahul Dhole
+    to: /
+    avatar:
+      src: /profile.jpeg
+badge:
+  label: DX
 date: 2024-04-24
-badge: { label: "DX" }
+description: tmux status bar toggle - Dive into the details of tmux status bar toggle with this quick guide.
+image:
+  src: https://placehold.co/800x400/0f172a/3b82f6?text=tmux+status+bar+toggle
+pinned: false
 ---
 
 ## Understanding tmux status bar toggle
@@ -20,13 +27,13 @@ When working with tmux status bar toggle, it is important to understand the unde
 To improve the focus of your nested `tmux` you may hide the status bar.
 
 Edit `~/.tmux.conf` and add the following code and restart the tmux
-```
+
+```text
 # Toggle status bar visibility
 bind b run-shell "tmux setw -g status \$(tmux show -g -w status | grep -q off && echo on || echo off)"
 ```
 
 Now you may use `Prefix+b` by default it should be `ctrl+bb` I did it `b` for bar, you may change it for your convenience.
-
 
 ### Best Practices and Troubleshooting Tips
 
@@ -34,7 +41,6 @@ While the configurations above cover the most common use cases, it is crucial to
 
 ## Conclusion
 
-Understanding the ins and outs of tmux status bar toggle is an ongoing process, but having a solid foundation makes a significant difference. By keeping these commands and configurations handy, you can reduce friction in your workflow and focus more on building and scaling your applications effectively. 
+Understanding the ins and outs of tmux status bar toggle is an ongoing process, but having a solid foundation makes a significant difference. By keeping these commands and configurations handy, you can reduce friction in your workflow and focus more on building and scaling your applications effectively.
 
 If you found this guide helpful or if you have any questions or additional tips regarding tmux status bar toggle, feel free to reach out to me via my [Contact Page](/contact) or connect with me on [LinkedIn](https://linkedin.com/in/dholerahul). I am always open to discussing tech, DevOps, and full-stack engineering strategies.
-

@@ -1,13 +1,16 @@
 ---
-title: "Docker Devtools Stage | Powerlevel, OhMyZSH, tmux, fuzzy finder, autocomplete etc"
-description: "Docker Devtools Stage | Powerlevel, OhMyZSH, tmux, fuzzy finder, autocomplete etc - Dive into the details of docker devtools stage | powerlevel, ohmyzsh, tmux, fuzzy finder, autocomplete etc with this quick guide."
-image: { src: "https://placehold.co/800x400/0f172a/3b82f6?text=Docker+Devtools+Stage+|+Powerlevel,+OhMyZSH,+tmux,+fuzzy+finder,+autocomplete+etc" }
+title: Docker Devtools Stage | Powerlevel, OhMyZSH, tmux, fuzzy finder, autocomplete etc
 authors:
-  - name: "Rahul Dhole"
-    to: "/"
-    avatar: { src: "/profile.jpeg" }
+  - name: Rahul Dhole
+    to: /
+    avatar:
+      src: /profile.jpeg
+badge:
+  label: DX
 date: 2024-04-26
-badge: { label: "DX" }
+description: Docker Devtools Stage | Powerlevel, OhMyZSH, tmux, fuzzy finder, autocomplete etc - Dive into the details of docker devtools stage | powerlevel, ohmyzsh, tmux, fuzzy finder, autocomplete etc with this quick guide.
+image:
+  src: https://placehold.co/800x400/0f172a/3b82f6?text=Docker+Devtools+Stage+|+Powerlevel,+OhMyZSH,+tmux,+fuzzy+finder,+autocomplete+etc
 pinned: true
 ---
 
@@ -22,19 +25,22 @@ Developers rely on a plethora of tools and configurations to streamline their wo
 Picture this: you're diving into a new project, spinning up a Docker image, only to find yourself missing critical developer tools like tmux, htop, or even a personalized terminal theme. Not only does this hinder productivity, but it also detracts from the overall developer experience, leaving you feeling disconnected from your familiar setup.
 
 ## Introducing the Docker Devtools Volume
+
 My solution? Create a Docker devtools volume once and reuse the same configuration across any Docker image. By encapsulating essential developer tools, terminal configurations, and themes within a single volume, developers can instantly feel at home in any environment, allowing them to focus on what matters most: writing code.
 
 Following is a Dockerfile which has devtools stage which can be used in your workflow:
 [Download Dockerfile.devtools](https://gist.githubusercontent.com/rahuldhole/901850571fef2f9ba07e3501f9ede81e/raw/27bae795e7ae2e085e8d8c6112d95305ce9a7bd9/Dockerfile.devtools)
 
-{% embed https://gist.github.com/rahuldhole/901850571fef2f9ba07e3501f9ede81e %}
+{% embed <https://gist.github.com/rahuldhole/901850571fef2f9ba07e3501f9ede81e> %}
 
 ## Implementation Guide
+
 Let's dive into the implementation steps:
 
 1. Setup Prerequisites: Ensure you have the required nerd fonts installed and set as your terminal font.
 
-#### Following is script to install nerd fonts on debian based distro. 
+#### Following is script to install nerd fonts on debian based distro.
+
 ```sh
 sh -c '\
     wget -P ~/Downloads \
@@ -52,6 +58,7 @@ sh -c '\
 ```
 
 #### For windows
+
 You can simply download the font and double-click install. Go to settings and set it as the default terminal font.
 
 [Download MesloLGS NF Regular.ttf](https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Regular.ttf)
@@ -62,10 +69,10 @@ You can simply download the font and double-click install. Go to settings and se
 
 [Download MesloLGS NF Bold Italic.ttf](https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf)
 
-
 2. Create the Devtools Volume: At the time of running the container mount devtools user home directory as a docker volume to save the devtools config.
 
 Example:
+
 ```sh
 ## Build once
 docker build -f Dockerfile.devtools --target devtools -t debian:devtools .
@@ -77,13 +84,12 @@ docker run --rm -it -v debian-devtools:/home/<USERNAME> node:development
 docker run --rm -it -v debian-devtools:/home/<USERNAME> ubuntu:test
 ```
 
-
-
-You may customize your configuration, tailor your ~/.zshrc, ~/.tmux.conf, and ~/.p10k.conf files to suit your preferences. Don't forget to run p10k configure to fine-tune your Powerline UI.
+You may customize your configuration, tailor your \~/.zshrc, \~/.tmux.conf, and \~/.p10k.conf files to suit your preferences. Don't forget to run p10k configure to fine-tune your Powerline UI.
 
 Enjoy seamless development with your Docker devtools volume in place, every Docker image becomes an extension of your personalized development environment. Say goodbye to repetitive setups and hello to enhanced productivity!
 
 ## Conclusion
+
 In conclusion, the Docker Devtools Volume offers an amazing solution for developers seeking consistency and productivity in their Docker-based workflows. By centralizing essential tools and configurations, developers can focus on what they do best: building amazing software. Try out our solution today and experience the difference firsthand.
 
 Let me know in the comments below if you want the same for Alpine-based images.

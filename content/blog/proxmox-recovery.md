@@ -1,10 +1,17 @@
 ---
-title: "Proxmox Recovery"
-description: "Proxmox Recovery - Dive into the details of proxmox recovery with this quick guide."
-image: { src: "https://placehold.co/800x400/0f172a/3b82f6?text=Proxmox+Recovery" }
-authors: [{'name': 'Rahul Dhole', 'to': '/', 'avatar': {'src': '/profile.jpeg'}}]
+title: Proxmox Recovery
+authors:
+  - name: Rahul Dhole
+    to: /
+    avatar:
+      src: /profile.jpeg
+badge:
+  label: Proxmox
 date: 2024-04-24
-badge: { label: "Proxmox" }
+description: Proxmox Recovery - Dive into the details of proxmox recovery with this quick guide.
+image:
+  src: https://placehold.co/800x400/0f172a/3b82f6?text=Proxmox+Recovery
+pinned: false
 ---
 
 ## Understanding Proxmox Recovery
@@ -20,7 +27,7 @@ When working with Proxmox Recovery, it is important to understand the underlying
 After a reboot of the `pvedaemon` and `webgui` everything crashed and after starting `webui` somehow in the process, I deleted the `config.db` and .conf files were lost I don't know how.
 The best solution I found was to reset proxmox copy network config and VM dump files into the root (local), which I will discuss here.
 
-```
+```text
 root/var/lib/vz/dump/
 ```
 
@@ -31,7 +38,7 @@ If needed to recover data from root or old VM disks (which is a proxmox's logica
 1. Connect proxmox SSD to a Linux PC
 2. install lvm2 pkg
 
-```
+```text
 sudo apt-get install lvm2
 sudo pvscan
 sudo vgchange -ay
@@ -39,14 +46,12 @@ sudo lvdisplay
 sudo mount /dev/YourVolumeGroup/YourLogicalVolume /mnt/usb
 ```
 
-
 ### Best Practices and Troubleshooting Tips
 
 While the configurations above cover the most common use cases, it is crucial to always test your setups in a secure, non-production environment first. If you encounter issues, verify your logs and ensure that your network or system permissions are correctly aligned with the tool's requirements.
 
 ## Conclusion
 
-Understanding the ins and outs of Proxmox Recovery is an ongoing process, but having a solid foundation makes a significant difference. By keeping these commands and configurations handy, you can reduce friction in your workflow and focus more on building and scaling your applications effectively. 
+Understanding the ins and outs of Proxmox Recovery is an ongoing process, but having a solid foundation makes a significant difference. By keeping these commands and configurations handy, you can reduce friction in your workflow and focus more on building and scaling your applications effectively.
 
 If you found this guide helpful or if you have any questions or additional tips regarding Proxmox Recovery, feel free to reach out to me via my [Contact Page](/contact) or connect with me on [LinkedIn](https://linkedin.com/in/dholerahul). I am always open to discussing tech, DevOps, and full-stack engineering strategies.
-

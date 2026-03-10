@@ -1,13 +1,16 @@
 ---
-title: "Proxmox WiFi Connection Story"
-description: "Proxmox WiFi Connection Story - Dive into the details of proxmox wifi connection story with this quick guide."
-image: { src: "https://placehold.co/800x400/0f172a/3b82f6?text=Proxmox+WiFi+Connection+Story" }
+title: Proxmox WiFi Connection Story
 authors:
-  - name: "Rahul Dhole"
-    to: "/"
-    avatar: { src: "/profile.jpeg" }
+  - name: Rahul Dhole
+    to: /
+    avatar:
+      src: /profile.jpeg
+badge:
+  label: Proxmox
 date: 2024-04-24
-badge: { label: "Proxmox" }
+description: Proxmox WiFi Connection Story - Dive into the details of proxmox wifi connection story with this quick guide.
+image:
+  src: https://placehold.co/800x400/0f172a/3b82f6?text=Proxmox+WiFi+Connection+Story
 pinned: true
 ---
 
@@ -15,9 +18,10 @@ I bought usb wifi adapter Realtek Semiconductor Corp. USB3.0 802.11ac 1200M Adap
 But I didn't know how to connect it to Proxmox.
 
 ## Via bypass to VM
+
 ### Bypass USB
 
-```
+```text
 lsusb | grep Realtek
 # Bus 001 Device 003: ID 0bda:b812 Realtek Semiconductor Corp. RTL88x2bu [AC1200 Techkey]
 qm set [REPLACE_VMID] -usb0 host=[REPLACE_ID]
@@ -29,22 +33,22 @@ qm set 998 -usb0 host=0bda:b812
 
 Via official docs (Worked but not so well tried installing many drivers don't remember all) (Note: restart server multiple times don't worry)
 Articles:
-* https://pve.proxmox.com/wiki/WLAN
-* https://wiki.debian.org/WiFi/HowToUse
-* https://ubuntuforums.org/showthread.php?t=1238387
-* http://forums.debian.net/viewtopic.php?t=17199
-* https://wiki.archlinux.org/index.php/WPA_supplicant#Configuration
-* https://w1.fi/cgit/hostap/plain/wpa_supplicant/wpa_supplicant.conf
 
+- <https://pve.proxmox.com/wiki/WLAN>
+- <https://wiki.debian.org/WiFi/HowToUse>
+- <https://ubuntuforums.org/showthread.php?t=1238387>
+- <http://forums.debian.net/viewtopic.php?t=17199>
+- <https://wiki.archlinux.org/index.php/WPA_supplicant#Configuration>
+- <https://w1.fi/cgit/hostap/plain/wpa_supplicant/wpa_supplicant.conf>
 
-#### Add wpa_supplicant
+#### Add wpa\_supplicant
 
-```
+```text
 # Command to generate passphrase psk
 su -l -c "wpa_passphrase Livebox-6130_5GHz real_password > /etc/wpa_supplicant.conf"
 ```
 
-```
+```text
 # nano /etc/wpa_supplicant/wpa_supplicant-wlx90de806f0ac9.conf
 trl_interface=/run/wpa_supplicant
 
@@ -55,7 +59,7 @@ network={
 }
 ```
 
-```
+```text
 # ip link up
 sudo ip link set wlx90de806f0ac9 up
 ip link
@@ -68,7 +72,7 @@ dhclient wlx90de806f0ac9
 # or reload it by > dhclient wlx90de806f0ac9 -r
 ```
 
-```
+```text
 # wlx90de806f0ac9 is wifi adapter interface name `iwconfig`
 # nano /etc/network/interfaces
 auto wlx90de806f0ac9
@@ -83,10 +87,9 @@ sudo pkill -f "wpa_supplicant|dhclient|iwp|iwe|iwconfig|ifconfig|iwlist"
 sudo systemctl restart networking
 ```
 
-
 ##### Trying to create a bridge other ways (worked but still need somem tests)
 
-```
+```text
 # /etc/network/interfaces
 allow-hotplug wlx90de806f0ac9
 iface wlx90de806f0ac9 inet dhcp
@@ -108,13 +111,13 @@ iface vmbr2 inet static
     post-down iptables -t raw -D PREROUTING -i fwbr+ -j CT --zone 1
 ```
 
-
-______________
+---
 
 Bypass is a simple solution but what if I want it on the proxmox itself?
 
 ## Via Network Manager (Works Well Tested)
-```
+
+```text
 lsusb
 # 0bda:b812 Realtek Semiconductor Corp. RTL88x2bu [AC1200 Techkey]
 apt update
@@ -127,9 +130,9 @@ reboot
 iwconfig
 ```
 
-#### To connect a wifi (https://www.makeuseof.com/connect-to-wifi-with-nmcli/)
+#### To connect a wifi (<https://www.makeuseof.com/connect-to-wifi-with-nmcli/>)
 
-```
+```text
 apt install network-manager
 nmcli device wifi list # dev or device both are same
 nmcli dev status # similar to iwconfig to find wifi interface name like wlx90de806f0ac9
@@ -143,14 +146,14 @@ nmcli radio wifi off
 
 #### See IP info
 
-```
+```text
 nano /etc/NetworkManager/system-connections/Livebox_5GHz.nmconnection 
 ```
 
 #### Failures
+
 1. adding wifi into `/etc/network/interfaces` does not work
 
-
-
 ## Troublshoot
+
 1. Always make sure ip link is UP

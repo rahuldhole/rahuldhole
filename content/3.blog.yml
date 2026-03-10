@@ -1,3 +1,5 @@
 title: Blog
 description: Insights and tutorials on Full-Stack Engineering, DevOps, and specialized tools. Moved from Dev.to to my personal blog.
-navigation.icon: i-lucide-newspaper
+navigation:
+  icon: i-lucide-newspaper
+  title: ""

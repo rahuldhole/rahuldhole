@@ -1,11 +1,11 @@
 title: Building Tools & Systems That Scale.
 description: I've worked on a variety of projects, from developer tools and browser extensions to full-stack platforms. Here are some highlights that showcase my approach to solving real-world problems.
 links:
-  - label: "Get in touch"
-    color: "neutral"
-    to: "mailto:iamrahuldhole@gmail.com"
-  - label: "View on GitHub"
-    to: "https://github.com/rahuldhole"
-    target: "_blank"
-    variant: "outline"
-    color: "neutral"
+  - label: Get in touch
+    color: neutral
+    to: mailto:iamrahuldhole@gmail.com
+  - label: View on GitHub
+    to: https://github.com/rahuldhole
+    target: _blank
+    variant: outline
+    color: neutral

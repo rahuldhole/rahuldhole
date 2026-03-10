@@ -1,10 +1,17 @@
 ---
-title: "UFW - Cheatsheet"
-description: "UFW - Cheatsheet - Dive into the details of ufw - cheatsheet with this quick guide."
-image: { src: "https://placehold.co/800x400/0f172a/3b82f6?text=UFW+-+Cheatsheet" }
-authors: [{'name': 'Rahul Dhole', 'to': '/', 'avatar': {'src': '/profile.jpeg'}}]
+title: UFW - Cheatsheet
+authors:
+  - name: Rahul Dhole
+    to: /
+    avatar:
+      src: /profile.jpeg
+badge:
+  label: Security
 date: 2024-04-24
-badge: { label: "Security" }
+description: UFW - Cheatsheet - Dive into the details of ufw - cheatsheet with this quick guide.
+image:
+  src: https://placehold.co/800x400/0f172a/3b82f6?text=UFW+-+Cheatsheet
+pinned: false
 ---
 
 ## Understanding UFW - Cheatsheet
@@ -18,32 +25,30 @@ Whether you are configuring a new server, troubleshooting a deployment issue, or
 When working with UFW - Cheatsheet, it is important to understand the underlying principles before diving into the commands. The following section provides direct, copy-pasteable snippets and configurations that I use on a daily basis to maintain robust infrastructure and efficient development pipelines.
 
 ## Most common commands
-`sudo ufw enable`
-`sudo ufw disable`
-`sudo ufw status numbered`
-`sudo ufw delete 1`
-`sudo systemctl status ufw.service`
+
+`sudo ufw enablesudo ufw disablesudo ufw status numberedsudo ufw delete 1sudo systemctl status ufw.service`
 
 [More commands](https://blog.programster.org/ufw-cheatsheet)
 
 #### Rules
 
-```
+```text
 ufw default deny # deny incoming by default
 ufw allow from 90.16.45.159 # allow all from IP
 ```
 
 ### Troubleshoot
+
 1. Disable it first and then add rule and enable it
 2. `sudo ufw reload`
 
 ### Issues
+
 1. It does not block docker ports well
 
-
 ### IPTable
-Cheat sheet: https://andreafortuna.org/2019/05/08/iptables-a-simple-cheatsheet/
 
+Cheat sheet: <https://andreafortuna.org/2019/05/08/iptables-a-simple-cheatsheet/>
 
 ### Best Practices and Troubleshooting Tips
 
@@ -51,7 +56,6 @@ While the configurations above cover the most common use cases, it is crucial to
 
 ## Conclusion
 
-Understanding the ins and outs of UFW - Cheatsheet is an ongoing process, but having a solid foundation makes a significant difference. By keeping these commands and configurations handy, you can reduce friction in your workflow and focus more on building and scaling your applications effectively. 
+Understanding the ins and outs of UFW - Cheatsheet is an ongoing process, but having a solid foundation makes a significant difference. By keeping these commands and configurations handy, you can reduce friction in your workflow and focus more on building and scaling your applications effectively.
 
 If you found this guide helpful or if you have any questions or additional tips regarding UFW - Cheatsheet, feel free to reach out to me via my [Contact Page](/contact) or connect with me on [LinkedIn](https://linkedin.com/in/dholerahul). I am always open to discussing tech, DevOps, and full-stack engineering strategies.
-

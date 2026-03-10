@@ -1,10 +1,17 @@
 ---
-title: "Disk Management in Linux"
-description: "Disk Management in Linux - Dive into the details of disk management in linux with this quick guide."
-image: { src: "https://placehold.co/800x400/0f172a/3b82f6?text=Disk+Management+in+Linux" }
-authors: [{'name': 'Rahul Dhole', 'to': '/', 'avatar': {'src': '/profile.jpeg'}}]
+title: Disk Management in Linux
+authors:
+  - name: Rahul Dhole
+    to: /
+    avatar:
+      src: /profile.jpeg
+badge:
+  label: Linux
 date: 2024-04-24
-badge: { label: "Linux" }
+description: Disk Management in Linux - Dive into the details of disk management in linux with this quick guide.
+image:
+  src: https://placehold.co/800x400/0f172a/3b82f6?text=Disk+Management+in+Linux
+pinned: false
 ---
 
 ## Understanding Disk Management in Linux
@@ -22,13 +29,12 @@ When working with Disk Management in Linux, it is important to understand the un
 `smartctl` check disk info
 `df -H` check disk space
 
-
 `mount /dev/sdd1 /mnt/usb` to mount a drive
 `umount /mnt/usb` unmount it
 
 #### Mount NTFS Drive
 
-```
+```text
 sudo apt update
 sudo apt install ntfs-3g
 
@@ -39,19 +45,20 @@ ntfsfix /dev/sdd2
 
 ```
 
-
 #### Auto mount on reboot
+
 Using 'fstab'
+
 - use `exfat-fuse` instead of ntfs if the drive is not ntfs
 - get UUID by `blkid /dev/sddX`
 
-```
+```text
 # /etc/fstab
 UUID="<FE1A9E921A9E4793 REPLACE THIS>" /mnt/new-mount-path ntfs defaults,x-systemd.automount 0 0
 
 ```
-`mount -a` to apply fstab which is filesystem table
 
+`mount -a` to apply fstab which is filesystem table
 
 ### Best Practices and Troubleshooting Tips
 
@@ -59,7 +66,6 @@ While the configurations above cover the most common use cases, it is crucial to
 
 ## Conclusion
 
-Understanding the ins and outs of Disk Management in Linux is an ongoing process, but having a solid foundation makes a significant difference. By keeping these commands and configurations handy, you can reduce friction in your workflow and focus more on building and scaling your applications effectively. 
+Understanding the ins and outs of Disk Management in Linux is an ongoing process, but having a solid foundation makes a significant difference. By keeping these commands and configurations handy, you can reduce friction in your workflow and focus more on building and scaling your applications effectively.
 
 If you found this guide helpful or if you have any questions or additional tips regarding Disk Management in Linux, feel free to reach out to me via my [Contact Page](/contact) or connect with me on [LinkedIn](https://linkedin.com/in/dholerahul). I am always open to discussing tech, DevOps, and full-stack engineering strategies.
-

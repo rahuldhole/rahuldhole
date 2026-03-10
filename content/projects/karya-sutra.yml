@@ -1,6 +1,9 @@
 title: Karya Sutra
+date: "2024"
 description: Built a task management app prioritizing work based on emotional state and urgency. Focused on UX clarity, habit formation, and real-time data handling.
 image: https://placehold.co/800x400/0f172a/f97316?text=Karya+Sutra
-url: "karyasutra.rahuldhole.com"
-tags: ["Productivity", "Firebase", "Web App"]
-date: "2022"
+tags:
+  - Productivity
+  - Firebase
+  - Web App
+url: karyasutra.rahuldhole.com

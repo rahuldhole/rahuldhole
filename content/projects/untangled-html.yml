@@ -1,6 +1,9 @@
 title: Untangled HTML
+date: "2025"
 description: Created a VS Code extension to improve HTML readability by visually hiding angle brackets. Enhanced developer productivity when working with deeply nested markup.
 image: https://placehold.co/800x400/0f172a/a855f7?text=Untangled+HTML
-url: "https://marketplace.visualstudio.com/items?itemName=RahulDhole.untangled-html"
-tags: ["VS Code", "Extension", "DX"]
-date: "2023"
+tags:
+  - VS Code
+  - Extension
+  - DX
+url: https://marketplace.visualstudio.com/items?itemName=RahulDhole.untangled-html

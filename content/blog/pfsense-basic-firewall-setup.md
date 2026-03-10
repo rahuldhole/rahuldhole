@@ -1,10 +1,17 @@
 ---
-title: "pfSense basic firewall setup"
-description: "pfSense basic firewall setup - Dive into the details of pfsense basic firewall setup with this quick guide."
-image: { src: "https://placehold.co/800x400/0f172a/3b82f6?text=pfSense+basic+firewall+setup" }
-authors: [{'name': 'Rahul Dhole', 'to': '/', 'avatar': {'src': '/profile.jpeg'}}]
+title: pfSense basic firewall setup
+authors:
+  - name: Rahul Dhole
+    to: /
+    avatar:
+      src: /profile.jpeg
+badge:
+  label: Networking
 date: 2024-04-24
-badge: { label: "Networking" }
+description: pfSense basic firewall setup - Dive into the details of pfsense basic firewall setup with this quick guide.
+image:
+  src: https://placehold.co/800x400/0f172a/3b82f6?text=pfSense+basic+firewall+setup
+pinned: false
 ---
 
 ## Understanding pfSense basic firewall setup
@@ -20,10 +27,11 @@ When working with pfSense basic firewall setup, it is important to understand th
 **Important** Firewall rules are applied in top-to-bottom order
 
 #### Create Alias
+
 Add an alias to list all the private IP addresses as per RFC1918
 `pfsense > firewall > Alias > IP > Add > Network`
 
-```
+```text
 # RFC1918
 10.0.0.0/8 
 172.16.0.0/12
@@ -34,7 +42,7 @@ Add an alias to list all the private IP addresses as per RFC1918
 
 `pfsense > firewall > Rules > Add`
 
-```
+```text
 # Rule1 [All VLANs]
 # to access internet and block all LAN addresses
 Action: Pass
@@ -44,7 +52,7 @@ Destination: Ignore Alias RFC1918
 Save!
 ```
 
-```
+```text
 # Rule2 [ExperimentalLAN]
 # to access ExperimentalLAN from any LAN
 Action: Pass
@@ -54,14 +62,12 @@ Destination: ExperimentalLAN
 Save!
 ```
 
-
 ### Best Practices and Troubleshooting Tips
 
 While the configurations above cover the most common use cases, it is crucial to always test your setups in a secure, non-production environment first. If you encounter issues, verify your logs and ensure that your network or system permissions are correctly aligned with the tool's requirements.
 
 ## Conclusion
 
-Understanding the ins and outs of pfSense basic firewall setup is an ongoing process, but having a solid foundation makes a significant difference. By keeping these commands and configurations handy, you can reduce friction in your workflow and focus more on building and scaling your applications effectively. 
+Understanding the ins and outs of pfSense basic firewall setup is an ongoing process, but having a solid foundation makes a significant difference. By keeping these commands and configurations handy, you can reduce friction in your workflow and focus more on building and scaling your applications effectively.
 
 If you found this guide helpful or if you have any questions or additional tips regarding pfSense basic firewall setup, feel free to reach out to me via my [Contact Page](/contact) or connect with me on [LinkedIn](https://linkedin.com/in/dholerahul). I am always open to discussing tech, DevOps, and full-stack engineering strategies.
-

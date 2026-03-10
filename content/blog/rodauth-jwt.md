@@ -1,10 +1,17 @@
 ---
-title: "roadauth-rails api jwt cors"
-description: "roadauth-rails api jwt cors - Dive into the details of roadauth-rails api jwt cors with this quick guide."
-image: { src: "https://placehold.co/800x400/0f172a/3b82f6?text=roadauth-rails+api+jwt+cors" }
-authors: [{'name': 'Rahul Dhole', 'to': '/', 'avatar': {'src': '/profile.jpeg'}}]
+title: roadauth-rails api jwt cors
+authors:
+  - name: Rahul Dhole
+    to: /
+    avatar:
+      src: /profile.jpeg
+badge:
+  label: Security
 date: 2024-08-14
-badge: { label: "Security" }
+description: roadauth-rails api jwt cors - Dive into the details of roadauth-rails api jwt cors with this quick guide.
+image:
+  src: https://placehold.co/800x400/0f172a/3b82f6?text=roadauth-rails+api+jwt+cors
+pinned: false
 ---
 
 ## Understanding roadauth-rails api jwt cors
@@ -40,14 +47,12 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
 end
 ```
 
-
 ### Best Practices and Troubleshooting Tips
 
 While the configurations above cover the most common use cases, it is crucial to always test your setups in a secure, non-production environment first. If you encounter issues, verify your logs and ensure that your network or system permissions are correctly aligned with the tool's requirements.
 
 ## Conclusion
 
-Understanding the ins and outs of roadauth-rails api jwt cors is an ongoing process, but having a solid foundation makes a significant difference. By keeping these commands and configurations handy, you can reduce friction in your workflow and focus more on building and scaling your applications effectively. 
+Understanding the ins and outs of roadauth-rails api jwt cors is an ongoing process, but having a solid foundation makes a significant difference. By keeping these commands and configurations handy, you can reduce friction in your workflow and focus more on building and scaling your applications effectively.
 
 If you found this guide helpful or if you have any questions or additional tips regarding roadauth-rails api jwt cors, feel free to reach out to me via my [Contact Page](/contact) or connect with me on [LinkedIn](https://linkedin.com/in/dholerahul). I am always open to discussing tech, DevOps, and full-stack engineering strategies.
-

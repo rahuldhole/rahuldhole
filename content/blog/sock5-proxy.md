@@ -1,10 +1,17 @@
 ---
-title: "SOCKS5 Proxy Quickstart"
-description: "SOCKS5 Proxy Quickstart - Dive into the details of socks5 proxy quickstart with this quick guide."
-image: { src: "https://placehold.co/800x400/0f172a/3b82f6?text=SOCKS5+Proxy+Quickstart" }
-authors: [{'name': 'Rahul Dhole', 'to': '/', 'avatar': {'src': '/profile.jpeg'}}]
+title: SOCKS5 Proxy Quickstart
+authors:
+  - name: Rahul Dhole
+    to: /
+    avatar:
+      src: /profile.jpeg
+badge:
+  label: Network
 date: 2024-04-24
-badge: { label: "Network" }
+description: SOCKS5 Proxy Quickstart - Dive into the details of socks5 proxy quickstart with this quick guide.
+image:
+  src: https://placehold.co/800x400/0f172a/3b82f6?text=SOCKS5+Proxy+Quickstart
+pinned: false
 ---
 
 ## Understanding SOCKS5 Proxy Quickstart
@@ -19,7 +26,7 @@ When working with SOCKS5 Proxy Quickstart, it is important to understand the und
 
 Dante SOCKS5 Proxy Server
 
-```
+```text
 sudo apt update
 sudo apt -y install dante-server
 sudo systemctl is-enabled danted
@@ -28,7 +35,7 @@ sudo cp /etc/danted.conf{,.bak}
 
 `sudo nano /etc/danted.conf` # change internet port eth0
 
-```
+```text
 logoutput: syslog
 user.privileged: root
 user.unprivileged: nobody
@@ -57,27 +64,26 @@ socks pass {
 ## Secure SOCKS5
 
 Create a non shell blank secure user
-```
+
+```text
 sudo useradd -r -s /bin/false your_dante_user
 sudo passwd your_dante_user
 ```
 
-```
+```text
 sudo systemctl restart danted.service
 systemctl status danted.service
 ```
 
-
 ## Test
 
-```
+```text
 curl -v -x socks5://rahul-socks:password@172.27.7.9:1080 http://example.com/
 ```
 
-```
+```text
 ssh -N -D 1080 rahul-socks@172.27.7.9
 ```
-
 
 ### Best Practices and Troubleshooting Tips
 
@@ -85,7 +91,6 @@ While the configurations above cover the most common use cases, it is crucial to
 
 ## Conclusion
 
-Understanding the ins and outs of SOCKS5 Proxy Quickstart is an ongoing process, but having a solid foundation makes a significant difference. By keeping these commands and configurations handy, you can reduce friction in your workflow and focus more on building and scaling your applications effectively. 
+Understanding the ins and outs of SOCKS5 Proxy Quickstart is an ongoing process, but having a solid foundation makes a significant difference. By keeping these commands and configurations handy, you can reduce friction in your workflow and focus more on building and scaling your applications effectively.
 
 If you found this guide helpful or if you have any questions or additional tips regarding SOCKS5 Proxy Quickstart, feel free to reach out to me via my [Contact Page](/contact) or connect with me on [LinkedIn](https://linkedin.com/in/dholerahul). I am always open to discussing tech, DevOps, and full-stack engineering strategies.
-
