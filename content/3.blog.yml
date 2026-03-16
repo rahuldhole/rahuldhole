@@ -1,4 +1,8 @@
 title: Blog
+seo:
+  title: Technical Blog | Rahul Dhole - Full-Stack & DevOps
+  description: Explore technical articles, tutorials, and insights on Ruby on Rails, Vue.js, Docker, Kubernetes, and more by Rahul Dhole.
+  keywords: Rahul Dhole blog, technical tutorials, DevOps insights, Ruby on Rails guides, Linux tips, Docker tutorials
 description: Insights and tutorials on Full-Stack Engineering, DevOps, and specialized tools. Moved from Dev.to to my personal blog.
 navigation:
   icon: i-lucide-newspaper

@@ -1,7 +1,8 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Contact',
-  description: 'Get in touch with Rahul Dhole for business inquiries and collaborations.'
+  title: 'Contact Me | Rahul Dhole - Full-Stack Engineer',
+  description: 'Get in touch with Rahul Dhole for business inquiries, collaborations, or freelance opportunities. Full-Stack Engineer based in Paris.',
+  keywords: 'contact Rahul Dhole, hire full-stack engineer, freelance Ruby on Rails, hire Vue developer Paris'
 })
 </script>
 

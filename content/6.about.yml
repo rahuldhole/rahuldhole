@@ -1,4 +1,8 @@
 title: About Me
+seo:
+  title: About Rahul Dhole | Full-Stack Engineer in Paris
+  description: Learn about Rahul Dhole, a Full-Stack Engineer based in Paris specializing in Ruby on Rails, Vue.js, and Cloud DevOps. Discover his engineering philosophy and journey.
+  keywords: Rahul Dhole about, Full-Stack Engineer biography, Ruby on Rails developer Paris, Nuxt developer, engineering philosophy
 content: |
   Hi, I'm **Rahul Dhole**, a Full-Stack Engineer based in Paris, France. With an M.Sc. in Computer Science from Paul Sabatier University, I've spent years building full-stack web applications and developer tools that prioritize clean architecture, developer experience, and scalability.
 

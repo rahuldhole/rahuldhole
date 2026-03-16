@@ -15,8 +15,9 @@ useHead({
 })
 
 useSeoMeta({
-  title: 'Page not found',
-  description: 'We are sorry but this page could not be found.'
+  title: 'Page not found - Rahul Dhole',
+  description: 'We are sorry but this page could not be found.',
+  robots: 'noindex, follow'
 })
 
 const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('posts'))

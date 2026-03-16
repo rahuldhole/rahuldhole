@@ -1,4 +1,5 @@
 <script setup lang="ts">
+const route = useRoute()
 const colorMode = useColorMode()
 
 const color = computed(() => colorMode.value === 'dark' ? '#020618' : 'white')
@@ -21,7 +22,46 @@ useSeoMeta({
   titleTemplate: '%s - Rahul Dhole',
   ogImage: '/profile.jpeg',
   twitterImage: '/profile.jpeg',
-  twitterCard: 'summary_large_image'
+  twitterCard: 'summary_large_image',
+  author: 'Rahul Dhole',
+  ogType: 'website',
+  ogSiteName: 'Rahul Dhole',
+  twitterCreator: '@dholerahul',
+  twitterSite: '@dholerahul'
+})
+
+useHead({
+  link: [
+    { rel: 'canonical', href: 'https://rahuldhole.com' + route.path }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Person',
+        'name': 'Rahul Dhole',
+        'url': 'https://rahuldhole.com',
+        'jobTitle': 'Full-Stack Engineer',
+        'sameAs': [
+          'https://linkedin.com/in/dholerahul',
+          'https://github.com/rahuldhole'
+        ],
+        'image': 'https://rahuldhole.com/profile.jpeg'
+      })
+    },
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        'name': 'Rahul Dhole',
+        'url': 'https://rahuldhole.com',
+        'author': 'Rahul Dhole',
+        'description': 'Portfolio of Rahul Dhole, showcasing modern web applications and tools.'
+      })
+    }
+  ]
 })
 
 const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('posts'))

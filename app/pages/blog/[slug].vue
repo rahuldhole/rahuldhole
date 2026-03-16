@@ -22,7 +22,28 @@ useSeoMeta({
   title,
   ogTitle: title,
   description,
-  ogDescription: description
+  ogDescription: description,
+  keywords: post.value.seo?.keywords || post.value.keywords || post.value.badge?.label
+})
+
+useHead({
+  script: [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BlogPosting',
+        'headline': title,
+        'description': description,
+        'image': post.value.image?.src || 'https://rahuldhole.com/profile.jpeg',
+        'datePublished': post.value.date,
+        'author': {
+          '@type': 'Person',
+          'name': post.value.authors?.[0]?.name || 'Rahul Dhole'
+        }
+      })
+    }
+  ]
 })
 
 if (post.value.image?.src) {

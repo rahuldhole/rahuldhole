@@ -1,8 +1,12 @@
 title: Rahul Dhole - Full-Stack Engineer
+description: Full-Stack Engineer based in Paris specializing in Ruby on Rails, Vue.js, and Cloud DevOps. Portfolio of Rahul Dhole, showcasing modern web applications and developer tools.
+seo:
+  title: Rahul Dhole | Full-Stack Engineer & Cloud DevOps Expert
+  description: Professional portfolio of Rahul Dhole, a Full-Stack Engineer in Paris specializing in Ruby on Rails, Vue.js, and API-first architectures. Explore projects and technical blog posts.
+  keywords: Rahul Dhole, Full-Stack Engineer, Ruby on Rails, Vue.js, Cloud DevOps, Paris, Web Development, Portfolio
 about:
   title: Hi, I'm Rahul.
   description: I am a Full-Stack Engineer based in Paris, France. With an M.Sc in Computer Science from Paul Sabatier University, I specialize in Ruby on Rails, Vue JS, and Cloud DevOps. I focus on improving developer experience (DX), building API-first architectures, and delivering end-to-end highly scalable systems.
-description: Portfolio of Rahul Dhole, showcasing modern web applications and tools.
 experience:
   title: Work Experience
   items:

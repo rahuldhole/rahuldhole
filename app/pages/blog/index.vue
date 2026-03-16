@@ -19,7 +19,8 @@ useSeoMeta({
   title,
   ogTitle: title,
   description,
-  ogDescription: description
+  ogDescription: description,
+  keywords: page.value?.seo?.keywords
 })
 
 defineOgImageComponent('Saas')
@@ -64,7 +65,7 @@ defineOgImageComponent('Saas')
         <!-- Card 2: Visual Impact (Posts[1]) -->
         <NuxtLink v-if="posts[1]" :to="posts[1].path" class="col-span-12 md:col-span-12 lg:col-span-4 group relative bg-[#1A3C34] rounded-[2.5rem] overflow-hidden border border-[#1A3C34] hover:shadow-xl transition-all duration-500">
           <div class="relative h-full w-full p-10 flex flex-col justify-end min-h-[400px]">
-            <img :src="posts[1].image?.src || posts[1].image" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-1000" />
+            <img :src="posts[1].image?.src || posts[1].image" :alt="posts[1].title" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-1000" />
             <div class="absolute inset-0 bg-gradient-to-t from-[#1A3C34] via-[#1A3C34]/40 to-transparent z-10" />
             <div class="relative z-20">
               <span class="text-[10px] font-black tracking-widest text-[#A0D995] uppercase mb-3 block">LATEST INSIGHT</span>
@@ -148,7 +149,7 @@ defineOgImageComponent('Saas')
         <template v-for="(post, index) in posts.slice(7)" :key="index + 7">
           <NuxtLink :to="post.path" class="col-span-12 md:col-span-6 lg:col-span-4 group relative bg-white dark:bg-zinc-900 rounded-[2rem] overflow-hidden border border-gray-100 dark:border-zinc-800 hover:shadow-2xl transition-all duration-500">
             <div class="aspect-[16/10] overflow-hidden relative">
-              <img :src="post.image?.src || post.image" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+              <img :src="post.image?.src || post.image" :alt="post.title" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
               <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
             </div>
             <div class="p-8">

@@ -1,7 +1,8 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Terms of Service',
-  description: 'Terms of Service for Rahul Dhole portfolio and blog.'
+  title: 'Terms of Service - Rahul Dhole',
+  description: 'Terms of Service for Rahul Dhole portfolio and blog.',
+  robots: 'noindex, follow'
 })
 </script>
 

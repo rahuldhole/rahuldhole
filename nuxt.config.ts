@@ -14,7 +14,17 @@ export default defineNuxtConfig({
 
   site: {
     url: 'https://rahuldhole.com',
-    name: 'Rahul Dhole'
+    name: 'Rahul Dhole',
+    description: 'Full-Stack Engineer based in Paris specializing in Ruby on Rails, Vue.js, and Cloud DevOps.'
+  },
+
+  robots: {
+    disallow: ['/login', '/signup', '/_studio'],
+    allow: '/'
+  },
+
+  sitemap: {
+    exclude: ['/login', '/signup', '/_studio']
   },
 
   devtools: {

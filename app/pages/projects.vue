@@ -18,7 +18,8 @@ useSeoMeta({
   title: page.value?.seo?.title || page.value?.title,
   ogTitle: page.value?.seo?.title || page.value?.title,
   description: page.value?.seo?.description || page.value?.description,
-  ogDescription: page.value?.seo?.description || page.value?.description
+  ogDescription: page.value?.seo?.description || page.value?.description,
+  keywords: page.value?.seo?.keywords
 })
 </script>
 
@@ -69,7 +70,7 @@ useSeoMeta({
             <span class="text-[10px] font-bold text-primary tracking-widest uppercase">QUICK LOOK</span>
           </div>
           <div class="flex-1 flex items-center justify-center p-6 relative">
-            <img :src="projects[1].image" class="w-full h-48 object-contain transition-transform duration-700 group-hover:scale-110 drop-shadow-2xl" />
+            <img :src="projects[1].image" :alt="projects[1].title + ' project preview'" class="w-full h-48 object-contain transition-transform duration-700 group-hover:scale-110 drop-shadow-2xl" />
             <div class="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
               <div class="bg-primary text-white p-2 rounded-full shadow-lg">
                 <UIcon name="i-lucide-external-link" class="size-4" />
@@ -92,7 +93,7 @@ useSeoMeta({
           </div>
           <div class="relative z-0 h-64 -mx-10 -mb-10 flex items-end justify-center">
             <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent z-10" />
-            <img :src="projects[2].image" class="w-full h-full object-cover opacity-50 transition-all duration-700 group-hover:opacity-100 group-hover:scale-110" />
+            <img :src="projects[2].image" :alt="projects[2].title + ' system architecture'" class="w-full h-full object-cover opacity-50 transition-all duration-700 group-hover:opacity-100 group-hover:scale-110" />
           </div>
           <NuxtLink :to="projects[2].url" target="_blank" class="absolute inset-0 z-20" aria-label="View Project" />
         </div>
@@ -117,7 +118,7 @@ useSeoMeta({
             </div>
           </div>
           <div class="relative flex-1 min-h-[300px] bg-gray-50 dark:bg-black/20">
-            <img :src="projects[4].image" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100" />
+            <img :src="projects[4].image" :alt="projects[4].title + ' development interface'" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100" />
           </div>
           <NuxtLink :to="projects[4].url" target="_blank" class="absolute inset-0" />
         </div>
@@ -137,7 +138,7 @@ useSeoMeta({
         <!-- Slot 7: Slim Vertical Detail -->
         <div v-if="projects[6]" class="col-span-12 md:col-span-1 lg:col-span-3 group relative bg-white dark:bg-neutral-900 rounded-[2.5rem] border border-gray-100 dark:border-neutral-800 p-6 overflow-hidden flex flex-col items-center transition-all">
           <div class="relative w-full aspect-[2/3] rounded-2xl overflow-hidden mb-4">
-             <img :src="projects[6].image" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-125" />
+             <img :src="projects[6].image" :alt="projects[6].title + ' visual detail'" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-125" />
              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-4">
                <span class="text-white font-bold text-sm">{{ projects[6].title }}</span>
              </div>

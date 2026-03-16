@@ -3,13 +3,15 @@ const { data: page } = await useAsyncData('index', () => queryCollection('index'
 
 const title = page.value?.seo?.title || page.value?.title
 const description = page.value?.seo?.description || page.value?.description
+const keywords = page.value?.seo?.keywords
 
 useSeoMeta({
   titleTemplate: '',
   title,
   ogTitle: title,
   description,
-  ogDescription: description
+  ogDescription: description,
+  keywords
 })
 </script>
 

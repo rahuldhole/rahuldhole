@@ -1,7 +1,8 @@
 <script setup lang="ts">
 useSeoMeta({
-  title: 'Privacy Policy',
-  description: 'Privacy Policy and Data Collection practices for Rahul Dhole portfolio and blog.'
+  title: 'Privacy Policy - Rahul Dhole',
+  description: 'Privacy Policy and Data Collection practices for Rahul Dhole portfolio and blog.',
+  robots: 'noindex, follow'
 })
 </script>
 
