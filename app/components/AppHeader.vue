@@ -18,6 +18,12 @@ const items = computed(() => [{
   icon: 'i-lucide-user',
   to: '/about'
 }])
+
+const { open } = useContentSearch()
+
+function openSearch() {
+  open.value = true
+}
 </script>
 
 <template>
@@ -38,19 +44,11 @@ const items = computed(() => [{
       <UColorModeButton />
 
       <UButton
-        icon="i-lucide-log-in"
+        icon="i-lucide-search"
         color="neutral"
         variant="ghost"
-        to="/login"
-        class="lg:hidden"
-      />
-
-      <UButton
-        label="Sign in"
-        color="neutral"
-        variant="outline"
-        to="/login"
-        class="hidden lg:inline-flex"
+        aria-label="Search"
+        @click="openSearch"
       />
     </template>
 
@@ -64,12 +62,13 @@ const items = computed(() => [{
       <USeparator class="my-6" />
 
       <UButton
-        label="Sign in"
+        label="Search"
+        icon="i-lucide-search"
         color="neutral"
         variant="subtle"
-        to="/login"
         block
         class="mb-3"
+        @click="openSearch"
       />
     </template>
   </UHeader>

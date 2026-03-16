@@ -45,6 +45,8 @@ const links = [{
   to: '/about'
 }]
 
+const { open } = useContentSearch()
+
 provide('navigation', navigation)
 </script>
 
@@ -58,6 +60,7 @@ provide('navigation', navigation)
 
     <ClientOnly>
       <LazyUContentSearch
+        v-model:open="open"
         :files="files"
         shortcut="meta_k"
         :navigation="navigation"

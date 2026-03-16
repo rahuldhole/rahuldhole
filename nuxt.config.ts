@@ -1,6 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxt/ui', '@nuxt/content', '@vueuse/nuxt', 'nuxt-og-image', '@nuxtjs/sitemap', '@nuxtjs/robots', 'nuxt-studio'],
+  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxt/ui', '@nuxt/content', '@vueuse/nuxt', 'nuxt-og-image', '@nuxtjs/sitemap', '@nuxtjs/robots', 'nuxt-studio', 'motion-v/nuxt'],
+
+  build: {
+    transpile: ['motion-v']
+  },
 
   vue: {
     compilerOptions: {
@@ -67,5 +71,8 @@ export default defineNuxtConfig({
       rootDir: '', // subdirectory for monorepos (default: '')
       // private: true, // request access to private repos (default: true)
     }
-  }
+  },
+  // typescript: {
+  //   typeCheck: true,
+  // },
 })

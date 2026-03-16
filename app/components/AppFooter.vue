@@ -49,7 +49,7 @@
             target: '_blank'
           }, {
             label: 'PlayOnWeb IDE',
-            to: 'html-playground.rahuldhole.com',
+            to: 'https://html-playground.rahuldhole.com',
             target: '_blank'
           }, {
             label: 'Untangled HTML',
