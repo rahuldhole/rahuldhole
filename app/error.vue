@@ -19,10 +19,14 @@ useSeoMeta({
   description: 'We are sorry but this page could not be found.'
 })
 
-const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('docs'), {
-  transform: data => data.find(item => item.path === '/docs')?.children || []
-})
-const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections('docs'), {
+const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('posts'))
+const { data: files } = useLazyAsyncData('search', () => Promise.all([
+  queryCollectionSearchSections('posts'),
+  queryCollectionSearchSections('index'),
+  queryCollectionSearchSections('about'),
+  queryCollectionSearchSections('blog'),
+  queryCollectionSearchSections('projectsPage')
+]).then(r => r.flat()), {
   server: false
 })
 
@@ -56,13 +60,8 @@ const links = [{
     <AppFooter />
 
     <ClientOnly>
-      <LazyUContentSearch
-        :files="files"
-        shortcut="meta_k"
-        :navigation="navigation"
-        :links="links"
-        :fuse="{ resultLimit: 42 }"
-      />
+      <LazyUContentSearch :files="files" shortcut="meta_k" :navigation="navigation" :links="links"
+        :fuse="{ resultLimit: 42 }" />
     </ClientOnly>
 
     <UToaster />

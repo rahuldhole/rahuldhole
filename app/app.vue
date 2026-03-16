@@ -24,10 +24,14 @@ useSeoMeta({
   twitterCard: 'summary_large_image'
 })
 
-const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('blog'), {
-  transform: data => data.find(item => item.path === '/blog')?.children || []
-})
-const { data: files } = useLazyAsyncData('search', () => queryCollectionSearchSections('blog'), {
+const { data: navigation } = await useAsyncData('navigation', () => queryCollectionNavigation('posts'))
+const { data: files } = useLazyAsyncData('search', () => Promise.all([
+  queryCollectionSearchSections('posts'),
+  queryCollectionSearchSections('index'),
+  queryCollectionSearchSections('about'),
+  queryCollectionSearchSections('blog'),
+  queryCollectionSearchSections('projectsPage')
+]).then(r => r.flat()), {
   server: false
 })
 
