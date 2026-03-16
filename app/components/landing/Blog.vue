@@ -33,8 +33,11 @@ if (!posts.value) {
         :key="index"
         orientation="horizontal"
         variant="naked"
-        v-bind="post"
         :to="post.path"
+        :title="post.title"
+        :description="post.description"
+        :image="post.image?.src || post.image"
+        :date="new Date(post.date).toLocaleDateString('en', { year: 'numeric', month: 'short', day: 'numeric' })"
         :ui="{
           root: 'group relative lg:items-start lg:flex ring-0 hover:ring-0',
           body: '!px-0',
