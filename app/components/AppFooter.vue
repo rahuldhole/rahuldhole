@@ -78,7 +78,7 @@
 
     <template #left>
       <p class="text-muted text-sm">
-        © {{ new Date().getFullYear() }} Rahul Dhole. Built with Nuxt.
+        © {{ new Date().getFullYear() }} Rahul Dhole.
       </p>
     </template>
 
