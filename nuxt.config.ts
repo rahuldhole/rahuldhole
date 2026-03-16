@@ -72,7 +72,8 @@ export default defineNuxtConfig({
       // private: true, // request access to private repos (default: true)
     }
   },
-  // typescript: {
-  //   typeCheck: true,
-  // },
+  typescript: {
+    typeCheck: true,
+    strict: true,
+  },
 })

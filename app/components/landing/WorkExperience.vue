@@ -8,6 +8,7 @@ defineProps<{
 
 <template>
   <UPageSection
+    v-if="page.experience"
     :title="page.experience.title"
     :ui="{
       container: '!p-0 gap-4 sm:gap-4',

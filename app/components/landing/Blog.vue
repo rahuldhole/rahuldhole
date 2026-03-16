@@ -6,7 +6,7 @@ defineProps<{
 }>()
 
 const { data: posts } = await useAsyncData('index-blogs', () =>
-  queryCollection('blog').order('date', 'DESC').limit(3).all()
+  queryCollection('posts').order('date', 'DESC').limit(3).all()
 )
 if (!posts.value) {
   throw createError({ statusCode: 404, statusMessage: 'blogs posts not found', fatal: true })
@@ -15,6 +15,7 @@ if (!posts.value) {
 
 <template>
   <UPageSection
+    v-if="page.blog"
     :title="page.blog.title"
     :description="page.blog.description"
     :ui="{

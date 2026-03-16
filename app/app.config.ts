@@ -5,7 +5,9 @@ export default defineAppConfig({
       light: '/profile.jpeg',
       alt: 'Rahul Dhole'
     },
-    email: 'iamrahuldhole@gmail.com'
+    email: 'mail@rahuldhole.com',
+    available: true,
+    meetingLink: 'https://cal.com/rahuldhole'
   },
   ui: {
     colors: {

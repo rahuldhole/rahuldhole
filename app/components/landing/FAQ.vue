@@ -6,7 +6,8 @@ const props = defineProps<{
 }>()
 
 const items = computed(() => {
-  return props.page.faq?.categories.map((faq) => {
+  if (!props.page.faq) return []
+  return props.page.faq.categories.map((faq) => {
     return {
       label: faq.title,
       key: faq.title.toLowerCase(),
@@ -26,6 +27,7 @@ const ui = {
 
 <template>
   <UPageSection
+    v-if="page.faq"
     :title="page.faq.title"
     :description="page.faq.description"
     :ui="{
@@ -52,6 +54,7 @@ const ui = {
         >
           <template #body="{ item: _item }">
             <MDC
+              v-if="_item.content"
               :value="_item.content"
               unwrap="p"
               class="px-4"

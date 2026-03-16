@@ -8,6 +8,7 @@ defineProps<{
 
 <template>
   <UPageSection
+    v-if="page.testimonials"
     :ui="{
       container: 'px-0 !pt-0'
     }"
@@ -23,6 +24,7 @@ defineProps<{
       }"
     >
       <UPageCTA
+        v-if="item"
         :description="item.quote"
         variant="naked"
         class="rounded-none"

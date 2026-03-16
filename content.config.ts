@@ -61,8 +61,31 @@ export const collections = {
           url: z.string()
         }))
       }).optional(),
-      blog: createBaseSchema().optional()
+      blog: createBaseSchema().optional(),
+      faq: z.object({
+        title: z.string(),
+        description: z.string(),
+        categories: z.array(z.object({
+          title: z.string(),
+          questions: z.array(z.object({
+            label: z.string(),
+            content: z.string()
+          }))
+        }))
+      }).optional(),
+      testimonials: z.array(z.object({
+        quote: z.string(),
+        author: z.object({
+          name: z.string(),
+          description: z.string(),
+          avatar: z.object({ src: z.string() })
+        })
+      })).optional()
     })
+  }),
+  docs: defineCollection({
+    source: 'docs/**',
+    type: 'page'
   }),
 
   blog: defineCollection({
