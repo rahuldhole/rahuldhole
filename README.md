@@ -1,5 +1,6 @@
 # Rahul Dhole
 
+
 **Full-Stack Engineer**
 
 Building scalable, cloud-native systems with a focus on developer experience and performance. API-first, DX-obsessed.
@@ -17,9 +18,15 @@ Building scalable, cloud-native systems with a focus on developer experience and
 - **AI & LLM Engineering:** LLMs, RAG, Agentic AI, Workflows, Embeddings, Semantic Search, LangChain, DSPy, vLLM
 ---
 
-<!-- GitHub Profile Stats -->
-![Profile Views](https://komarev.com/ghpvc/?username=rahuldhole&color=24292e&style=flat-square&label=Profile+Views)
+<p align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=rahuldhole&theme=dark" alt="Streak" />
+</p>
 
+<p align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=rahuldhole&theme=github-compact&hide_border=true&area=true" alt="Activity Graph" />
+</p>
+
+![Profile Views](https://komarev.com/ghpvc/?username=rahuldhole&color=24292e&style=flat-square&label=Profile+Views)
 <!-- 
 This file is intended for the GitHub profile README. 
 -->
