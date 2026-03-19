@@ -18,7 +18,7 @@ Building scalable, cloud-native systems with a focus on developer experience and
 - **AI & LLM Engineering:** LLMs, RAG, Agentic AI, Workflows, Embeddings, Semantic Search, Inngest, LangChain, DSPy, vLLM
 ---
 
-![Streak Pulse](https://streak-pulse.rahuldhole.com/?user=rahuldhole)
+![Github Streak](https://github-streak.rahuldhole.com/?user=rahuldhole)
 
 <p align="center">
   <img src="https://github-readme-activity-graph.vercel.app/graph?username=rahuldhole&theme=github-compact&hide_border=true&area=true" alt="Activity Graph" />

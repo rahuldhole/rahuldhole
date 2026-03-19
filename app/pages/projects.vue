@@ -162,7 +162,7 @@ useSeoMeta({
           <NuxtLink :to="regularProjects[6].url" target="_blank" class="absolute inset-0" />
         </div>
 
-        <!-- Slot 8: Aesthetic Filler / Social Stats / Streak Pulse Feature -->
+        <!-- Slot 8: Aesthetic Filler / Social Stats / Github Streak Feature -->
         <div v-if="streakProject" class="col-span-12 md:col-span-12 lg:col-span-5 group relative bg-[#F8FAFC] dark:bg-zinc-900/40 rounded-[2.5rem] p-10 flex flex-col justify-between border border-transparent hover:border-primary/20 transition-all duration-500 overflow-hidden">
           <div class="flex items-center justify-between relative z-10">
             <div class="flex flex-col">
