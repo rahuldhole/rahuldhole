@@ -11,7 +11,11 @@ if (!page.value) {
 }
 
 const { data: projects } = await useAsyncData('projects', () => {
-  return queryCollection('projects').order('date', 'desc').all()
+  return queryCollection('projects').all()
+}, {
+  transform: (data) => {
+    return data.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  }
 })
 
 const streakProject = computed(() => projects.value?.find(p => p.title.toLowerCase().includes('streak')))
