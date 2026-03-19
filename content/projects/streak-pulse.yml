@@ -1,0 +1,9 @@
+title: Streak Pulse
+date: "2026"
+description: Visualize your GitHub contributions in Duolingo-style fire streaks. Built as a minimal, lightweight microservice returning dynamic SVGs for profiles and repositories.
+image: https://streak-pulse.rahuldhole.com/?user=rahuldhole&theme=dark
+tags:
+  - GitHub
+  - SVG
+  - Gamification
+url: https://streak-pulse.rahuldhole.com/
