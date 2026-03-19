@@ -27,9 +27,9 @@ export default defineNuxtConfig({
     exclude: ['/login', '/signup', '/_studio']
   },
 
-  devtools: {
-    enabled: true
-  },
+  // devtools: {
+  //   enabled: true
+  // },
 
   css: ['~/assets/css/main.css'],
 

@@ -54,13 +54,7 @@ export const collections = {
           })
         }))
       }).optional(),
-      projects: createBaseSchema().extend({
-        items: z.array(z.object({
-          title: z.string(),
-          description: z.string(),
-          url: z.string()
-        }))
-      }).optional(),
+      projects: createBaseSchema().optional(),
       blog: createBaseSchema().optional(),
       faq: z.object({
         title: z.string(),
@@ -119,7 +113,8 @@ export const collections = {
       image: z.string().nonempty().editor({ input: 'media' }),
       url: z.string().nonempty(),
       tags: z.array(z.string()),
-      date: z.string()
+      date: z.string(),
+      pinned: z.boolean().optional()
     })
   }),
   projectsPage: defineCollection({

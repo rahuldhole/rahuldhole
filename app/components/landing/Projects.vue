@@ -4,11 +4,15 @@ import type { IndexCollectionItem } from '@nuxt/content'
 defineProps<{
   page: IndexCollectionItem
 }>()
+
+const { data: pinnedProjects } = await useAsyncData('pinned-projects', () => {
+  return queryCollection('projects').where('pinned', '=', true).all()
+})
 </script>
 
 <template>
   <UPageSection
-    v-if="page.projects"
+    v-if="page.projects && pinnedProjects?.length"
     :title="page.projects.title"
     :description="page.projects.description"
     :ui="{
@@ -17,10 +21,10 @@ defineProps<{
       description: 'mt-2 text-left'
     }"
   >
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
       <Motion
-        v-for="(project, index) in page.projects.items"
-        :key="index"
+        v-for="(project, index) in pinnedProjects"
+        :key="project.id"
         :initial="{ opacity: 0, scale: 0.95 }"
         :while-in-view="{ opacity: 1, scale: 1 }"
         :transition="{ delay: 0.2 + 0.1 * index }"

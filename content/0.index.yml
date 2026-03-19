@@ -48,27 +48,5 @@ hero:
 projects:
   title: Featured Projects
   description: A selection of tools and applications I've built to solve various problems.
-  items:
-    - title: openbox/xrdp
-      description: RDP Plugin for DEVaaS, improving remote developer onboarding and workflow stability.
-      url: https://github.com/rahuldhole/openbox
-    - title: PrepaJS
-      description: Interactive platform for learning JavaScript fundamentals through hands-on exercises.
-      url: https://prepajs.rahuldhole.com/
-    - title: PlayOnWeb IDE
-      description: Browser-based HTML IDE enabling instant code execution without local setup.
-      url: https://html-playground.rahuldhole.com/
-    - title: Untangled HTML
-      description: VS Code extension to improve HTML readability by visually hiding angle brackets.
-      url: https://marketplace.visualstudio.com/items?itemName=RahulDhole.untangled-html
-    - title: Quizya
-      description: Memory-Focused Learning PWA App optimized for fast usage and distraction-free learning.
-      url: https://quizya.rahuldhole.com/
-    - title: Karya Sutra
-      description: Emotion-Based Productivity Manager prioritizing work based on emotional state and urgency.
-      url: https://karyasutra.rahuldhole.com/
-    - title: Docker DevTools Stage
-      description: Docker-based tooling to automate local and staging environment workflows.
-      url: /blog/docker-devtools
 navigation:
   icon: ""
