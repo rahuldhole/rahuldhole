@@ -31,7 +31,7 @@ useSeoMeta({
         <span class="text-3xl text-muted font-light">{{ page.title.split(' - ')[1] }}</span>
       </template>
 
-      <img src="/profile.jpeg" class="w-48 h-48 rounded-full mx-auto my-8 object-cover shadow-2xl border-4 border-[var(--ui-border)] ring-4 ring-primary/20 transition-transform duration-500 hover:scale-105" alt="Rahul Dhole" />
+      <img src="/profile.png" class="w-48 h-48 rounded-full mx-auto my-8 object-cover shadow-2xl border-4 border-[var(--ui-border)] ring-4 ring-primary/20 transition-transform duration-500 hover:scale-105" alt="Rahul Dhole" />
     </UPageHero>
 
     <UPageSection

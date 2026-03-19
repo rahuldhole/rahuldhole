@@ -35,7 +35,7 @@ useHead({
         '@type': 'BlogPosting',
         'headline': title,
         'description': description,
-        'image': post.value.image?.src || 'https://rahuldhole.com/profile.jpeg',
+        'image': post.value.image?.src || 'https://rahuldhole.com/profile.png',
         'datePublished': post.value.date,
         'author': {
           '@type': 'Person',

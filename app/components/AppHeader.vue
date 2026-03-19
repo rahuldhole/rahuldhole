@@ -30,7 +30,7 @@ function openSearch() {
   <UHeader>
     <template #left>
       <NuxtLink to="/" class="flex items-center gap-2">
-        <img src="/profile.jpeg" class="w-8 h-8 rounded-full object-cover" alt="Rahul Dhole">
+        <img src="/profile.png" class="w-8 h-8 rounded-full object-cover" alt="Rahul Dhole">
         <span class="font-semibold text-sm hidden sm:inline">Rahul Dhole</span>
       </NuxtLink>
     </template>

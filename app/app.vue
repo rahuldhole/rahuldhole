@@ -11,7 +11,7 @@ useHead({
     { key: 'theme-color', name: 'theme-color', content: color }
   ],
   link: [
-    { rel: 'icon', href: '/profile.jpeg' }
+    { rel: 'icon', href: '/profile.png' }
   ],
   htmlAttrs: {
     lang: 'en'
@@ -20,8 +20,8 @@ useHead({
 
 useSeoMeta({
   titleTemplate: '%s - Rahul Dhole',
-  ogImage: '/profile.jpeg',
-  twitterImage: '/profile.jpeg',
+  ogImage: '/profile.png',
+  twitterImage: '/profile.png',
   twitterCard: 'summary_large_image',
   author: 'Rahul Dhole',
   ogType: 'website',
@@ -47,7 +47,7 @@ useHead({
           'https://linkedin.com/in/dholerahul',
           'https://github.com/rahuldhole'
         ],
-        'image': 'https://rahuldhole.com/profile.jpeg'
+        'image': 'https://rahuldhole.com/profile.png'
       })
     },
     {

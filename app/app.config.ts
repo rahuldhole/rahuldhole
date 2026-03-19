@@ -1,8 +1,8 @@
 export default defineAppConfig({
   global: {
     picture: {
-      dark: '/profile.jpeg',
-      light: '/profile.jpeg',
+      dark: '/profile.png',
+      light: '/profile.png',
       alt: 'Rahul Dhole'
     },
     email: 'mail@rahuldhole.com',

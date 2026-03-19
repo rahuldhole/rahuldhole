@@ -4,7 +4,7 @@ authors:
   - name: Rahul Dhole
     to: /
     avatar:
-      src: /profile.jpeg
+      src: /profile.png
 badge:
   label: Cloud
 date: 2024-09-11

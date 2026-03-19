@@ -4,7 +4,7 @@ authors:
   - name: Rahul Dhole
     to: /
     avatar:
-      src: /profile.jpeg
+      src: /profile.png
 badge:
   label: DevOps
 date: 2024-06-16
