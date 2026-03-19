@@ -48,7 +48,7 @@
             to: 'https://prepajs.rahuldhole.com/',
             target: '_blank'
           }, {
-            label: 'PlayOnWeb IDE',
+            label: 'HTML Playground',
             to: 'https://html-playground.rahuldhole.com',
             target: '_blank'
           }, {

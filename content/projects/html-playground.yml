@@ -1,7 +1,7 @@
-title: PlayOnWeb IDE
+title: HTML Playground
 date: "2025"
 description: Developed a browser-based HTML IDE enabling instant code execution without local setup. Implemented live preview and fast in-browser rendering for improved learning experience.
-image: https://placehold.co/800x400/0f172a/22c55e?text=PlayOnWeb+IDE
+image: https://placehold.co/800x400/0f172a/22c55e?text=<html>
 tags:
   - IDE
   - Web
