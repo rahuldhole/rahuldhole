@@ -44,6 +44,16 @@ function openSearch() {
       <UColorModeButton />
 
       <UButton
+        icon="i-lucide-calendar"
+        color="primary"
+        variant="solid"
+        label="Book a Call"
+        to="https://calendly.com/rahuldhole/rdv"
+        target="_blank"
+        class="hidden lg:flex"
+      />
+
+      <UButton
         icon="i-lucide-search"
         color="neutral"
         variant="ghost"
@@ -60,6 +70,17 @@ function openSearch() {
       />
 
       <USeparator class="my-6" />
+
+      <UButton
+        label="Book a Call"
+        icon="i-lucide-calendar"
+        color="primary"
+        variant="solid"
+        to="https://calendly.com/rahuldhole/rdv"
+        target="_blank"
+        block
+        class="mb-3"
+      />
 
       <UButton
         label="Search"

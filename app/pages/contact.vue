@@ -17,13 +17,31 @@ useSeoMeta({
             started, think you need my help with something or just fancy saying hey, then get in touch.
           </p>
 
-          <UButton size="xl" icon="i-lucide-mail" label="Email Me: mail@rahuldhole.com" to="mailto:mail@rahuldhole.com"
-            color="primary" variant="solid" class="mb-8" />
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
+            <UButton
+              size="xl"
+              icon="i-lucide-mail"
+              label="Email Me: mail@rahuldhole.com"
+              to="mailto:mail@rahuldhole.com"
+              color="primary"
+              variant="solid"
+            />
+            <UButton
+              size="xl"
+              icon="i-lucide-calendar"
+              label="Schedule a Call"
+              to="https://calendly.com/rahuldhole/rdv"
+              target="_blank"
+              color="neutral"
+              variant="outline"
+            />
+          </div>
 
           <p class="text-sm text-muted">
             You can also find me on <ULink to="https://linkedin.com/in/dholerahul" target="_blank"
-              class="text-primary hover:underline">LinkedIn</ULink> or <ULink to="https://github.com/rahuldhole"
-              target="_blank" class="text-primary hover:underline">GitHub</ULink>.
+              class="text-primary hover:underline">LinkedIn</ULink>, <ULink to="https://github.com/rahuldhole"
+              target="_blank" class="text-primary hover:underline">GitHub</ULink> or <ULink to="https://calendly.com/rahuldhole/rdv" target="_blank"
+              class="text-primary hover:underline">Calendly</ULink>.
           </p>
         </div>
       </UPageSection>

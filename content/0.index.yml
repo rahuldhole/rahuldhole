@@ -38,6 +38,12 @@ hero:
       to: https://linkedin.com/in/dholerahul
       icon: i-simple-icons-linkedin
       target: _blank
+    - label: Book a Call
+      to: https://calendly.com/rahuldhole/rdv
+      icon: i-lucide-calendar
+      target: _blank
+      color: primary
+      variant: solid
     - label: GitHub
       to: https://github.com/rahuldhole
       icon: i-simple-icons-github

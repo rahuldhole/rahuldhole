@@ -33,6 +33,10 @@
             to: 'https://linkedin.com/in/dholerahul',
             target: '_blank'
           }, {
+            label: 'Schedule a Call',
+            to: 'https://calendly.com/rahuldhole/rdv',
+            target: '_blank'
+          }, {
             label: 'LeetCode',
             to: 'https://leetcode.com/u/rahuldhole',
             target: '_blank'
