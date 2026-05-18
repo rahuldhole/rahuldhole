@@ -14,10 +14,21 @@ const { data: projects } = await useAsyncData('projects', () => {
   return queryCollection('projects').all()
 }, {
   transform: (data) => {
+    const parseDate = (dStr?: string) => {
+      if (!dStr) return new Date(0)
+      if (dStr.includes('/')) {
+        const [day, month, year] = dStr.split('/')
+        if (day !== undefined && month !== undefined && year !== undefined) {
+          return new Date(parseInt(year, 10), parseInt(month, 10) - 1, parseInt(day, 10))
+        }
+      }
+      const d = new Date(dStr)
+      return isNaN(d.getTime()) ? new Date(0) : d
+    }
     return data.sort((a, b) => {
       if (a.pinned && !b.pinned) return -1
       if (!a.pinned && b.pinned) return 1
-      return new Date(b.date).getTime() - new Date(a.date).getTime()
+      return parseDate(b.date).getTime() - parseDate(a.date).getTime()
     })
   }
 })
@@ -30,7 +41,7 @@ useSeoMeta({
   ogTitle: page.value?.seo?.title || page.value?.title,
   description: page.value?.seo?.description || page.value?.description,
   ogDescription: page.value?.seo?.description || page.value?.description,
-  keywords: page.value?.seo?.keywords
+  keywords: page.value?.seo?.keywords as string | undefined
 })
 </script>
 
@@ -106,7 +117,7 @@ useSeoMeta({
           </div>
           <div class="relative z-0 h-48 md:h-64 -mx-6 md:-mx-10 -mb-6 md:-mb-10 flex items-end justify-center">
             <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent z-10" />
-            <img :src="regularProjects[2].image" :alt="regularProjects[2].title + ' system architecture'" class="w-full h-full object-cover opacity-50 transition-all duration-700 group-hover:opacity-100 group-hover:scale-110" />
+            <img :src="regularProjects[2].image" :alt="regularProjects[2].title + ' system architecture'" class="w-full h-full object-contain opacity-50 transition-all duration-700 group-hover:opacity-100 group-hover:scale-110" />
           </div>
           <NuxtLink :to="regularProjects[2].url" target="_blank" class="absolute inset-0 z-20" aria-label="View Project" />
         </div>
@@ -131,7 +142,7 @@ useSeoMeta({
             </div>
           </div>
           <div class="relative flex-1 min-h-[200px] md:min-h-[300px] bg-gray-50 dark:bg-black/20">
-            <img :src="regularProjects[4].image" :alt="regularProjects[4].title + ' development interface'" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100" />
+            <img :src="regularProjects[4].image" :alt="regularProjects[4].title + ' development interface'" class="absolute inset-0 w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105 opacity-80 group-hover:opacity-100" />
           </div>
           <NuxtLink :to="regularProjects[4].url" target="_blank" class="absolute inset-0" />
         </div>
@@ -151,7 +162,7 @@ useSeoMeta({
         <!-- Slot 7: Slim Vertical Detail -->
         <div v-if="regularProjects[6]" class="col-span-12 md:col-span-6 lg:col-span-3 group relative bg-white dark:bg-neutral-900 rounded-[2rem] lg:rounded-[2.5rem] border border-gray-100 dark:border-neutral-800 p-4 md:p-6 overflow-hidden flex flex-col items-center transition-all">
           <div class="relative w-full aspect-[3/2] md:aspect-[2/3] rounded-2xl overflow-hidden mb-4">
-             <img :src="regularProjects[6].image" :alt="regularProjects[6].title + ' visual detail'" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-125" />
+             <img :src="regularProjects[6].image" :alt="regularProjects[6].title + ' visual detail'" class="w-full h-full object-contain transition-transform duration-700 group-hover:scale-125" />
              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-4">
                <span class="text-white font-bold text-sm">{{ regularProjects[6].title }}</span>
              </div>
@@ -207,7 +218,7 @@ useSeoMeta({
         </div>
 
         <!-- Overflow: Render any remaining projects that didn't fit in the first 7 regular slots or streak slot -->
-        <template v-for="(project, index) in regularProjects.slice(7)" :key="project.path">
+        <template v-for="(project, index) in regularProjects.slice(7)" :key="project.title">
            <div class="col-span-12 md:col-span-6 lg:col-span-4 group relative bg-white dark:bg-zinc-900 rounded-[1.5rem] md:rounded-[2rem] p-5 md:p-6 border border-gray-100 dark:border-zinc-800 transition-all hover:shadow-xl">
              <div class="flex justify-between items-start mb-3 md:mb-4">
                <h4 class="text-base md:text-lg font-bold uppercase tracking-tight">{{ project.title }}</h4>
