@@ -20,7 +20,7 @@ defineProps<{
       <Motion
         :initial="{
           scale: 1.1,
-          opacity: 0,
+          opacity: 1,
           filter: 'blur(20px)'
         }"
         :animate="{
@@ -46,7 +46,7 @@ defineProps<{
       <Motion
         :initial="{
           scale: 1.1,
-          opacity: 0,
+          opacity: 1,
           filter: 'blur(20px)'
         }"
         :animate="{
@@ -67,7 +67,7 @@ defineProps<{
       <Motion
         :initial="{
           scale: 1.1,
-          opacity: 0,
+          opacity: 1,
           filter: 'blur(20px)'
         }"
         :animate="{
