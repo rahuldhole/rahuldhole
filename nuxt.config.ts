@@ -1,3 +1,5 @@
+import { redirects } from './redirects'
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   modules: ['@nuxt/eslint', '@nuxt/image', '@nuxt/ui', '@nuxt/content', '@vueuse/nuxt', 'nuxt-og-image', '@nuxtjs/sitemap', '@nuxtjs/robots', 'nuxt-studio', 'motion-v/nuxt'],
@@ -22,6 +24,8 @@ export default defineNuxtConfig({
     disallow: ['/login', '/signup', '/_studio'],
     allow: '/'
   },
+
+  routeRules: redirects,
 
   sitemap: {
     exclude: ['/login', '/signup', '/_studio']

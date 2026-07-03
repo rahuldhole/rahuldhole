@@ -117,6 +117,10 @@ sudo kubeadm token create --print-join-command # port 6443 need to be open
 3. reprint the join command when it expired
 4. API Server failed communication: Must have a static IP to the master node.
 
+## Related Guides
+
+- [How to Increase Free Tier Memory on AWS EC2](/blog/aws-ec2-ram)
+
 ## References
 
 <https://github.com/LondheShubham153/kubestarter/blob/main/kubeadm_installation.md><https://www.learnlinux.tv/how-to-build-an-awesome-kubernetes-cluster-using-proxmox-virtual-environment/>
