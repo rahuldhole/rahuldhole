@@ -9,7 +9,7 @@ if (!post.value) {
   throw createError({ statusCode: 404, statusMessage: 'Post not found', fatal: true })
 }
 
-const { data: surround } = await useAsyncData(`${route.path}-surround`, () => {
+const { data: surround } = await useAsyncData(`surround-${route.params.slug}`, () => {
   return queryCollectionItemSurroundings('posts', route.path, {
     fields: ['description']
   })
@@ -23,14 +23,14 @@ useSeoMeta({
   ogTitle: title,
   description,
   ogDescription: description,
-  keywords: post.value.seo?.keywords || post.value.keywords || post.value.badge?.label
+  keywords: (post.value.seo as any)?.keywords || post.value.badge?.label
 })
 
 useHead({
   script: [
     {
       type: 'application/ld+json',
-      children: JSON.stringify({
+      innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'BlogPosting',
         'headline': title,
