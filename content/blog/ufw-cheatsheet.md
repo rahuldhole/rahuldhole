@@ -50,6 +50,11 @@ ufw allow from 90.16.45.159 # allow all from IP
 
 Cheat sheet: <https://andreafortuna.org/2019/05/08/iptables-a-simple-cheatsheet/>
 
+### Related Guides
+
+- [Disk Management in Linux](/blog/disk-management-in-linux)
+- [Linux WiFi Drivers](/blog/linux-wifi-drivers)
+
 ### Best Practices and Troubleshooting Tips
 
 While the configurations above cover the most common use cases, it is crucial to always test your setups in a secure, non-production environment first. If you encounter issues, verify your logs and ensure that your network or system permissions are correctly aligned with the tool's requirements.
