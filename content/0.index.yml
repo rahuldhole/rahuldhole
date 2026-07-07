@@ -10,10 +10,10 @@ about:
 experience:
   title: Work Experience
   items:
-    - date: 2024 - 2025
+    - date: 2024 - Now
       position: Full-Stack Engineer
       company:
-        name: OnPharma
+        name: Self-employed
         url: "#"
         logo: i-lucide-building
         color: "#eab308"
@@ -24,13 +24,6 @@ experience:
         url: "#"
         logo: i-lucide-shield
         color: "#ef4444"
-    - date: 2016 - 2017
-      position: Full-Stack PHP Developer
-      company:
-        name: Vensark Technologies
-        url: "#"
-        logo: i-lucide-code
-        color: "#3b82f6"
   description: ""
 hero:
   links:
