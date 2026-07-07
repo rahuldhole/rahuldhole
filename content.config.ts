@@ -114,7 +114,9 @@ export const collections = {
       url: z.string().nonempty(),
       tags: z.array(z.string()),
       date: z.string(),
-      pinned: z.boolean().optional()
+      pinned: z.boolean().optional(),
+      category: z.string().optional(),
+      rank: z.number().optional()
     })
   }),
   projectsPage: defineCollection({
