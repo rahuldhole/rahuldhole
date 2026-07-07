@@ -1,11 +1,10 @@
 title: Quizya
 date: "2025"
 description: Built a lightweight quiz platform using memory retention and spaced repetition techniques. Optimized for fast usage and distraction-free learning.
-image: https://placehold.co/800x400/0f172a/ec4899?text=Quizya
 tags:
   - PWA
   - Education
   - Web App
 url: https://quizya.rahuldhole.com/
 category: "Archived"
-rank: 1
+rank: 2

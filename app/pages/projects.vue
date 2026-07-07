@@ -97,18 +97,23 @@ useSeoMeta({
           </div>
 
           <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div v-for="project in category.items" :key="project.title" class="group relative bg-white dark:bg-zinc-900 rounded-[1.5rem] md:rounded-[2rem] p-6 border border-gray-100 dark:border-zinc-800 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col min-h-[200px]">
-              <div class="flex justify-between items-start mb-4">
-                <h4 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white group-hover:text-primary transition-colors">{{ project.title }}</h4>
-                <UIcon v-if="project.pinned" name="i-lucide-pin" class="text-primary size-4" />
+            <div v-for="project in category.items" :key="project.title" class="group relative bg-white dark:bg-zinc-900 rounded-[1.5rem] md:rounded-[2rem] p-4 border border-gray-100 dark:border-zinc-800 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col">
+              <div v-if="project.image" class="w-full aspect-[16/9] mb-4 rounded-xl overflow-hidden bg-gray-100 dark:bg-zinc-800 relative">
+                 <img :src="project.image" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" :alt="project.title" />
               </div>
-              <p class="text-sm text-gray-500 dark:text-gray-400 flex-1 mb-6">{{ project.description }}</p>
-              
-              <div class="flex items-center justify-between mt-auto">
-                <div class="flex flex-wrap gap-2">
-                  <UBadge v-for="tag in project.tags?.slice(0, 2)" :key="tag" :label="tag" size="xs" variant="subtle" class="rounded-full" />
+              <div class="px-2 pb-2 flex-1 flex flex-col">
+                <div class="flex justify-between items-start mb-3">
+                  <h4 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white group-hover:text-primary transition-colors">{{ project.title }}</h4>
+                  <UIcon v-if="project.pinned" name="i-lucide-pin" class="text-primary size-4 shrink-0 mt-1" />
                 </div>
-                <UIcon name="i-lucide-external-link" class="size-4 text-gray-400 group-hover:text-primary transition-colors" />
+                <p class="text-sm text-gray-500 dark:text-gray-400 flex-1 mb-6">{{ project.description }}</p>
+                
+                <div class="flex items-center justify-between mt-auto">
+                  <div class="flex flex-wrap gap-2">
+                    <UBadge v-for="tag in project.tags?.slice(0, 2)" :key="tag" :label="tag" size="xs" variant="subtle" class="rounded-full" />
+                  </div>
+                  <UIcon name="i-lucide-external-link" class="size-4 text-gray-400 group-hover:text-primary transition-colors" />
+                </div>
               </div>
               
               <NuxtLink :to="project.url" target="_blank" class="absolute inset-0" aria-label="View Project" />
