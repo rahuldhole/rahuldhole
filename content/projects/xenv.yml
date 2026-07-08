@@ -1,0 +1,11 @@
+title: xenv
+date: "2026"
+description: Execute .env files to auto generate it interactively or headless.
+image: https://placehold.co/200x400/0f172a/3b82f6?text=xenv
+tags:
+  - CLI
+  - Environment
+url: https://xenv.rahuldhole.com/
+pinned: true
+category: "Maintenance Mode"
+rank: 25
