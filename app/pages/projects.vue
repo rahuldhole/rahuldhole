@@ -78,7 +78,7 @@ useSeoMeta({
               <div class="flex-1 relative z-10 flex flex-col justify-center">
                 <div class="flex items-center gap-4 mb-4">
                   <img v-if="project.image" :src="project.image" class="h-12 w-auto object-contain drop-shadow-md" alt="logo" />
-                  <h3 v-else class="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">{{ project.title }}</h3>
+                  <h3 class="text-3xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">{{ project.title }}</h3>
                 </div>
                 
                 <p class="text-gray-500 dark:text-gray-400 text-base md:text-lg leading-relaxed mb-6">
@@ -103,7 +103,7 @@ useSeoMeta({
               </div>
               <div class="px-2 pb-2 flex-1 flex flex-col">
                 <div class="flex justify-between items-start mb-3">
-                  <h4 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white group-hover:text-primary transition-colors">{{ project.title }}</h4>
+                  <h3 class="text-xl font-bold tracking-tight text-gray-900 dark:text-white group-hover:text-primary transition-colors">{{ project.title }}</h3>
                   <UIcon v-if="project.pinned" name="i-lucide-pin" class="text-primary size-4 shrink-0 mt-1" />
                 </div>
                 <p class="text-sm text-gray-500 dark:text-gray-400 flex-1 mb-6">{{ project.description }}</p>
