@@ -116,6 +116,7 @@ export const collections = {
       date: z.string(),
       pinned: z.boolean().optional(),
       category: z.string().optional(),
+      category_rank: z.number().optional(),
       rank: z.number().optional()
     })
   }),
