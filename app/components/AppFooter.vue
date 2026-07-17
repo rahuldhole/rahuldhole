@@ -44,6 +44,10 @@
             label: 'Dev.to',
             to: 'https://dev.to/rahuldhole',
             target: '_blank'
+          }, {
+            label: 'RSS Feed',
+            to: '/rss.xml',
+            target: '_blank'
           }]
         }, {
           label: 'Projects',
@@ -93,6 +97,8 @@
         aria-label="Rahul on LinkedIn" color="neutral" variant="ghost" />
       <UButton to="https://dev.to/rahuldhole" target="_blank" icon="i-simple-icons-devdotto"
         aria-label="Rahul on Dev.to" color="neutral" variant="ghost" />
+      <UButton to="/rss.xml" target="_blank" icon="i-lucide-rss"
+        aria-label="RSS Feed" color="neutral" variant="ghost" />
     </template>
   </UFooter>
 </template>

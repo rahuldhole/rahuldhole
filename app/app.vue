@@ -11,7 +11,8 @@ useHead({
     { key: 'theme-color', name: 'theme-color', content: color }
   ],
   link: [
-    { rel: 'icon', href: '/profile.png' }
+    { rel: 'icon', href: '/profile.png' },
+    { rel: 'alternate', type: 'application/rss+xml', title: 'RSS Feed', href: '/rss.xml' }
   ],
   htmlAttrs: {
     lang: 'en'
