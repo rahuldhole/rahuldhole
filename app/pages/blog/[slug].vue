@@ -18,12 +18,18 @@ const { data: surround } = await useAsyncData(`surround-${route.params.slug}`, (
 const title = post.value.seo?.title || post.value.title
 const description = post.value.seo?.description || post.value.description
 
+const seoImageUrl = (typeof post.value.seoImage === 'string' ? post.value.seoImage : post.value.seoImage?.src) as string | undefined
+const imageUrl = (typeof post.value.image === 'string' ? post.value.image : post.value.image?.src) as string | undefined
+
+
 useSeoMeta({
   title,
   ogTitle: title,
   description,
   ogDescription: description,
-  keywords: (post.value.seo as any)?.keywords || post.value.badge?.label
+  keywords: (post.value.seo as any)?.keywords || post.value.badge?.label,
+  ogImage: seoImageUrl || imageUrl || 'https://rahuldhole.com/profile.png',
+  twitterImage: seoImageUrl || imageUrl || 'https://rahuldhole.com/profile.png'
 })
 
 useHead({
@@ -35,7 +41,7 @@ useHead({
         '@type': 'BlogPosting',
         'headline': title,
         'description': description,
-        'image': post.value.seoImage?.src || post.value.image?.src || 'https://rahuldhole.com/profile.png',
+        'image': seoImageUrl || imageUrl || 'https://rahuldhole.com/profile.png',
         'datePublished': post.value.date,
         'author': {
           '@type': 'Person',
@@ -46,13 +52,13 @@ useHead({
   ]
 })
 
-if (post.value.seoImage?.src) {
+if (seoImageUrl) {
   defineOgImage({
-    url: post.value.seoImage.src
+    url: seoImageUrl
   })
-} else if (post.value.image?.src) {
+} else if (imageUrl) {
   defineOgImage({
-    url: post.value.image.src
+    url: imageUrl
   })
 } else {
   defineOgImageComponent('Saas', {
