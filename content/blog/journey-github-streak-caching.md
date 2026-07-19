@@ -46,6 +46,7 @@ sequenceDiagram
         end
     end
 ```
+*Figure: Request flow highlighting multiple caching layers*
 
 Rolling out caching was essential to scale the project. However, implementing caching at the edge is rarely straightforward. It introduced a cascade of subtle edge cases, taking us on a journey through crashing runtimes and stale browser content.
 
@@ -59,6 +60,8 @@ Our caching strategy evolved through several iterations as we learned and adapte
 | **V2** | Cloudflare Cache API | Saves GitHub API calls, prevents redundant runs | Crashed on Netlify (Deno sandbox blocked writes) |
 | **V3** | Normalized Cache Keys | Prevents arbitrary query params from bypassing cache | Required explicit query string parsing logic |
 | **V4** | Versioned URLs (`&v=`) | Instantly busts stale images and browser cache | Requires an app version bump on changes |
+
+*Table: Evolution of the caching strategy over four iterations*
 
 Here is how we navigated through each phase:
 

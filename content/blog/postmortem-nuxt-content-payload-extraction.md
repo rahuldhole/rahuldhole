@@ -55,6 +55,7 @@ sequenceDiagram
     Payload--xNuxt: Undefined (Not extracted)
     Nuxt--xBrowser: 500 Internal Server Error (Crash)
 ```
+*Figure: Payload extraction failure during hydration*
 
 Related upstream issue:
 https://github.com/nuxt/nuxt/issues/34856
@@ -107,6 +108,8 @@ If explicit routing is too complex, the following "trick" can bypass the hydrati
 | --- | --- | --- |
 | **Option A: Official Way** | Cleanest architecture, fully supported by Nuxt, best performance. | Requires explicit maintenance of route patterns. |
 | **Option B: Legacy Trick** | Quickest fix, bypasses hydration crashes without strict routing. | Inlines payloads in HTML (larger responses), bypasses standard Nuxt hydration logic. |
+
+*Table: Trade-offs between official and legacy solutions*
 
 ---
 

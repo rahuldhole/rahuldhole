@@ -40,6 +40,7 @@ graph TD
         Proxy2 -->|Standard Driver| DB2[(Local DB)]
     end
 ```
+*Figure: AI bypass versus correct architectural intent*
 
 ## Resolution
 
@@ -65,3 +66,5 @@ graph TD
 | T+6m | **Reversion** | AI reverts the database configuration back to the original architectural state. |
 | T+15m | **Root Cause Fix** | AI discovers proxy requires specific schema/endpoints and initializes the database correctly. |
 | T+16m | **Verification** | Seed script confirmed working with the original architectural stack. |
+
+*Table: Timeline of events during the incident*

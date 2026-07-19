@@ -30,6 +30,7 @@ flowchart TD
     F --> G[Force Redirect to /]
     G --> H((User confused))
 ```
+*Figure: PWA navigation fallback redirect loop*
 
 ## Resolution
 Disabled the PWA navigation fallback in the configuration:

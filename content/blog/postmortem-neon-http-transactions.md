@@ -49,6 +49,7 @@ sequenceDiagram
         end
     end
 ```
+*Figure: Compensating transaction flow handling external storage and database*
 
 1. **Removed Native Transactions:** Completely removed all `db.transaction()` wrappers across the application models.
 2. **Pre-Generated UUIDs:** Migrated from relying on Postgres `RETURNING id` to eagerly generating IDs in the Node/Worker runtime using `globalThis.crypto.randomUUID()`.
@@ -70,3 +71,5 @@ sequenceDiagram
 | 1 | Generate UUIDs | None (Local Execution) |
 | 2 | Network/R2 Uploads | Request Aborted cleanly |
 | 3 | Database Inserts | Orphaned File in R2 (Safe) |
+
+*Table: Action items and failure consequences*

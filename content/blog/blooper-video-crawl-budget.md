@@ -44,3 +44,4 @@ sequenceDiagram
     Server-->>Client: Fast HTML
     Client->>Client: Hydrate & Load iframe
 ```
+*Figure: Search engine parsing timeout vs success with ClientOnly skeleton*

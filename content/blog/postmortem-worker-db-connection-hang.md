@@ -60,6 +60,7 @@ sequenceDiagram
     Note over Worker: Event loop not empty!
     Worker--xWorker: 1101 Worker Code Hung (Crash)
 ```
+*Figure: Worker event loop crash due to idle WebSocket connection*
 
 ### 2. Lack of Resilient DB Fallbacks
 Unlike other endpoints, this specific endpoint had no guardrails around database connection failures. If the serverless database was waking up (cold start) or temporarily unreachable, the database query failed, triggering a generic HTTP 500.
