@@ -1,5 +1,5 @@
 ---
-title: "Journey: Taming Edge Caching and Runtime Sandboxes"
+title: "Journey: Taming Edge Caching and KV Storage"
 authors:
   - name: Rahul Dhole
     to: /
@@ -8,7 +8,7 @@ authors:
 badge:
   label: Journey
 date: 2026-07-19
-description: "The evolution of caching in the github-streak worker, navigating Deno sandbox limitations, cache key normalization, and cache invalidation."
+description: "The evolution of caching in the github-streak worker: from simple CDN headers to a dual-layer KV and Edge caching architecture."
 seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=Edge+Caching+Journey
 pinned: false
@@ -17,7 +17,7 @@ imageComponent:
 ---
 
 ## 1. The Challenge
-When building the [`github-streak`](https://github.com/rahuldhole/github-streak) project, one of the immediate hurdles we faced was performance and rate-limiting. Rendering GitHub streak SVGs requires making expensive calls to the GitHub API. Without aggressive caching, we risked quickly burning through our API rate limits and serving slow responses to end-users whenever the CDN cache missed.
+When building the [`github-streak`](https://github.com/rahuldhole/github-streak) project, one of the immediate hurdles I faced was performance and rate-limiting. Rendering GitHub streak SVGs requires making expensive calls to the GitHub API. Without aggressive caching, I risked quickly burning through my API rate limits and serving slow responses to end-users.
 
 Here is the high-level request flow ([Figure 1](#fig-1)) that highlighted the need for multiple layers of caching:
 
@@ -25,69 +25,57 @@ Here is the high-level request flow ([Figure 1](#fig-1)) that highlighted the ne
 ```mermaid
 sequenceDiagram
     participant User
-    participant Browser
     participant CDN as Edge CDN
-    participant Worker as Worker Cache API
+    participant Edge as Edge Server
+    participant KV as KV Storage
     participant GitHub as GitHub API
 
-    User->>Browser: Request SVG Image
-    alt Browser Cache Hit
-        Browser-->>User: Return Cached SVG
-    else Browser Cache Miss
-        Browser->>CDN: Fetch SVG
-        alt CDN Hit
-            CDN-->>Browser: Return Cached SVG
-        else CDN Miss
-            CDN->>Worker: Execute Worker
-            alt Worker Cache Hit
-                Worker-->>CDN: Return Stored Response
-            else Worker Cache Miss
-                Worker->>GitHub: Fetch User Data
-                GitHub-->>Worker: Return Data
-                Worker-->>CDN: Render & Save SVG
-            end
+    User->>CDN: Request SVG Image
+    alt CDN Hit
+        CDN-->>User: Return Cached SVG
+    else CDN Miss
+        CDN->>Edge: Execute Render Logic
+        Edge->>KV: Check historical data
+        alt KV Hit
+            KV-->>Edge: Return 6+ months data
+            Edge->>GitHub: Fetch recent data
+        else KV Miss
+            Edge->>GitHub: Fetch ALL data
+            GitHub-->>Edge: Return Data
+            Edge->>KV: Store 6+ months data
         end
+        Edge-->>CDN: Render & Save SVG
+        CDN-->>User: Return SVG
     end
 ```
-*Figure 1: Request flow highlighting multiple caching layers*
+*Figure 1: Request flow highlighting the dual caching layers (CDN & KV)*
 
-Rolling out caching was essential to scale the project. However, implementing caching at the edge is rarely straightforward. It introduced a cascade of subtle edge cases, taking us on a journey through crashing runtimes and stale browser content.
+## 2. The Evolution of My Caching Strategy
 
-## 2. The Evolution of Our Caching Strategy
-
-Our caching strategy evolved through several iterations as we learned and adapted. Here's a quick summary of the approaches we tried ([Table 1](#table-1)):
+My caching strategy evolved through several iterations as I learned and adapted. Here's a quick summary of the approaches I tried ([Table 1](#table-1)):
 
 <a id="table-1"></a>
 | Iteration | Strategy | Pros | Cons / Challenges |
 | :--- | :--- | :--- | :--- |
-| **V1** | HTTP `Cache-Control` headers | Easy to implement, works natively | Redundant Worker executions on CDN misses |
-| **V2** | Cloudflare Cache API | Saves GitHub API calls, prevents redundant runs | Crashed on Netlify (Deno sandbox blocked writes) |
-| **V3** | Normalized Cache Keys | Prevents arbitrary query params from bypassing cache | Required explicit query string parsing logic |
-| **V4** | Versioned URLs (`&v=`) | Instantly busts stale images and browser cache | Requires an app version bump on changes |
+| **V1** | Plain CDN caching | Easy to implement | Cache invalidation issues; users saw outdated SVGs |
+| **V2** | Nitro JS SWR Cache | Stale-while-revalidate | Cached API errors; painfully long cache invalidation |
+| **V3** | Versioned Cache Keys | Instantly busts stale images on demand | N/A |
+| **V4** | KV Storage + CDN | High performance, avoids recalculations | More complex state management |
 
 *Table 1: Evolution of the caching strategy over four iterations*
 
-Here is how we navigated through each phase:
+Here is how I navigated through each phase:
 
-1. **The Starting Point: Basic Cache Headers:** We initially relied on standard HTTP headers: `Cache-Control: public, max-age=3600, s-maxage=7200` for SVGs, and `max-age=86400` for the landing page. This was a good start, but it didn't prevent redundant Worker executions if the CDN missed.
-2. **Stepping Up: Worker-Level Cache API:** To prevent unnecessary Worker executions and API calls when the CDN missed, we adopted the Cloudflare Cache API, saving responses asynchronously using `executionCtx.waitUntil(cache.put(cacheKey, response))`.
-3. **The Sandbox Roadblock:** When we deployed the same code to Netlify Edge Functions, the application suddenly crashed. The reason? Netlify runs on Deno, which enforces a strict sandbox. The `cache.put()` call internally attempted a filesystem write that the Deno runtime naturally blocked.
-4. **Cache Key Headaches:** We also noticed that users modifying query parameters (or simply reordering them) generated distinct cache keys. This bypassed the cache entirely and forced redundant API calls.
-5. **The Stale Content Trap:** Because we aggressively cached the landing page for 24 hours, users were stuck seeing outdated versions of the UI and old markdown snippets even after new updates were pushed to production.
+1. **Attempt 1: Plain CDN Caching:** I initially started with plain SVG caching directly on the CDN. This seemed fine at first, but I quickly ran into a severe cache invalidation problem. The SVG update was controlled entirely by the edge CDN, which meant it was showing the same exact SVG even after a user's GitHub contributions were updated.
+2. **Attempt 2: Nitro JS SWR:** To fix the staleness, I tried using the Nitro JS SWR (stale-while-revalidate) cache. It sounded perfect, but it had a fatal flaw: it started caching the errors too! If the GitHub API hiccuped, users would see an error SVG for hours, and I had to wait painfully long for its cache invalidation to naturally expire.
+3. **Attempt 3: Manual Version Invalidation:** I needed a manual override for developer mistakes. I added a version number in `package.json` to force invalidate the cache. Even if an error or outdated image was stubbornly cached in the CDN, I could just update the `cacheVersion` key in `package.json` to instantly bust the cache across the board.
+4. **Attempt 4: KV Storage for Performance:** Even with the invalidation fixed, the underlying performance problem remained. Fetching a user's entire history on every cache miss was slow. To solve this, I started caching older GitHub contributions (anything older than 6 months) in KV storage for a month. This way, I don't have to recalculate historical contributions on the fly—I just stitch the historical KV data with the recent live data, and then cache the final rendered SVG on the simple CDN.
 
 ## 3. Reaching a Robust Solution
 
-We tackled these challenges iteratively, ultimately arriving at a robust, multi-layered caching architecture:
+Ultimately, I arrived at a robust architecture utilizing two distinct types of caching:
 
-- **Graceful Sandbox Degradation:** To support both Cloudflare and Netlify seamlessly, we treated the Worker Cache API as a "best-effort" optimization. We wrapped the async write in a `.catch()` block. On Cloudflare, it successfully populates the cache; on Netlify, it gracefully logs a warning without crashing, falling back to Netlify's native CDN caching (configured via the `Netlify-CDN-Cache-Control` header).
-  ```typescript
-  executionCtx.waitUntil(
-    cache.put(cacheKey, finalResponse.clone()).catch((cacheErr: any) => {
-      console.warn('Cache write skipped:', cacheErr.message)
-    })
-  )
-  ```
+1. **CDN Cache:** For the final, rendered SVG images.
+2. **KV Cache:** For the raw, historical GitHub contribution data (older than 6 months).
 
-- **Normalizing the Cache Key:** Instead of using the raw request URL as the cache key, we constructed a normalized URL containing only the explicitly supported query parameters (`user`, `theme`, and `type`). This ensured that `?user=foo&theme=dark` and `?theme=dark&user=foo` efficiently hit the exact same cache entry.
-
-- **Browser Cache Invalidation:** To fix the stale landing page and image issues, we introduced a cache-busting mechanism. We imported the application version from `package.json` and appended it as a `&v=${version}` query parameter to the generated image URLs. Now, whenever we bump the package version, all users instantly receive the latest assets.
+Crucially, both of these caching layers are strictly controlled by cache versioning. They can be busted globally by the developer updating the `cacheVersionKey`, or on a per-user basis via a `?v=` query parameter. This gives me the perfect balance of lightning-fast performance and total control over cache invalidation.
