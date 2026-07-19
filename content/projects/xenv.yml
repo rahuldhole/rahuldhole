@@ -2,6 +2,10 @@ title: xenv
 date: "2026"
 description: Execute .env files to auto generate it interactively or headless.
 seoImage: https://placehold.co/200x400/0f172a/3b82f6?text=xenv
+imageComponent:
+  subtitle: CLI Tool
+  icon: i-lucide-terminal
+  type: minimal
 tags:
   - CLI
   - Environment

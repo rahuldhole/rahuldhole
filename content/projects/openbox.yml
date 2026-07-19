@@ -2,6 +2,10 @@ title: openbox/xrdp
 date: "2024"
 description: Built an RDP plugin enabling secure remote desktop access for cloud-based dev environments. Improved remote developer onboarding and workflow stability.
 seoImage: https://placehold.co/200x400/0f172a/3b82f6?text=xRDP
+imageComponent:
+  subtitle: Remote Desktop
+  icon: i-lucide-monitor
+  type: 3d
 tags:
   - DevOps
   - RDP
