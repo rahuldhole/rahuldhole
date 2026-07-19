@@ -9,9 +9,11 @@ badge:
   label: DevOps
 date: 2024-06-16
 description: Kubernetes Cluster Setup Guide - Dive into the details of kubernetes cluster setup guide with this quick guide.
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=Kubernetes+Cluster+Setup+Guide
 pinned: false
+imageComponent:
+  type: DevOps
 ---
 
 ## Common Installation on both worker and control plane nodes

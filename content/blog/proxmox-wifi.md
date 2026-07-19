@@ -9,9 +9,11 @@ badge:
   label: Proxmox
 date: 2024-04-24
 description: Proxmox WiFi Connection Story - Dive into the details of proxmox wifi connection story with this quick guide.
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=Proxmox+WiFi+Connection+Story
 pinned: true
+imageComponent:
+  type: Proxmox
 ---
 
 I bought usb wifi adapter Realtek Semiconductor Corp. USB3.0 802.11ac 1200M Adapter, to connect with my Dell PowerEdge R630

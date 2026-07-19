@@ -9,9 +9,11 @@ badge:
   label: Networking
 date: 2024-04-24
 description: pfSense Quickstart - Dive into the details of pfsense quickstart with this quick guide.
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=pfSense+Quickstart
 pinned: false
+imageComponent:
+  type: Networking
 ---
 
 #### Prerequisite:

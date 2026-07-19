@@ -9,9 +9,11 @@ badge:
   label: Journey
 date: 2026-07-19
 description: "The evolution of caching in the github-streak worker, navigating Deno sandbox limitations, cache key normalization, and cache invalidation."
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=Edge+Caching+Journey
 pinned: false
+imageComponent:
+  type: Journey
 ---
 
 ## 1. The Challenge

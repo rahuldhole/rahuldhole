@@ -9,9 +9,11 @@ badge:
   label: Blooper
 date: 2026-06-27
 description: "How server-rendered YouTube iframes destroyed our SEO crawl budget."
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=Crawl+Budget+Killer
 pinned: false
+imageComponent:
+  type: Blooper
 ---
 
 ## The Blunder

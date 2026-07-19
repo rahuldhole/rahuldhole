@@ -9,9 +9,11 @@ badge:
   label: DX
 date: 2024-04-26
 description: Docker Devtools Stage | Powerlevel, OhMyZSH, tmux, fuzzy finder, autocomplete etc - Dive into the details of docker devtools stage | powerlevel, ohmyzsh, tmux, fuzzy finder, autocomplete etc with this quick guide.
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=Docker+Devtools+Stage+|+Powerlevel,+OhMyZSH,+tmux,+fuzzy+finder,+autocomplete+etc
 pinned: true
+imageComponent:
+  type: DX
 ---
 
 ## Introduction

@@ -9,9 +9,11 @@ badge:
   label: Blooper
 date: 2026-06-23
 description: "How Vite PWA intercepted navigation requests in production and caused redirect loops."
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=PWA+Redirecting+SPA+Routes
 pinned: false
+imageComponent:
+  type: Blooper
 ---
 
 ## Issue

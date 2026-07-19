@@ -5,8 +5,9 @@ export default defineEventHandler(async (event) => {
   const siteUrl = 'https://rahuldhole.com'
   
   // Fetch blog posts using Nuxt Content v3 API
+  // @ts-ignore - queryCollection in Nitro routes takes event as first arg, but types are slightly misaligned
   const posts = await queryCollection(event, 'posts')
-    .order('date', 'DESC')
+    .order('date' as any, 'DESC')
     .all()
 
   const feed = new Feed({
@@ -25,10 +26,10 @@ export default defineEventHandler(async (event) => {
   posts.forEach((post) => {
     feed.addItem({
       title: post.title,
-      id: `${siteUrl}${post.path}`,
-      link: `${siteUrl}${post.path}`,
+      id: `${siteUrl}${(post as any).path}`,
+      link: `${siteUrl}${(post as any).path}`,
       description: post.description,
-      date: new Date(post.date),
+      date: new Date((post as any).date),
       // If you want to include image
       // image: post.image?.src ? `${siteUrl}${post.image.src}` : undefined,
     })

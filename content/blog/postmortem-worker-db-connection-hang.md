@@ -9,9 +9,11 @@ badge:
   label: Postmortem
 date: 2026-05-27
 description: "Resolving Cloudflare Worker connection hangs caused by database connection pools and missing API fallbacks."
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=Worker+Connection+Hang
 pinned: false
+imageComponent:
+  type: Postmortem
 ---
 
 ## Executive Summary

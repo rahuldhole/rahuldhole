@@ -9,9 +9,11 @@ badge:
   label: Network
 date: 2024-04-24
 description: SOCKS5 Proxy Quickstart - Dive into the details of socks5 proxy quickstart with this quick guide.
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=SOCKS5+Proxy+Quickstart
 pinned: false
+imageComponent:
+  type: Network
 ---
 
 ## Understanding SOCKS5 Proxy Quickstart

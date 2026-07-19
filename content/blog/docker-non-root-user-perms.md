@@ -9,9 +9,11 @@ badge:
   label: DevOps
 date: 2024-04-24
 description: "Docker container | Resolving Permission Denied Woes: A Decade-Long Struggle Unraveled - Dive into the details of docker container | resolving permission denied woes: a decade-long struggle unraveled with this quick guide."
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=Docker+container+|+Resolving+Permission+Denied+Woes:+A+Decade-Long+Struggle+Unraveled
 pinned: false
+imageComponent:
+  type: DevOps
 ---
 
 For over a decade, developers across the globe have grappled with the notorious "Permission Denied" error when working with Docker containers. This pesky issue has plagued countless development environments, causing frustration and wasting valuable time. Despite numerous attempts to find a definitive solution, many have come up short, leading to a cycle of perpetual frustration. In this blog, we delve into the root causes of this longstanding problem and provide a comprehensive solution to finally lay it to rest.

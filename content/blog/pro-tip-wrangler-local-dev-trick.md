@@ -9,9 +9,11 @@ badge:
   label: Pro Tip
 date: 2026-06-29
 description: "How to safely sandbox your Cloudflare Workers environment when working with AI coding agents."
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=Sandboxing+Cloudflare+Workers
 pinned: false
+imageComponent:
+  type: Pro Tip
 ---
 
 When giving AI agents access to your development environment, you want to ensure they can't accidentally deploy broken code or leak secrets to your production Cloudflare account. 

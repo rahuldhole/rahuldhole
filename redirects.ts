@@ -12,7 +12,7 @@ import type { NitroRouteRules } from 'nitropack'
  * and bots to the new URL without losing traffic.
  */
 export const redirects: Record<string, NitroRouteRules> = {
-  '/blog/devtools': { redirect: '/blog/docker-devtools' }
+  '/blog/devtools': { redirect: { to: '/blog/docker-devtools', statusCode: 301 } }
   // Add future redirects here. Example:
   // '/old-path': { redirect: '/new-path' }
 }

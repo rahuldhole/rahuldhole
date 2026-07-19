@@ -9,9 +9,11 @@ badge:
   label: Blooper
 date: 2026-06-24
 description: "Why environment variables added via the Cloudflare dashboard kept vanishing after deployment."
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=Disappearing+Cloudflare+Vars
 pinned: false
+imageComponent:
+  type: Blooper
 ---
 
 ## The Blunder 

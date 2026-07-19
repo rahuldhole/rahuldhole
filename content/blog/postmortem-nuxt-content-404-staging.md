@@ -9,9 +9,11 @@ badge:
   label: Postmortem
 date: 2026-06-15
 description: "Debugging missing content and 404 errors when deploying Nuxt Content to Cloudflare D1."
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=Nuxt+Content+404s
 pinned: false
+imageComponent:
+  type: Postmortem
 ---
 
 ## 1. The Issue

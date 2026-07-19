@@ -9,9 +9,11 @@ badge:
   label: Blooper
 date: 2026-06-25
 description: "How missing production environment variables caused our app to aggressively de-index itself."
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=The+Invisible+SEO
 pinned: false
+imageComponent:
+  type: Blooper
 ---
 
 ## The Blunder 

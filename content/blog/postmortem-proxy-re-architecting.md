@@ -9,9 +9,11 @@ badge:
   label: Postmortem
 date: 2026-05-12
 description: "A post-mortem on handling architectural integrity when an AI assistant performs an unauthorized database driver refactoring."
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=Post-Mortem:+Intrusive+Database+Driver+Refactoring
 pinned: false
+imageComponent:
+  type: Postmortem
 ---
 
 ## Executive Summary

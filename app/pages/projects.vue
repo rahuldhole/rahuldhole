@@ -98,8 +98,9 @@ useSeoMeta({
 
           <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div v-for="project in category.items" :key="project.title" class="group relative bg-white dark:bg-zinc-900 rounded-[1.5rem] md:rounded-[2rem] p-4 border border-gray-100 dark:border-zinc-800 transition-all hover:shadow-xl hover:-translate-y-1 flex flex-col">
-              <div v-if="project.image" class="w-full aspect-[16/9] mb-4 rounded-xl overflow-hidden bg-gray-100 dark:bg-zinc-800 relative">
-                 <img :src="project.image" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" :alt="project.title" />
+              <div v-if="project.imageComponent || project.image" class="w-full aspect-[16/9] mb-4 rounded-xl overflow-hidden bg-gray-100 dark:bg-zinc-800 relative">
+                 <ProjectImageComponent v-if="project.imageComponent" :imageComponent="project.imageComponent" :fallbackTitle="project.title" :fallbackDescription="project.description" class="absolute inset-0 w-full h-full transition-transform duration-500 group-hover:scale-105" />
+                 <img v-else-if="project.image" :src="project.image" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" :alt="project.title" />
               </div>
               <div class="px-2 pb-2 flex-1 flex flex-col">
                 <div class="flex justify-between items-start mb-3">

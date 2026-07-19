@@ -9,9 +9,11 @@ badge:
   label: DX
 date: 2024-04-24
 description: tmux status bar toggle - Dive into the details of tmux status bar toggle with this quick guide.
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=tmux+status+bar+toggle
 pinned: false
+imageComponent:
+  type: DX
 ---
 
 ## Understanding tmux status bar toggle

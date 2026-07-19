@@ -9,9 +9,11 @@ badge:
   label: Linux
 date: 2024-04-24
 description: Linux WiFi Drivers - Dive into the details of linux wifi drivers with this quick guide.
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=Linux+WiFi+Drivers
 pinned: false
+imageComponent:
+  type: Linux
 ---
 
 ## Understanding Linux WiFi Drivers

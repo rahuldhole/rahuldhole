@@ -9,9 +9,11 @@ badge:
   label: Proxmox
 date: 2024-04-24
 description: Proxmox DNS Management - Dive into the details of proxmox dns management with this quick guide.
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=Proxmox+DNS+Management
 pinned: false
+imageComponent:
+  type: Proxmox
 ---
 
 Sometimes you can `dig` but can't `ping` it, flush the cache, and the check gateway.

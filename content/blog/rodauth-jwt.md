@@ -9,9 +9,11 @@ badge:
   label: Security
 date: 2024-08-14
 description: roadauth-rails api jwt cors - Dive into the details of roadauth-rails api jwt cors with this quick guide.
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=roadauth-rails+api+jwt+cors
 pinned: false
+imageComponent:
+  type: Security
 ---
 
 ## Understanding roadauth-rails api jwt cors

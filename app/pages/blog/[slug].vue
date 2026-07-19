@@ -11,7 +11,7 @@ if (!post.value) {
 
 const { data: surround } = await useAsyncData(`surround-${route.params.slug}`, () => {
   return queryCollectionItemSurroundings('posts', route.path, {
-    fields: ['description']
+    fields: ['description', 'imageComponent', 'seoImage']
   })
 })
 
@@ -35,7 +35,7 @@ useHead({
         '@type': 'BlogPosting',
         'headline': title,
         'description': description,
-        'image': post.value.image?.src || 'https://rahuldhole.com/profile.png',
+        'image': post.value.seoImage?.src || post.value.image?.src || 'https://rahuldhole.com/profile.png',
         'datePublished': post.value.date,
         'author': {
           '@type': 'Person',
@@ -46,7 +46,11 @@ useHead({
   ]
 })
 
-if (post.value.image?.src) {
+if (post.value.seoImage?.src) {
+  defineOgImage({
+    url: post.value.seoImage.src
+  })
+} else if (post.value.image?.src) {
   defineOgImage({
     url: post.value.image.src
   })
@@ -95,7 +99,27 @@ if (post.value.image?.src) {
 
         <USeparator v-if="surround?.length" />
 
-        <UContentSurround :surround="surround" />
+        <div v-if="surround?.length" class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 mt-8">
+          <template v-for="(link, index) in surround" :key="index">
+            <NuxtLink v-if="link" :to="link.path" class="group relative bg-white dark:bg-zinc-900 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border border-gray-100 dark:border-zinc-800 hover:shadow-2xl transition-all duration-500 flex flex-col h-full">
+              <div class="aspect-[16/9] overflow-hidden relative border-b border-gray-100 dark:border-zinc-800">
+                <BlogImageComponent v-if="(link as any).imageComponent" :imageComponent="(link as any).imageComponent" :fallbackTitle="link.title" :fallbackDescription="link.description" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+                <img v-else-if="(link as any).seoImage" :src="(link as any).seoImage?.src || (link as any).seoImage" :alt="link.title" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+                <img v-else-if="link.image" :src="(link as any).image?.src || link.image" :alt="link.title" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" />
+              </div>
+              <div class="p-5 md:p-6 flex flex-col gap-2 flex-1 justify-center">
+                <div class="flex items-center gap-2 text-gray-400" :class="index === 0 ? '' : 'justify-end'">
+                  <UIcon v-if="index === 0" name="i-lucide-arrow-left" class="size-4" />
+                  <span class="text-[10px] font-bold uppercase tracking-widest">{{ index === 0 ? 'Previous' : 'Next' }}</span>
+                  <UIcon v-if="index === 1" name="i-lucide-arrow-right" class="size-4" />
+                </div>
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-primary transition-colors line-clamp-2" :class="index === 0 ? '' : 'text-right'">{{ link.title }}</h3>
+                <p class="text-sm text-gray-500 line-clamp-2" :class="index === 0 ? '' : 'text-right'">{{ link.description }}</p>
+              </div>
+            </NuxtLink>
+            <div v-else class="hidden sm:block"></div>
+          </template>
+        </div>
       </UPageBody>
 
       <template v-if="post?.body?.toc?.links?.length" #right>

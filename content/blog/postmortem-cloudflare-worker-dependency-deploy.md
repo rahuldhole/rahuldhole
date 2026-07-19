@@ -9,9 +9,11 @@ badge:
   label: Postmortem
 date: 2026-06-08
 description: "How to fix missing dependencies when deploying Cloudflare Workers from within a monorepo workspace."
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=Cloudflare+Worker+Dependencies
 pinned: false
+imageComponent:
+  type: Postmortem
 ---
 
 ## 1. The Issue

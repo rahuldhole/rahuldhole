@@ -9,9 +9,11 @@ badge:
   label: Postmortem
 date: 2026-06-10
 description: "Resolving Nuxt Content payload extraction issues and hydration crashes on ISR routes."
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=Nuxt+ISR+Payload+Extraction
 pinned: false
+imageComponent:
+  type: Postmortem
 ---
 
 ## Summary

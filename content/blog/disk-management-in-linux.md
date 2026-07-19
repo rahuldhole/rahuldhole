@@ -9,9 +9,11 @@ badge:
   label: Linux
 date: 2024-04-24
 description: Disk Management in Linux - Dive into the details of disk management in linux with this quick guide.
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=Disk+Management+in+Linux
 pinned: false
+imageComponent:
+  type: Linux
 ---
 
 ## Understanding Disk Management in Linux

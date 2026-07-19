@@ -9,9 +9,11 @@ badge:
   label: Blooper
 date: 2026-06-26
 description: "How importing a client-side SDK crashed our Server-Side Rendering edge workers."
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=SSR+Crash+of+Doom
 pinned: false
+imageComponent:
+  type: Blooper
 ---
 
 ## The Blunder 

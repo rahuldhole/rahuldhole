@@ -48,7 +48,7 @@ defineOgImageComponent('Saas')
           </div>
           <div class="mt-6 md:mt-12 flex items-center justify-between relative z-10">
             <div class="flex items-center gap-3 md:gap-4">
-              <UAvatar v-if="posts[0].authors?.[0]" :src="posts[0].authors[0].avatar?.src || posts[0].authors[0].avatar" size="lg" class="border-2 border-[#1A3C34] dark:border-primary" />
+              <UAvatar v-if="posts[0].authors?.[0]" :src="(posts[0].authors[0].avatar as any)?.src || posts[0].authors[0].avatar as string" size="lg" class="border-2 border-[#1A3C34] dark:border-primary" />
               <div class="flex flex-col">
                 <span class="text-xs font-bold text-[#1A3C34] dark:text-white uppercase">{{ posts[0].authors?.[0]?.name || 'Rahul Dhole' }}</span>
                 <span class="text-[10px] font-medium text-gray-500 uppercase tracking-widest">{{ new Date(posts[0].date).toLocaleDateString('en', { month: 'long', year: 'numeric' }) }}</span>
@@ -65,7 +65,8 @@ defineOgImageComponent('Saas')
         <!-- Card 2: Visual Impact (Posts[1]) -->
         <NuxtLink v-if="posts[1]" :to="posts[1].path" class="col-span-12 md:col-span-6 lg:col-span-4 group relative bg-[#1A3C34] rounded-[2rem] lg:rounded-[2.5rem] overflow-hidden border border-[#1A3C34] hover:shadow-xl transition-all duration-500">
           <div class="relative h-full w-full p-8 md:p-10 flex flex-col justify-end min-h-[300px] md:min-h-[400px]">
-            <img :src="posts[1].image?.src || posts[1].image" :alt="posts[1].title" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-1000" />
+            <BlogImageComponent v-if="posts[1].imageComponent" :imageComponent="posts[1].imageComponent" :fallbackTitle="posts[1].title" :fallbackDescription="posts[1].description" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-1000" />
+            <img v-else-if="posts[1].seoImage?.src || posts[1].seoImage || posts[1].image" :src="posts[1].seoImage?.src || posts[1].seoImage || posts[1].image?.src || posts[1].image" :alt="posts[1].title" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-110 transition-transform duration-1000" />
             <div class="absolute inset-0 bg-gradient-to-t from-[#1A3C34] via-[#1A3C34]/40 to-transparent z-10" />
             <div class="relative z-20">
               <span class="text-[10px] font-black tracking-widest text-[#A0D995] uppercase mb-3 block">LATEST INSIGHT</span>
@@ -149,7 +150,8 @@ defineOgImageComponent('Saas')
         <template v-for="(post, index) in posts.slice(7)" :key="index + 7">
           <NuxtLink :to="post.path" class="col-span-12 md:col-span-6 lg:col-span-4 group relative bg-white dark:bg-zinc-900 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden border border-gray-100 dark:border-zinc-800 hover:shadow-2xl transition-all duration-500">
             <div class="aspect-[16/10] overflow-hidden relative">
-              <img :src="post.image?.src || post.image" :alt="post.title" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+              <BlogImageComponent v-if="post.imageComponent" :imageComponent="post.imageComponent" :fallbackTitle="post.title" :fallbackDescription="post.description" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
+              <img v-else-if="post.seoImage?.src || post.seoImage || post.image" :src="post.seoImage?.src || post.seoImage || post.image?.src || post.image" :alt="post.title" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110" />
               <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-500" />
             </div>
             <div class="p-5 md:p-8">

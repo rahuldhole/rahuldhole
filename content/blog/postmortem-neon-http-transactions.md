@@ -9,9 +9,11 @@ badge:
   label: Postmortem
 date: 2026-06-05
 description: "Why database transactions fail in serverless HTTP drivers and how to architect around them using compensating transactions."
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=Serverless+HTTP+Transactions
 pinned: false
+imageComponent:
+  type: Postmortem
 ---
 
 ## Incident Summary

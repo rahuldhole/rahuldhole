@@ -32,6 +32,15 @@ const createImageSchema = () => z.object({
   srcset: z.string().optional()
 })
 
+const createImageComponentSchema = () => z.object({
+  title: z.string().optional(),
+  subtitle: z.string().optional(),
+  icon: z.string().optional().editor({ input: 'icon' }),
+  type: z.string().optional(),
+  bgClass: z.string().optional(),
+  textClass: z.string().optional()
+})
+
 export const collections = {
   index: defineCollection({
     source: '0.index.yml',
@@ -90,7 +99,9 @@ export const collections = {
     source: 'blog/**/*',
     type: 'page',
     schema: z.object({
-      image: z.object({ src: z.string().nonempty().editor({ input: 'media' }) }),
+      image: z.object({ src: z.string().nonempty().editor({ input: 'media' }) }).optional(),
+      seoImage: z.object({ src: z.string().nonempty().editor({ input: 'media' }) }).optional(),
+      imageComponent: createImageComponentSchema().optional(),
       authors: z.array(
         z.object({
           name: z.string().nonempty(),
@@ -110,7 +121,9 @@ export const collections = {
     schema: z.object({
       title: z.string().nonempty(),
       description: z.string().nonempty(),
-      image: z.string().nonempty().editor({ input: 'media' }),
+      image: z.string().nonempty().editor({ input: 'media' }).optional(),
+      seoImage: z.string().nonempty().editor({ input: 'media' }).optional(),
+      imageComponent: createImageComponentSchema().optional(),
       url: z.string().nonempty(),
       tags: z.array(z.string()),
       date: z.string(),

@@ -9,8 +9,10 @@ badge:
   label: Blooper
 date: 2026-06-28
 description: "Why you should never hardcode UI navigation links to specific markdown file paths."
-image:
+seoImage:
   src: https://placehold.co/800x400/0f172a/3b82f6?text=Hardcoded+Links+404s
+imageComponent:
+  type: Blooper
 pinned: false
 ---
 
