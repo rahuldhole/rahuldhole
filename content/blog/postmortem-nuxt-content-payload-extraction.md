@@ -39,8 +39,9 @@ Conflicting route rules in the configuration:
 
 * The SPA catch-all disabled SSR globally.
 * ISR routes expected SSR + payload.
-* Client hydration attempted to access the missing payload, leading to a crash.
+* Client hydration attempted to access the missing payload, leading to a crash ([Figure 1](#fig-1)).
 
+<a id="fig-1"></a>
 ```mermaid
 sequenceDiagram
     participant User
@@ -55,7 +56,7 @@ sequenceDiagram
     Payload--xNuxt: Undefined (Not extracted)
     Nuxt--xBrowser: 500 Internal Server Error (Crash)
 ```
-*Figure: Payload extraction failure during hydration*
+*Figure 1: Payload extraction failure during hydration*
 
 Related upstream issue:
 https://github.com/nuxt/nuxt/issues/34856
@@ -104,12 +105,15 @@ If explicit routing is too complex, the following "trick" can bypass the hydrati
 
 ## Trade-offs
 
+A summary of the trade-offs between the two options is detailed in [Table 1](#table-1).
+
+<a id="table-1"></a>
 | Approach | Advantages | Disadvantages |
 | --- | --- | --- |
 | **Option A: Official Way** | Cleanest architecture, fully supported by Nuxt, best performance. | Requires explicit maintenance of route patterns. |
 | **Option B: Legacy Trick** | Quickest fix, bypasses hydration crashes without strict routing. | Inlines payloads in HTML (larger responses), bypasses standard Nuxt hydration logic. |
 
-*Table: Trade-offs between official and legacy solutions*
+*Table 1: Trade-offs between official and legacy solutions*
 
 ---
 

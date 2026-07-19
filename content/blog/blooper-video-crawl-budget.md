@@ -21,8 +21,9 @@ Google Search Console started treating our application like a media hosting plat
 We were server-side rendering heavy YouTube `iframe` embeds in our blog posts. Because our new domain has a tiny "crawl budget", Googlebot spent all its time trying to parse heavy media wrappers, hit its timeout, and gave up on reading our actual text content.
 
 ## The Fix
-Wrapped the entire YouTube component template in `<ClientOnly>` tags with a lightweight HTML placeholder. Now the server sends a fast skeleton, Googlebot reads the text immediately, and the heavy video only loads on the client side. Problem solved! 🤦‍♂️
+Wrapped the entire YouTube component template in `<ClientOnly>` tags with a lightweight HTML placeholder. Now the server sends a fast skeleton, Googlebot reads the text immediately, and the heavy video only loads on the client side. Problem solved! 🤦‍♂️ (See [Figure 1](#fig-1))
 
+<a id="fig-1"></a>
 ```mermaid
 sequenceDiagram
     participant Bot as Googlebot
@@ -44,4 +45,4 @@ sequenceDiagram
     Server-->>Client: Fast HTML
     Client->>Client: Hydrate & Load iframe
 ```
-*Figure: Search engine parsing timeout vs success with ClientOnly skeleton*
+*Figure 1: Search engine parsing timeout vs success with ClientOnly skeleton*

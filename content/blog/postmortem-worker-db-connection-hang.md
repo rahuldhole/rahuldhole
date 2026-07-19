@@ -43,8 +43,9 @@ const pool = new Pool({
   idleTimeoutMillis: 30000, // 30 seconds
 })
 ```
-While this keeps connections warm in standard Node environments, in Cloudflare Workers **WebSockets must not be kept active indefinitely**. An idle timeout of 30 seconds meant active WebSockets remained in the event loop well after the request finished. Because the event loop never emptied, the Cloudflare Workers runtime assumed the code had hung and aborted the workers with a severe **1101 error**.
+While this keeps connections warm in standard Node environments, in Cloudflare Workers **WebSockets must not be kept active indefinitely**. An idle timeout of 30 seconds meant active WebSockets remained in the event loop well after the request finished. Because the event loop never emptied, the Cloudflare Workers runtime assumed the code had hung and aborted the workers with a severe **1101 error** ([Figure 1](#fig-1)).
 
+<a id="fig-1"></a>
 ```mermaid
 sequenceDiagram
     participant Client
@@ -60,7 +61,7 @@ sequenceDiagram
     Note over Worker: Event loop not empty!
     Worker--xWorker: 1101 Worker Code Hung (Crash)
 ```
-*Figure: Worker event loop crash due to idle WebSocket connection*
+*Figure 1: Worker event loop crash due to idle WebSocket connection*
 
 ### 2. Lack of Resilient DB Fallbacks
 Unlike other endpoints, this specific endpoint had no guardrails around database connection failures. If the serverless database was waking up (cold start) or temporarily unreachable, the database query failed, triggering a generic HTTP 500.

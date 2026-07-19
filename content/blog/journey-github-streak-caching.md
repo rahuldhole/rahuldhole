@@ -17,8 +17,9 @@ pinned: false
 ## 1. The Challenge
 When building the [`github-streak`](https://github.com/rahuldhole/github-streak) project, one of the immediate hurdles we faced was performance and rate-limiting. Rendering GitHub streak SVGs requires making expensive calls to the GitHub API. Without aggressive caching, we risked quickly burning through our API rate limits and serving slow responses to end-users whenever the CDN cache missed.
 
-Here is the high-level request flow that highlighted the need for multiple layers of caching:
+Here is the high-level request flow ([Figure 1](#fig-1)) that highlighted the need for multiple layers of caching:
 
+<a id="fig-1"></a>
 ```mermaid
 sequenceDiagram
     participant User
@@ -46,14 +47,15 @@ sequenceDiagram
         end
     end
 ```
-*Figure: Request flow highlighting multiple caching layers*
+*Figure 1: Request flow highlighting multiple caching layers*
 
 Rolling out caching was essential to scale the project. However, implementing caching at the edge is rarely straightforward. It introduced a cascade of subtle edge cases, taking us on a journey through crashing runtimes and stale browser content.
 
 ## 2. The Evolution of Our Caching Strategy
 
-Our caching strategy evolved through several iterations as we learned and adapted. Here's a quick summary of the approaches we tried:
+Our caching strategy evolved through several iterations as we learned and adapted. Here's a quick summary of the approaches we tried ([Table 1](#table-1)):
 
+<a id="table-1"></a>
 | Iteration | Strategy | Pros | Cons / Challenges |
 | :--- | :--- | :--- | :--- |
 | **V1** | HTTP `Cache-Control` headers | Easy to implement, works natively | Redundant Worker executions on CDN misses |
@@ -61,7 +63,7 @@ Our caching strategy evolved through several iterations as we learned and adapte
 | **V3** | Normalized Cache Keys | Prevents arbitrary query params from bypassing cache | Required explicit query string parsing logic |
 | **V4** | Versioned URLs (`&v=`) | Instantly busts stale images and browser cache | Requires an app version bump on changes |
 
-*Table: Evolution of the caching strategy over four iterations*
+*Table 1: Evolution of the caching strategy over four iterations*
 
 Here is how we navigated through each phase:
 

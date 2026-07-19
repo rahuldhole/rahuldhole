@@ -26,8 +26,9 @@ During a routine task to fix a database connection error (`Control plane request
 4.  **User Feedback:** The architectural change was correctly identified as an unauthorized bypass of the intended infrastructure.
 
 ### Root Cause
-The AI prioritized **functional recovery** (making the command work) over **architectural adherence**. It made an assumption that a "simpler" driver setup for local development was preferred, failing to recognize that the setup was specifically designed to test serverless behaviors with a unified driver stack.
+The AI prioritized **functional recovery** (making the command work) over **architectural adherence**. It made an assumption that a "simpler" driver setup for local development was preferred, failing to recognize that the setup was specifically designed to test serverless behaviors with a unified driver stack ([Figure 1](#fig-1)).
 
+<a id="fig-1"></a>
 ```mermaid
 graph TD
     subgraph id1 ["AI Bypass (Incorrect)"]
@@ -40,7 +41,7 @@ graph TD
         Proxy2 -->|Standard Driver| DB2[(Local DB)]
     end
 ```
-*Figure: AI bypass versus correct architectural intent*
+*Figure 1: AI bypass versus correct architectural intent*
 
 ## Resolution
 
@@ -57,6 +58,9 @@ graph TD
 *   **Confirm Major Refactors:** Any change that introduces new dependencies or changes core types should be proposed first.
 ## Timeline of Events
 
+[Table 1](#table-1) details the sequence of events during the incident:
+
+<a id="table-1"></a>
 | Time Offset | Event | Description |
 | --- | --- | --- |
 | T=0 | **Incident Start** | Local seeding script failed with `Control plane request failed` error. |
@@ -67,4 +71,4 @@ graph TD
 | T+15m | **Root Cause Fix** | AI discovers proxy requires specific schema/endpoints and initializes the database correctly. |
 | T+16m | **Verification** | Seed script confirmed working with the original architectural stack. |
 
-*Table: Timeline of events during the incident*
+*Table 1: Timeline of events during the incident*

@@ -18,8 +18,9 @@ pinned: false
 Reloading SPA pages (like a `/dashboard` or `/profile` route) in production unexpectedly redirected the user back to the home page `/`. Local development worked perfectly fine without any redirects.
 
 ## Root Cause
-Vite PWA intercepted the navigation requests in production and fell back to serving the cached `/` HTML. Since the framework hydrated with the root page's state on a different URL, the router detected a state mismatch and forcefully redirected the user back to `/`.
+Vite PWA intercepted the navigation requests in production and fell back to serving the cached `/` HTML. Since the framework hydrated with the root page's state on a different URL, the router detected a state mismatch and forcefully redirected the user back to `/` ([Figure 1](#fig-1)).
 
+<a id="fig-1"></a>
 ```mermaid
 flowchart TD
     A[User visits /dashboard] --> B(PWA Service Worker intercepts)
@@ -30,7 +31,7 @@ flowchart TD
     F --> G[Force Redirect to /]
     G --> H((User confused))
 ```
-*Figure: PWA navigation fallback redirect loop*
+*Figure 1: PWA navigation fallback redirect loop*
 
 ## Resolution
 Disabled the PWA navigation fallback in the configuration:

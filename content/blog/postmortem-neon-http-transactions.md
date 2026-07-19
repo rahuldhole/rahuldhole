@@ -24,8 +24,9 @@ The application uses Drizzle ORM connected to a Serverless Postgres database. Fo
 However, several core data models and webhook handlers were wrapping database queries inside native `db.transaction(async tx => { ... })` blocks. Because HTTP connections are inherently stateless, they cannot maintain an open connection session to execute a `BEGIN`, run arbitrary JavaScript logic (like waiting for Cloudflare R2 uploads), and then issue a `COMMIT`. This fundamental incompatibility caused the driver to throw an exception immediately.
 
 ## Resolution
-To resolve the issue while preserving data consistency across distributed systems (Postgres + Cloudflare R2 + Usage Ledgers), we implemented a modified Saga/compensating-transaction pattern:
+To resolve the issue while preserving data consistency across distributed systems (Postgres + Cloudflare R2 + Usage Ledgers), we implemented a modified Saga/compensating-transaction pattern ([Figure 1](#fig-1)):
 
+<a id="fig-1"></a>
 ```mermaid
 sequenceDiagram
     participant App as Application
@@ -49,7 +50,7 @@ sequenceDiagram
         end
     end
 ```
-*Figure: Compensating transaction flow handling external storage and database*
+*Figure 1: Compensating transaction flow handling external storage and database*
 
 1. **Removed Native Transactions:** Completely removed all `db.transaction()` wrappers across the application models.
 2. **Pre-Generated UUIDs:** Migrated from relying on Postgres `RETURNING id` to eagerly generating IDs in the Node/Worker runtime using `globalThis.crypto.randomUUID()`.
@@ -66,10 +67,13 @@ sequenceDiagram
 - Monitor the R2 bucket growth over time to evaluate if an orphaned-file cleanup cron job is necessary.
 - Ensure all future database models adhere to the "Network First, DB Second" pattern.
 
+See [Table 1](#table-1) for a breakdown of these phases.
+
+<a id="table-1"></a>
 | Phase | Action | Failure Consequence |
 | --- | --- | --- |
 | 1 | Generate UUIDs | None (Local Execution) |
 | 2 | Network/R2 Uploads | Request Aborted cleanly |
 | 3 | Database Inserts | Orphaned File in R2 (Safe) |
 
-*Table: Action items and failure consequences*
+*Table 1: Action items and failure consequences*
