@@ -22,3 +22,25 @@ We were server-side rendering heavy YouTube `iframe` embeds in our blog posts. B
 
 ## The Fix
 Wrapped the entire YouTube component template in `<ClientOnly>` tags with a lightweight HTML placeholder. Now the server sends a fast skeleton, Googlebot reads the text immediately, and the heavy video only loads on the client side. Problem solved! 🤦‍♂️
+
+```mermaid
+sequenceDiagram
+    participant Bot as Googlebot
+    participant Server as SSR Server
+    participant Client as Browser
+
+    Note over Bot,Server: Before `<ClientOnly>`
+    Bot->>Server: GET /blog/post
+    Server->>Server: Render Heavy iframe
+    Server-->>Bot: Massive HTML response
+    Bot->>Bot: Parse timeout / Budget exhausted
+
+    Note over Bot,Server: After `<ClientOnly>`
+    Bot->>Server: GET /blog/post
+    Server->>Server: Render Skeleton & Text
+    Server-->>Bot: Fast, small HTML
+    Bot->>Bot: Parses text successfully!
+    Client->>Server: GET /blog/post
+    Server-->>Client: Fast HTML
+    Client->>Client: Hydrate & Load iframe
+```

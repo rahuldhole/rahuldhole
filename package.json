@@ -30,8 +30,10 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
+    "@barzhsieh/nuxt-content-mermaid": "^2.2.3",
     "@nuxt/eslint": "^1.15.2",
     "eslint": "^10.0.2",
+    "mermaid": "^11.16.0",
     "typescript": "^5.9.3",
     "vue-tsc": "^3.2.5"
   },

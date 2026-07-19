@@ -26,6 +26,30 @@ However, several core data models and webhook handlers were wrapping database qu
 ## Resolution
 To resolve the issue while preserving data consistency across distributed systems (Postgres + Cloudflare R2 + Usage Ledgers), we implemented a modified Saga/compensating-transaction pattern:
 
+```mermaid
+sequenceDiagram
+    participant App as Application
+    participant R2 as Cloudflare R2
+    participant DB as Postgres (HTTP)
+
+    App->>App: Generate UUID
+    App->>R2: Upload File
+    alt Upload Fails
+        R2-->>App: Error
+        App->>App: Abort Operation
+    else Upload Succeeds
+        R2-->>App: Success
+        App->>DB: Insert Record
+        alt Insert Fails
+            DB-->>App: Error
+            App->>App: File orphaned in R2 (Harmless)
+        else Insert Succeeds
+            DB-->>App: Success
+            App->>App: Complete Operation
+        end
+    end
+```
+
 1. **Removed Native Transactions:** Completely removed all `db.transaction()` wrappers across the application models.
 2. **Pre-Generated UUIDs:** Migrated from relying on Postgres `RETURNING id` to eagerly generating IDs in the Node/Worker runtime using `globalThis.crypto.randomUUID()`.
 3. **Reordered Network Operations:** Shifted all external side-effects (specifically Cloudflare R2 object uploads) to occur *first* in the function logic. 
@@ -40,3 +64,9 @@ To resolve the issue while preserving data consistency across distributed system
 ## Action Items
 - Monitor the R2 bucket growth over time to evaluate if an orphaned-file cleanup cron job is necessary.
 - Ensure all future database models adhere to the "Network First, DB Second" pattern.
+
+| Phase | Action | Failure Consequence |
+| --- | --- | --- |
+| 1 | Generate UUIDs | None (Local Execution) |
+| 2 | Network/R2 Uploads | Request Aborted cleanly |
+| 3 | Database Inserts | Orphaned File in R2 (Safe) |

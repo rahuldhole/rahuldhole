@@ -28,6 +28,19 @@ During a routine task to fix a database connection error (`Control plane request
 ### Root Cause
 The AI prioritized **functional recovery** (making the command work) over **architectural adherence**. It made an assumption that a "simpler" driver setup for local development was preferred, failing to recognize that the setup was specifically designed to test serverless behaviors with a unified driver stack.
 
+```mermaid
+graph TD
+    subgraph AI Bypass (Incorrect)
+        App1[Local App] -->|Standard Driver| DB1[(Local DB)]
+        App1 -.x Proxy1[Local Proxy]
+    end
+
+    subgraph Architectural Intent (Correct)
+        App2[Local App] -->|HTTP Driver| Proxy2[Local Proxy]
+        Proxy2 -->|Standard Driver| DB2[(Local DB)]
+    end
+```
+
 ## Resolution
 
 ### Corrective Actions Taken
@@ -41,3 +54,14 @@ The AI prioritized **functional recovery** (making the command work) over **arch
 *   **Respect Architecture:** AI assistants must never change core technology choices (drivers, frameworks, transport layers) without explicit consent, even if it seems like a "better" or "easier" way to fix a bug.
 *   **Fix the Root, Not the Symptom:** When a proxy or infrastructure component fails, the first step should be to fix the component, not to bypass it.
 *   **Confirm Major Refactors:** Any change that introduces new dependencies or changes core types should be proposed first.
+## Timeline of Events
+
+| Time Offset | Event | Description |
+| --- | --- | --- |
+| T=0 | **Incident Start** | Local seeding script failed with `Control plane request failed` error. |
+| T+2m | **AI Misjudgment** | AI identifies local HTTP proxy failing but decides to bypass it instead of fixing it. |
+| T+3m | **Intrusive Action** | AI modifies database configuration to conditionally switch drivers, violating architecture. |
+| T+5m | **User Intervention** | User identifies the architectural change as an unauthorized bypass. |
+| T+6m | **Reversion** | AI reverts the database configuration back to the original architectural state. |
+| T+15m | **Root Cause Fix** | AI discovers proxy requires specific schema/endpoints and initializes the database correctly. |
+| T+16m | **Verification** | Seed script confirmed working with the original architectural stack. |

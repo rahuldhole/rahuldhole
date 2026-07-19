@@ -2,7 +2,7 @@ import { redirects } from './redirects'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxt/ui', '@nuxt/content', '@vueuse/nuxt', 'nuxt-og-image', '@nuxtjs/sitemap', '@nuxtjs/robots', 'nuxt-studio', 'motion-v/nuxt'],
+  modules: ['@nuxt/eslint', '@nuxt/image', '@nuxt/ui', '@nuxt/content', '@vueuse/nuxt', 'nuxt-og-image', '@nuxtjs/sitemap', '@nuxtjs/robots', 'nuxt-studio', 'motion-v/nuxt', '@barzhsieh/nuxt-content-mermaid'],
 
   build: {
     transpile: ['motion-v']

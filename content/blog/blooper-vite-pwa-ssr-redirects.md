@@ -20,6 +20,17 @@ Reloading SPA pages (like a `/dashboard` or `/profile` route) in production unex
 ## Root Cause
 Vite PWA intercepted the navigation requests in production and fell back to serving the cached `/` HTML. Since the framework hydrated with the root page's state on a different URL, the router detected a state mismatch and forcefully redirected the user back to `/`.
 
+```mermaid
+flowchart TD
+    A[User visits /dashboard] --> B(PWA Service Worker intercepts)
+    B --> C{Has /dashboard cache?}
+    C -- No --> D[PWA Fallback to / HTML]
+    D --> E[Client hydrates with / state]
+    E --> F[Router detects URL mismatch]
+    F --> G[Force Redirect to /]
+    G --> H((User confused))
+```
+
 ## Resolution
 Disabled the PWA navigation fallback in the configuration:
 ```ts

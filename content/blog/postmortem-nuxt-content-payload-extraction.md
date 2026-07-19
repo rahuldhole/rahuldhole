@@ -41,6 +41,21 @@ Conflicting route rules in the configuration:
 * ISR routes expected SSR + payload.
 * Client hydration attempted to access the missing payload, leading to a crash.
 
+```mermaid
+sequenceDiagram
+    participant User
+    participant Browser
+    participant Nuxt as Nuxt App (Client)
+    participant Payload as payload.json
+
+    User->>Browser: Request /blog/post
+    Browser->>Nuxt: Load JS App (SPA mode)
+    Nuxt->>Nuxt: Start Hydration
+    Nuxt->>Payload: Attempt to read nuxtApp.payload.data
+    Payload--xNuxt: Undefined (Not extracted)
+    Nuxt--xBrowser: 500 Internal Server Error (Crash)
+```
+
 Related upstream issue:
 https://github.com/nuxt/nuxt/issues/34856
 
@@ -88,8 +103,10 @@ If explicit routing is too complex, the following "trick" can bypass the hydrati
 
 ## Trade-offs
 
-* **Official Way**: Cleanest architecture, fully supported by Nuxt, best performance. Requires explicit maintenance of route patterns.
-* **Legacy Trick**: Quickest fix, but inlines payloads in HTML (larger responses) and bypasses standard Nuxt hydration logic.
+| Approach | Advantages | Disadvantages |
+| --- | --- | --- |
+| **Option A: Official Way** | Cleanest architecture, fully supported by Nuxt, best performance. | Requires explicit maintenance of route patterns. |
+| **Option B: Legacy Trick** | Quickest fix, bypasses hydration crashes without strict routing. | Inlines payloads in HTML (larger responses), bypasses standard Nuxt hydration logic. |
 
 ---
 
