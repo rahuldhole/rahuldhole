@@ -30,12 +30,12 @@ The AI prioritized **functional recovery** (making the command work) over **arch
 
 ```mermaid
 graph TD
-    subgraph AI Bypass (Incorrect)
+    subgraph id1 ["AI Bypass (Incorrect)"]
         App1[Local App] -->|Standard Driver| DB1[(Local DB)]
-        App1 -.x Proxy1[Local Proxy]
+        App1 -.->|Bypassed| Proxy1[Local Proxy]
     end
 
-    subgraph Architectural Intent (Correct)
+    subgraph id2 ["Architectural Intent (Correct)"]
         App2[Local App] -->|HTTP Driver| Proxy2[Local Proxy]
         Proxy2 -->|Standard Driver| DB2[(Local DB)]
     end
