@@ -17,7 +17,7 @@ imageComponent:
 ---
 
 ## 1. The Challenge
-When building the [`github-streak`](https://github.com/rahuldhole/github-streak) project, one of the immediate hurdles I faced was performance and rate-limiting. Rendering GitHub streak SVGs requires making expensive calls to the GitHub API. Without aggressive caching, I risked quickly burning through my API rate limits and serving slow responses to end-users.
+When building the [`🔥 github-streak`](https://github.com/rahuldhole/github-streak) project, one of the immediate hurdles I faced was performance and rate-limiting. Rendering GitHub streak SVGs requires making expensive calls to the GitHub API. Without aggressive caching, I risked quickly burning through my API rate limits and serving slow responses to end-users.
 
 Here is the high-level request flow ([Figure 1](#fig-1)) that highlighted the need for multiple layers of caching:
 

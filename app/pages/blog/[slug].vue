@@ -158,4 +158,19 @@ if (seoImageUrl) {
   height: 1.25rem;
   color: var(--ui-primary);
 }
+
+:deep(a code) {
+  color: var(--ui-primary);
+  background-color: color-mix(in srgb, var(--ui-primary) 10%, transparent);
+  border: 1px dashed color-mix(in srgb, var(--ui-primary) 40%, transparent);
+  border-radius: 0.375rem;
+  padding: 0.125rem 0.375rem;
+  transition: all 0.2s ease;
+}
+
+:deep(a:hover code) {
+  background-color: var(--ui-primary);
+  color: white;
+  border-style: solid;
+}
 </style>
