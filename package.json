@@ -20,7 +20,7 @@
     "@nuxtjs/sitemap": "^8.3.1",
     "@standard-schema/spec": "^1.1.0",
     "@vueuse/nuxt": "^14.4.0",
-    "better-sqlite3": "^12.6.2",
+    "better-sqlite3": "^12.11.1",
     "feed": "^6.0.0",
     "giscus": "^1.6.0",
     "nuxt": "^4.3.1",
