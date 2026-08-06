@@ -99,9 +99,7 @@ provide('navigation', navigation)
   <UApp>
     <NuxtLoadingIndicator />
 
-    <NuxtLayout>
-      <NuxtPage />
-    </NuxtLayout>
+Hello world! testing pr
 
     <ClientOnly>
       <LazyUContentSearch
