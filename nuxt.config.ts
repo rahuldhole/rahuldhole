@@ -4,6 +4,10 @@ import { redirects } from './redirects'
 export default defineNuxtConfig({
   modules: ['@nuxt/eslint', '@nuxt/image', '@nuxt/ui', '@nuxt/content', '@vueuse/nuxt', 'nuxt-og-image', '@nuxtjs/sitemap', '@nuxtjs/robots', 'nuxt-studio', 'motion-v/nuxt', '@barzhsieh/nuxt-content-mermaid'],
 
+  experimental: {
+    emitRouteChunkError: 'automatic'
+  },
+
   build: {
     transpile: ['motion-v']
   },
