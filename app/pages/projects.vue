@@ -61,8 +61,9 @@ useSeoMeta({
         container: '!pt-0 pb-24 max-w-7xl mx-auto'
       }"
     >
-      <div v-if="projects" class="space-y-16 md:space-y-24">
-        <div v-for="category in groupedProjects" :key="category.name" class="flex flex-col gap-6 md:gap-8">
+      <div v-if="projects" class="flex flex-col">
+        <div class="flex flex-col gap-16 md:gap-24">
+          <div v-for="category in groupedProjects" :key="category.name" class="flex flex-col gap-6 md:gap-8">
           
           <div class="flex items-center gap-4">
             <h2 class="text-2xl md:text-4xl font-black tracking-tight text-gray-900 dark:text-white uppercase">
@@ -121,9 +122,13 @@ useSeoMeta({
             </div>
           </div>
 
+          </div>
+        </div>
+        
+        <div class="mt-4 md:mt-6">
+          <Gist />
         </div>
       </div>
-      <Gist />
     </UPageSection>
   </UPage>
 </template>

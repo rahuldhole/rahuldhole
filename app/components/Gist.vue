@@ -47,7 +47,7 @@ const apps = computed(() => {
 </script>
 
 <template>
-  <div v-if="apps.length > 0" class="mt-24 pt-16 border-t border-gray-100 dark:border-zinc-800">
+  <div v-if="apps.length > 0" class="pt-8 border-t border-gray-100 dark:border-zinc-800">
     <div class="flex items-center gap-4 mb-8">
       <h2 class="text-lg md:text-xl font-bold tracking-tight text-gray-400 dark:text-zinc-500 uppercase">
         Experiments & Micro Apps
