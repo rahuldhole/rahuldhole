@@ -1,0 +1,16 @@
+title: RDCAD Express
+date: "2024"
+description: An open-source suite for engineers to instantly generate Bar Bending Schedules (BBS) and detailed DXF exports with seamless AutoCAD integration via LISP scripts.
+seoImage: https://placehold.co/800x400/0f172a/f59e0b?text=RDCAD
+imageComponent:
+  subtitle: Structural Detailing
+  icon: i-lucide-pen-tool
+  type: 3d
+tags:
+  - Engineering
+  - AutoCAD
+  - Open Source
+url: https://rdcad-express.rahuldhole.com/
+category: "Maintenance Mode"
+category_rank: 3
+rank: 4
