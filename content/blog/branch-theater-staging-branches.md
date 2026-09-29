@@ -25,7 +25,7 @@ Then you hook that repo up to modern CI/CD pipelines, and the whole setup falls 
 
 Your database migrations fall out of sync. A broken feature sitting on staging blocks a critical hotfix to production. And someone on the team ends up in rebase conflict hell over code that was thrown out two weeks ago.
 
-Using long-lived Git branches as proxies for deployment environments is an anti-pattern. Here is why permanent environment branches fail to provide true isolation, how persistent state ruins the party, and what actual production workflows look like.
+Using long-lived Git branches as the primary mechanism for representing deployment environments creates unnecessary coupling between code state and environment state. Here is why permanent environment branches fail to provide true isolation, how persistent state ruins the party, and what actual production workflows look like.
 
 ---
 
@@ -43,6 +43,14 @@ A --- B --- C --- D --- E (develop, staging, main)
 ```
 
 If all three branches point to commit `E`, you do not have three different **code states**. You just have three bookmarks pointing to the exact same commit in your repository history. 
+
+```mermaid
+flowchart LR
+    E["Commit E"]
+    E --> D1["develop"]
+    E --> S1["staging"]
+    E --> M1["main"]
+```
 
 While `staging` and `main` may point to separate cloud infrastructure and database instances, having three identical branches provides zero isolation for feature development. A staging branch is only useful if it can hold a release candidate in isolation while you keep committing new, unverified experiments on `develop`. If `staging` is always identical to `develop`, maintaining separate environment branches is just pure ceremony.
 
@@ -101,6 +109,34 @@ Say you use a single `staging` branch for previews:
 
 Now you are stuck. You cannot merge `staging` into `main` because you would accidentally ship broken Feature A. You now have to spend an afternoon cherry-picking commits and untangling Git history under pressure.
 
+```mermaid
+gitGraph
+   commit id: "main"
+
+   branch feat/A
+   commit id: "Feature A"
+   checkout main
+
+   branch feat/B
+   commit id: "Feature B"
+   checkout main
+
+   branch staging
+   checkout staging
+   merge feat/A id: "A on staging"
+   merge feat/B id: "B on staging"
+```
+
+```text
+staging = A + B
+main    = neither
+
+A is broken.
+B is good.
+
+You cannot promote staging without also promoting A.
+```
+
 ---
 
 ## 4. Code Promotion vs. Artifact Promotion
@@ -109,28 +145,28 @@ The biggest flaw in relying on environment branches (`develop` $\to$ `staging` $
 
 When you merge `develop` into `staging`, your CI pipeline builds a new Docker container or JavaScript bundle. When you later merge `staging` into `main`, your CI pipeline builds *yet another* binary from `main`.
 
-Even if the source code is identical, rebuilding artifacts across environments introduces risks: dependencies can update, environment flags can drift, and subtle build timing discrepancies can occur.
+Even when the source and dependency inputs are identical, rebuilding creates another artifact instead of promoting the exact artifact that passed staging. Build-once pipelines eliminate that unnecessary distinction and give you a direct chain from tested artifact to production artifact.
 
-```text
-Flawed Branch-Promotion Model:
-develop  --> (Build Artifact 1) --> Test
-  ↓ merge
-staging  --> (Build Artifact 2) --> Staging Test
-  ↓ merge
-main     --> (Build Artifact 3) --> Deploy to Prod  <-- Untested binary!
+```mermaid
+flowchart LR
+    C["Git Commit"] --> B1["Build #1"]
+    B1 --> S["Staging"]
+
+    S --> M["Merge to main"]
+    M --> B2["Build #2"]
+    B2 --> P["Production"]
+
+    style B1 stroke-width:2px
+    style B2 stroke-width:2px
 ```
 
 A mature Continuous Delivery pipeline promotes **build artifacts**, not Git branches:
 
-```text
-Modern Artifact-Promotion Model:
-Git Commit (main or feature branch)
-  ↓
-Build Once (Immutable Binary / Container Image)
-  ↓
-Deploy & Test on Staging
-  ↓ (Same identical artifact)
-Promote & Deploy to Production
+```mermaid
+flowchart LR
+    C["Git Commit"] --> B["Build Once"]
+    B --> S["Staging"]
+    S --> P["Production"]
 ```
 
 By decoupling code state, environment state, and deployment artifacts, your environments reflect actual verified builds rather than branch merge gymnastics.
@@ -187,7 +223,7 @@ gitGraph
    merge staging id: "release v1.1.0" tag: "v1.1.0"
 ```
 
-Those merge commits serve as clear release checkpoints. If something breaks in production, you can roll back the release with a single command: `git revert -m 1 <commit-hash>`.
+Those merge commits serve as clear release checkpoints. If something breaks in production, you can revert the release merge in Git. Your deployment system can then build or deploy the resulting state, while database rollback remains a separate concern.
 
 #### The Shell Script to Run It
 
@@ -227,11 +263,25 @@ git checkout develop
 
 In this setup, you eliminate permanent `staging` and `develop` branches entirely. You maintain short-lived feature branches off **`main`**.
 
-```text
-main: -----------------------* (v1.0.0) -------------------------* (v1.1.0)
-                            /                                   /
-feat/auth:      ---*---*---* (Ephemeral preview + isolated DB branch)
-feat/checkout:                ---*---* (Ephemeral preview + isolated DB branch)
+```mermaid
+gitGraph
+   commit id: "v1.0.0"
+   branch feat/auth
+   commit id: "auth"
+   commit id: "auth tests"
+   checkout main
+   merge feat/auth id: "merge auth"
+
+   branch feat/checkout
+   commit id: "checkout"
+   commit id: "checkout tests"
+   checkout main
+   merge feat/checkout id: "merge checkout"
+
+   branch feat/notifications
+   commit id: "notifications"
+   checkout main
+   merge feat/notifications id: "merge notifications"
 ```
 
 1. **Branch off `main`:** Work on short-lived feature branches.
@@ -251,9 +301,9 @@ No staging traffic jams, no desynchronized branch state, and zero shared databas
 | **History Style** | Fake linear (broken hashes) | True DAG with clear merge points | Linear on `main` (Squash & Merge) |
 | **Code vs Env State** | Confuses git pointer with env state | Explicit release pointer | Single source of truth (`main`) |
 | **Deployment Model** | Rebuilds source on every branch | Branch promotion | **Artifact promotion (Build once, deploy anywhere)** |
-| **Database State** | High risk of migration drift | Safe (forward-only migrations) | Zero risk (isolated DB per PR) |
+| **Database State** | High risk of migration drift | Safe (forward-only migrations) | Low shared-state risk (isolated DB per PR) |
 | **External Webhooks** | Hard to manage | Easy (static staging URL) | Requires mockers or tunnel scripts |
-| **Best For** | Anti-pattern | Monoliths, stateful apps, small teams | Serverless, modern SaaS, microservices |
+| **Best For** | Anti-pattern | Monoliths, stateful apps, small teams | Teams with strong preview infrastructure and database branching |
 
 ---
 
