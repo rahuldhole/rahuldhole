@@ -189,8 +189,8 @@ title: Forward-Only Deployment Pipeline
 ---
 gitGraph
    commit id: "init"
-   branch develop
    branch staging
+   branch develop
 
    %% Feature 1
    checkout develop
