@@ -25,6 +25,7 @@ const { data: featuredProjects } = await useAsyncData('featured-projects', () =>
       <Motion
         v-for="(project, index) in featuredProjects"
         :key="project.id"
+        class="flex flex-col h-full"
         :initial="{ opacity: 0, scale: 0.95 }"
         :while-in-view="{ opacity: 1, scale: 1 }"
         :transition="{ delay: 0.2 + 0.1 * index }"
@@ -33,13 +34,14 @@ const { data: featuredProjects } = await useAsyncData('featured-projects', () =>
         <ULink
           :to="project.url"
           target="_blank"
-          class="block h-full transition-transform hover:-translate-y-1"
+          class="flex flex-col flex-1 transition-transform hover:-translate-y-1"
         >
           <UPageCard
             :title="project.title"
             :description="project.description"
             variant="soft"
-            class="h-full border border-[var(--ui-border)] hover:border-[var(--ui-border-hovered)] bg-[var(--ui-bg-elevated)]"
+            class="flex-1 border border-[var(--ui-border)] hover:border-[var(--ui-border-hovered)] bg-[var(--ui-bg-elevated)]"
+            :ui="{ wrapper: 'flex-1 flex flex-col', body: 'flex-1 flex flex-col', container: 'flex-1 flex flex-col' }"
           >
             <template #header v-if="project.imageComponent || project.image">
               <div class="aspect-w-16 aspect-h-9 w-full overflow-hidden rounded-t-lg bg-gray-100 dark:bg-zinc-800">
