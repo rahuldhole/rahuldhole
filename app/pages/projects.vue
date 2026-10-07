@@ -16,6 +16,7 @@ const { data: projects } = await useAsyncData('projects', () => {
 
 const categories = [
   'Commercial Products',
+  'Client Projects',
   'Actively Maintained',
   'Maintenance Mode',
   'Archived'
