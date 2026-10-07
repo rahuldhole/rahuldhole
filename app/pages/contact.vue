@@ -18,11 +18,17 @@ useSeoMeta({
     <UPageBody>
       <UPageSection :ui="{ container: '!pt-0' }">
         <div class="max-w-4xl mx-auto">
-          <div class="grid sm:grid-cols-2 gap-6">
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <UPageCard icon="i-lucide-mail" title="Email" description="mail@rahuldhole.com" to="mailto:mail@rahuldhole.com" class="hover:border-primary/50 transition-colors shadow-md hover:shadow-xl hover:-translate-y-1" />
             <UPageCard icon="i-lucide-calendar" title="Meeting" description="Schedule a Call" to="https://calendly.com/rahuldhole/rdv" target="_blank" class="hover:border-primary/50 transition-colors shadow-md hover:shadow-xl hover:-translate-y-1" />
             <UPageCard icon="i-simple-icons-linkedin" title="LinkedIn" description="Let's connect" to="https://linkedin.com/in/dholerahul" target="_blank" class="hover:border-primary/50 transition-colors shadow-md hover:shadow-xl hover:-translate-y-1" />
             <UPageCard icon="i-simple-icons-github" title="GitHub" description="View my code" to="https://github.com/rahuldhole" target="_blank" class="hover:border-primary/50 transition-colors shadow-md hover:shadow-xl hover:-translate-y-1" />
+            <UPageCard icon="i-simple-icons-instagram" title="Instagram" description="@rahul_dhole_" to="https://www.instagram.com/rahul_dhole_/" target="_blank" class="hover:border-primary/50 transition-colors shadow-md hover:shadow-xl hover:-translate-y-1" />
+            <UPageCard icon="i-simple-icons-facebook" title="Facebook" description="rahuldhole.official" to="https://www.facebook.com/rahuldhole.official" target="_blank" class="hover:border-primary/50 transition-colors shadow-md hover:shadow-xl hover:-translate-y-1" />
+            <UPageCard icon="i-simple-icons-tiktok" title="TikTok" description="@rahul_dhole_" to="https://www.tiktok.com/@rahul_dhole_" target="_blank" class="hover:border-primary/50 transition-colors shadow-md hover:shadow-xl hover:-translate-y-1" />
+            <UPageCard icon="i-simple-icons-threads" title="Threads" description="@rahul_dhole_" to="https://www.threads.com/@rahul_dhole_" target="_blank" class="hover:border-primary/50 transition-colors shadow-md hover:shadow-xl hover:-translate-y-1" />
+            <UPageCard icon="i-simple-icons-x" title="X" description="@rahul_dhole_" to="https://x.com/rahul_dhole_" target="_blank" class="hover:border-primary/50 transition-colors shadow-md hover:shadow-xl hover:-translate-y-1" />
+            <UPageCard icon="i-simple-icons-youtube" title="YouTube" description="@rahuldhole-official" to="https://www.youtube.com/@rahuldhole-official" target="_blank" class="hover:border-primary/50 transition-colors shadow-md hover:shadow-xl hover:-translate-y-1" />
           </div>
         </div>
       </UPageSection>

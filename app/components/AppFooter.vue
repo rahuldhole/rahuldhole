@@ -25,28 +25,20 @@
         }, {
           label: 'Connect',
           children: [{
-            label: 'GitHub',
-            to: 'https://github.com/rahuldhole',
-            target: '_blank'
-          }, {
             label: 'LinkedIn',
             to: 'https://linkedin.com/in/dholerahul',
             target: '_blank'
           }, {
-            label: 'Schedule a Call',
-            to: 'https://calendly.com/rahuldhole/rdv',
+            label: 'X',
+            to: 'https://x.com/rahul_dhole_',
             target: '_blank'
           }, {
-            label: 'LeetCode',
-            to: 'https://leetcode.com/u/rahuldhole',
+            label: 'Instagram',
+            to: 'https://www.instagram.com/rahul_dhole_/',
             target: '_blank'
           }, {
-            label: 'Dev.to',
-            to: 'https://dev.to/rahuldhole',
-            target: '_blank'
-          }, {
-            label: 'RSS Feed',
-            to: '/rss.xml',
+            label: 'YouTube',
+            to: 'https://www.youtube.com/@rahuldhole-official',
             target: '_blank'
           }]
         }, {
@@ -99,6 +91,18 @@
         aria-label="Rahul on Dev.to" color="neutral" variant="ghost" />
       <UButton to="/rss.xml" target="_blank" icon="i-lucide-rss"
         aria-label="RSS Feed" color="neutral" variant="ghost" />
+      <UButton to="https://x.com/rahul_dhole_" target="_blank" icon="i-simple-icons-x"
+        aria-label="Rahul on X" color="neutral" variant="ghost" />
+      <UButton to="https://www.instagram.com/rahul_dhole_/" target="_blank" icon="i-simple-icons-instagram"
+        aria-label="Rahul on Instagram" color="neutral" variant="ghost" />
+      <UButton to="https://www.youtube.com/@rahuldhole-official" target="_blank" icon="i-simple-icons-youtube"
+        aria-label="Rahul on YouTube" color="neutral" variant="ghost" />
+      <UButton to="https://www.facebook.com/rahuldhole.official" target="_blank" icon="i-simple-icons-facebook"
+        aria-label="Rahul on Facebook" color="neutral" variant="ghost" />
+      <UButton to="https://www.tiktok.com/@rahul_dhole_" target="_blank" icon="i-simple-icons-tiktok"
+        aria-label="Rahul on TikTok" color="neutral" variant="ghost" />
+      <UButton to="https://www.threads.com/@rahul_dhole_" target="_blank" icon="i-simple-icons-threads"
+        aria-label="Rahul on Threads" color="neutral" variant="ghost" />
     </template>
   </UFooter>
 </template>
