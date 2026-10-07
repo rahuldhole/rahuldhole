@@ -8,41 +8,22 @@ useSeoMeta({
 
 <template>
   <UPage>
-    <UPageHeader title="Contact Me" description="Have a question or want to work together?" />
+    <UPageHero
+      title="Get in Touch"
+      description="I'm currently available for freelance work and new opportunities. If you have a project that you want to get started, think you need my help with something or just fancy saying hey, then get in touch."
+      align="center"
+      :ui="{ container: '!pb-8 sm:!pb-12 lg:!pb-16' }"
+    />
+    
     <UPageBody>
-      <UPageSection>
-        <div class="max-w-xl mx-auto text-center">
-          <p class="text-lg text-muted mb-8">
-            I'm currently available for freelance work and new opportunities. If you have a project that you want to get
-            started, think you need my help with something or just fancy saying hey, then get in touch.
-          </p>
-
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8">
-            <UButton
-              size="xl"
-              icon="i-lucide-mail"
-              label="Email Me: mail@rahuldhole.com"
-              to="mailto:mail@rahuldhole.com"
-              color="primary"
-              variant="solid"
-            />
-            <UButton
-              size="xl"
-              icon="i-lucide-calendar"
-              label="Schedule a Call"
-              to="https://calendly.com/rahuldhole/rdv"
-              target="_blank"
-              color="neutral"
-              variant="outline"
-            />
+      <UPageSection :ui="{ container: '!pt-0' }">
+        <div class="max-w-4xl mx-auto">
+          <div class="grid sm:grid-cols-2 gap-6">
+            <UPageCard icon="i-lucide-mail" title="Email" description="mail@rahuldhole.com" to="mailto:mail@rahuldhole.com" class="hover:border-primary/50 transition-colors shadow-md hover:shadow-xl hover:-translate-y-1" />
+            <UPageCard icon="i-lucide-calendar" title="Meeting" description="Schedule a Call" to="https://calendly.com/rahuldhole/rdv" target="_blank" class="hover:border-primary/50 transition-colors shadow-md hover:shadow-xl hover:-translate-y-1" />
+            <UPageCard icon="i-simple-icons-linkedin" title="LinkedIn" description="Let's connect" to="https://linkedin.com/in/dholerahul" target="_blank" class="hover:border-primary/50 transition-colors shadow-md hover:shadow-xl hover:-translate-y-1" />
+            <UPageCard icon="i-simple-icons-github" title="GitHub" description="View my code" to="https://github.com/rahuldhole" target="_blank" class="hover:border-primary/50 transition-colors shadow-md hover:shadow-xl hover:-translate-y-1" />
           </div>
-
-          <p class="text-sm text-muted">
-            You can also find me on <ULink to="https://linkedin.com/in/dholerahul" target="_blank"
-              class="text-primary hover:underline">LinkedIn</ULink>, <ULink to="https://github.com/rahuldhole"
-              target="_blank" class="text-primary hover:underline">GitHub</ULink> or <ULink to="https://calendly.com/rahuldhole/rdv" target="_blank"
-              class="text-primary hover:underline">Calendly</ULink>.
-          </p>
         </div>
       </UPageSection>
     </UPageBody>

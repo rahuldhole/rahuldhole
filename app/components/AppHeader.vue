@@ -17,6 +17,10 @@ const items = computed(() => [{
   label: 'About',
   icon: 'i-lucide-user',
   to: '/about'
+}, {
+  label: 'Contact',
+  icon: 'i-lucide-mail',
+  to: '/contact'
 }])
 
 const { open } = useContentSearch()
