@@ -73,7 +73,7 @@ useSeoMeta({
             <div class="h-[1px] flex-1 bg-gray-200 dark:bg-zinc-800"></div>
           </div>
 
-          <div v-if="category.name === 'Commercial Products'" class="grid grid-cols-1 gap-6">
+          <div v-if="category.name === 'Commercial Products' || category.name === 'Client Projects'" class="grid grid-cols-1 gap-6">
             <div v-for="project in category.items" :key="project.title" class="group relative bg-white dark:bg-zinc-900 rounded-[2rem] lg:rounded-[3rem] p-6 md:p-10 flex flex-col md:flex-row gap-8 border border-gray-100 dark:border-zinc-800 transition-all hover:shadow-2xl hover:border-primary/20 overflow-hidden">
               <div class="absolute -right-40 -top-40 size-96 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors"></div>
               

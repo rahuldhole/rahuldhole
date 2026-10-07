@@ -1,5 +1,5 @@
 title: "Gatha Jewels"
-description: "An end-to-end e-commerce platform for premium Kundan, Polki, and 1-gram gold jewellery. Built with WooCommerce, featuring a custom premium luxury theme, custom plugins, and innovative Video Try-On (VTO) features."
+description: "A premium, end-to-end luxury e-commerce platform crafted exclusively for Gatha Jewels. Designed and developed from the ground up using WooCommerce, featuring a bespoke high-end theme, tailored plugins, and an immersive Video Try-On (VTO) experience to seamlessly showcase traditional Indian craftsmanship."
 image: "https://gathajewels.com/wp-content/themes/gatha-jewellery/assets/logo-dark.png"
 url: "https://gathajewels.com"
 date: "10/07/2026"
@@ -8,6 +8,6 @@ category_rank: 2
 rank: 10
 tags:
   - "WooCommerce"
-  - "Custom Premium Theme"
+  - "Custom Theme"
   - "Video Try-On"
   - "E-commerce"
