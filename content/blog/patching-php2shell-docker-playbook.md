@@ -6,17 +6,17 @@ authors:
     avatar:
       src: /profile.png
 badge:
-  label: Postmortem
+  label: Security
 date: 2026-10-23
-description: "How to survive PHP2Shell (CVE-2026-109618 & CVE-2026-109619) without breaking production. A guide to point patching and busting Docker layer caching."
+description: "An SRE incident playbook for PHP2Shell (CVE-2026-109618 & CVE-2026-109619) following national cyber alerts. How to patch containerized PHP stacks without breaking production."
 seoImage:
-  src: https://placehold.co/800x400/0f172a/3b82f6?text=Surviving+PHP2Shell+on+Docker
+  src: https://placehold.co/800x400/0f172a/3b82f6?text=Patching+PHP2Shell+on+Docker
 pinned: false
 imageComponent:
-  type: Postmortem
+  type: Security
 ---
 
-When a CVSS 9.2 unauthenticated Remote Code Execution drops in PHP core (PHP2Shell / CVE-2026-109618 & CVE-2026-109619), production Slack channels lose their minds.
+When national cyber agencies like the UK NCSC issue emergency threat alerts for a critical CVSS 9.2 unauthenticated Remote Code Execution in PHP core (PHP2Shell / CVE-2026-109618 & CVE-2026-109619), production Slack channels lose their minds.
 
 The immediate knee-jerk reaction from most developers and ops teams is always identical:
 > *"Drop everything. Upgrade all containers to PHP 8.5 right now."*
@@ -25,7 +25,7 @@ Don't do that.
 
 Rushing a major runtime upgrade during an active vulnerability drill is how you cause the exact production downtime the attacker was hoping to achieve. You take down custom WordPress themes, break WooCommerce extensions, trigger fatal deprecation errors across payment gateways, and suddenly spend your night debugging runtime incompatibilities instead of patching a security hole.
 
-Here is the reality of how point patches work, why your Docker layer caching is probably lying to you, and the deterministic way to patch containerized PHP stacks without breaking production.
+Here is the SRE incident playbook on how point patches work, why your Docker layer caching is probably lying to you, and the deterministic way to patch containerized PHP stacks without breaking production.
 
 ---
 
