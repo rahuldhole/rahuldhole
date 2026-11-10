@@ -1,6 +1,6 @@
 ---
 title: "Adding a GPU to a 1U Dell PowerEdge R630: Benchmarking the Tesla T4 & Patching Proxmox Telemetry (Part B)"
-description: Installing the 16GB Tesla T4 into an R630, verifying 1U passive thermal limits under load, patching native Proxmox UI telemetry, and logging a 1,191% Geekbench compute uplift over the Quadro P400.
+description: Installing the 16GB Tesla T4 into an R630, unboxing an unexpected New Old Stock gem, verifying 1U passive thermal limits under load, patching native Proxmox UI telemetry, and logging a 1,191% Geekbench compute uplift over the Quadro P400.
 authors:
   - name: Rahul Dhole
     to: /
@@ -20,7 +20,19 @@ In [Part A of this homelab series](https://rahuldhole.com/blog/adding-nvidia-gpu
 
 That testbed run established our baseline. Now, the main event: my **NVIDIA Tesla T4 (16 GB)** arrived from Leboncoin (€529.69 all-in).
 
-This post documents the physical dual-GPU installation in a dense 1U chassis, troubleshooting the server chassis intrusion switch, patching live multi-GPU telemetry directly into the Proxmox VE 8 web dashboard, and benchmarking the T4 against the P400 with full thermal validation.
+This post documents the unboxing inspection, physical dual-GPU installation in a dense 1U chassis, troubleshooting the server chassis intrusion switch, patching live multi-GPU telemetry directly into the Proxmox VE 8 web dashboard, auditing silicon health, and benchmarking the T4 against the P400 with full thermal validation.
+
+---
+
+## Unboxing: The "Brand New Old Stock" Surprise
+
+When the parcel arrived from the Leboncoin seller, I expected a well-used data-center pull with chipped bracket paint and baked dust in the heatsink fins.
+
+Instead, the card came wrapped in an unblemished factory anti-static bag, and the polished heatsink shroud still had its **original clear factory protective peeling film fully intact**.
+
+Anyone who has worked around rack gear knows what happens to transport film inside an active server: the acrylic adhesive bakes into the hot aluminum shroud, crinkles, yellows, and tears into brittle shreds when peeled. This film pulled away cleanly in one smooth motion without leaving a speck of residue.
+
+What I had bought was almost certainly **New Old Stock (NOS)** or a pristine cold spare pulled from an enterprise shelf that had never sat in a production airflow channel.
 
 ---
 
@@ -38,11 +50,11 @@ Rather than discarding the P400, I set up a split architecture:
 
 ### The Surprise Shutdown: The Chassis Intrusion Switch
 
-After sliding Riser 1 back in with the T4 installed, I powered on the server with the top cover off to inspect fan spin and clearance.
+After seating Riser 1 with the T4 installed, I powered on the server with the top cover off to inspect fan spin and clearance.
 
-A few seconds into the boot cycle, the machine completely shut down.
+A few seconds into the boot cycle, the machine completely cut power.
 
-Before suspecting a PCIe power short or a blown fuse, check the physical switch: the R630 has a spring-loaded **chassis intrusion microswitch** directly behind the front drive bays. If the top lid is unlatched or removed, the iDRAC detects an open intrusion event. By default, high-security profiles will force an immediate shutdown or refuse auxiliary power delivery to prevent hands-on tampering.
+Before suspecting a PCIe power short or a blown fuse, check the physical chassis switch: the R630 has a spring-loaded **chassis intrusion microswitch** directly behind the front drive bays. If the top lid is unlatched or removed, the iDRAC detects an open intrusion event. By default, high-security profiles will force an immediate shutdown or refuse auxiliary power delivery to prevent hands-on tampering.
 
 I slid the lid shut, engaged the latch securely, plugged the redundant PSUs back in, and the server booted cleanly.
 
@@ -91,6 +103,79 @@ Notice:
 
 - **Index 0:** Quadro P400 (PCIe `03:00.0`), idling at 33°C.
 - **Index 1:** Tesla T4 (PCIe `82:00.0`), pulling a baseline \~10W and idling at 36°C with passive chassis airflow.
+
+---
+
+## Silicon Health Check: InfoROM & Page Retirement Audit
+
+To verify whether the card was truly unblemished underneath the protective film, I audited the onboard non-volatile **InfoROM**:
+
+```bash
+nvidia-smi -i 1 -q -d PAGE_RETIREMENT
+
+```
+
+```text
+==============NVSMI LOG==============
+
+Timestamp                                 : Tue Nov 10 19:11:23 2026
+Driver Version                            : 535.309.01
+CUDA Version                              : 12.2
+
+Attached GPUs                             : 2
+GPU 00000000:82:00.0
+    Retired Pages
+        Single Bit ECC                    : 0
+        Double Bit ECC                    : 0
+        Pending Page Blacklist            : No
+
+```
+
+Dynamic page retirement occurs when GDDR6 silicon experiences cell wear, voltage fatigue, or permanent block failures. **Zero retired pages and zero pending blacklists** confirmed pristine, zero-mileage memory silicon.
+
+---
+
+## Optional: Configuring ECC (Error-Correcting Code)
+
+Enterprise GPUs feature **ECC (Error-Correcting Code)** support to detect and repair single-bit flips caused by electrical noise or cosmic rays in long-running jobs.
+
+Out of the box, checking ECC telemetry returned disabled mode:
+
+```bash
+nvidia-smi -i 1 -q -d ECC
+
+```
+
+```text
+    ECC Mode
+        Current                           : Disabled
+        Pending                           : Disabled
+
+```
+
+### The Homelab Dilemma: Reliability vs. 1 GB VRAM
+
+- **ECC Disabled (Recommended for Inference):** Yields the full **16,384 MiB (16 GB)** capacity. Squeezing out every megabyte is crucial when trying to fit 7B or 14B parameter quantized LLMs with longer context windows.
+- **ECC Enabled:** Allocates physical RAM boundaries for parity checksums. Usable VRAM drops slightly to \~**15,100–15,360 MiB**, but guarantees real-time bit-flip correction during multi-day model fine-tuning.
+
+If your priority is zero data corruption during continuous compute runs, enable ECC on the host:
+
+```bash
+# Enable ECC on GPU 1
+nvidia-smi -i 1 -e 1
+
+```
+
+```text
+Enabled ECC support for GPU 00000000:82:00.0.
+All done.
+Reboot required.
+
+```
+
+> **Important:** Changing ECC mode requires rebooting the **entire Proxmox host (`reboot`)**, not just an LXC container. The memory controller and physical PCIe boundaries are owned directly by the host kernel driver.
+
+After a reboot, `nvidia-smi -i 1 -q -d ECC` will report `ECC Mode: Enabled&#x60; with active error tracking. *(If you ever need the extra 1 GB of VRAM back, run `nvidia-smi -i 1 -e 0` and reboot).*
 
 ---
 
@@ -352,7 +437,7 @@ Here is the direct compute comparison between our two homelab GPUs:
 
 1. **Passive GPUs in 1U Racks Are Viable:** You do not need to strap noisy aftermarket 40mm blower fans onto a Tesla T4 heatsink if you run an enterprise 1U server. The internal fan wall moves sufficient static pressure across Riser 1, keeping a 70W load steady at 59°C.
 2. **True Boost Retention:** A score of **69,030** sits above the typical cloud T4 baseline (usually 61k–65k), confirming zero thermal throttling and consistent 1,590 MHz boost retention.
-3. **Hardware Confirmed:** The card passed all stress and thermal criteria, confirming the Leboncoin order was safe to finalize.
+3. **Hardware Confirmed:** Pristine protective film, 0 retired memory pages, and flawless benchmark stability confirmed the Leboncoin order was safe to finalize.
 
 With 16 GB of high-bandwidth GDDR6, full Turing Tensor Cores, and active Proxmox dashboard telemetry in place, the cluster is ready for modern workloads.
 
