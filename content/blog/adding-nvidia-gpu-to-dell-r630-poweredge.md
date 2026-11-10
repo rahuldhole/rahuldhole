@@ -1,5 +1,6 @@
 ---
 title: "Adding a GPU to a 1U Dell PowerEdge R630: Homelab LLM Journey (Part A)"
+description: Taming the Dell PowerEdge R630 1U fan penalty, testing hardware clearances with a Quadro P400, and configuring Proxmox LXC and VM GPU pass-through ahead of an NVIDIA Tesla T4 install.
 authors:
   - name: Rahul Dhole
     to: /
@@ -8,7 +9,6 @@ authors:
 badge:
   label: Homelab
 date: 2026-11-07
-description: Taming the Dell PowerEdge R630 1U fan penalty, testing hardware clearances with a Quadro P400, and configuring Proxmox LXC and VM GPU pass-through ahead of an NVIDIA Tesla T4 install.
 imageComponent:
   type: Proxmox
 pinned: true
@@ -197,7 +197,7 @@ deb http://security.debian.org/debian-security bookworm-security main contrib no
 
 ```
 
-*(Note: If APT hangs with&#x20;**`Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend... held by process X`**, identify the background upgrade with&#x20;**`ps aux | grep <PID>`&#x20;and run&#x20;**`kill <PID>`&#x20;followed by&#x20;**`dpkg --configure -a` to release it).*
+*(Note: If APT hangs with `Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend... held by process X`, identify the background upgrade with `ps aux | grep <PID>` and run `kill <PID>` followed by `dpkg --configure -a` to release it).*
 
 ---
 
@@ -558,8 +558,11 @@ lxc.mount.entry: /dev/nvidia1 dev/nvidia1 none bind,optional,create=file,mode=06
 
 ## Next Up: Part B
 
-With the IPMI acoustics locked, host driver pipelines established, verification scripts confirmed, and both LXC and VM passthrough paths mapped out, the testbed is ready. Part B will cover:
+With IPMI acoustics locked, host driver pipelines established, verification scripts confirmed, and both LXC and VM pass-through paths mapped out, the testbed is ready.
 
-- Unboxing and seating the 16GB Tesla T4 into Slot 1 of Riser 1.
-- Thermal stress testing the passively cooled card under sustained tensor matrix operations using `gpu-burn`.
-- Benchmarking inference throughput across local quantization models (4-bit and 8-bit) using Ollama and vLLM.
+👉 **Continue reading [Part B: Benchmarking the Tesla T4 & Patching Proxmox Telemetry](/blog/adding-nvidia-gpu-to-dell-r630-poweredge-part-b)**, where I cover:
+
+- Seating the 16 GB Tesla T4 into Slot 1 of Riser 1 alongside the Quadro P400.
+- Patching real-time multi-GPU telemetry directly into the Proxmox VE 8 web dashboard.
+- Thermal stress testing the passively cooled 70W card under 1U chassis airflow.
+- Benchmarking compute performance (Geekbench 7) and logging a 1,191% uplift over the P400.
