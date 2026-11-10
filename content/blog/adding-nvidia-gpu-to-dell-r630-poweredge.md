@@ -1,6 +1,5 @@
 ---
 title: "Adding a GPU to a 1U Dell PowerEdge R630: Homelab LLM Journey (Part A)"
-description: Taming the Dell PowerEdge R630 1U fan penalty, testing hardware clearances with a Quadro P400, and configuring Proxmox LXC and VM GPU pass-through ahead of an NVIDIA Tesla T4 install.
 authors:
   - name: Rahul Dhole
     to: /
@@ -9,11 +8,12 @@ authors:
 badge:
   label: Homelab
 date: 2026-11-07
-seoImage:
-  src: https://placehold.co/800x400/0f172a/3b82f6?text=Dell+R630+GPU+Passthrough
-pinned: true
+description: Taming the Dell PowerEdge R630 1U fan penalty, testing hardware clearances with a Quadro P400, and configuring Proxmox LXC and VM GPU pass-through ahead of an NVIDIA Tesla T4 install.
 imageComponent:
   type: Proxmox
+pinned: true
+seoImage:
+  src: https://placehold.co/800x400/0f172a/3b82f6?text=Dell+R630+GPU+Passthrough
 ---
 
 ## The Backstory: From Dust Collector to AI Lab Testbed
@@ -197,7 +197,7 @@ deb http://security.debian.org/debian-security bookworm-security main contrib no
 
 ```
 
-*(Note: If APT hangs with `Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend... held by process X`, identify the background upgrade with `ps aux | grep <PID>` and run `kill <PID>` followed by `dpkg --configure -a` to release it).*
+*(Note: If APT hangs with&#x20;**`Waiting for cache lock: Could not get lock /var/lib/dpkg/lock-frontend... held by process X`**, identify the background upgrade with&#x20;**`ps aux | grep <PID>`&#x20;and run&#x20;**`kill <PID>`&#x20;followed by&#x20;**`dpkg --configure -a` to release it).*
 
 ---
 
